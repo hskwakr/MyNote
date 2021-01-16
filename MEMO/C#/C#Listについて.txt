@@ -23,3 +23,49 @@ List
 Notes. An object array makes code more complex (due to casting). It also decreases runtime performance. When possible, use types like string or int for arrays instead.
 **
 https://www.dotnetperls.com/object-array
+
+2021-01-17 07:18:22
+まずそもそも
+配列ってなんでしたっけ？
+リストってなんでしたっけ？
+
+というところから振り返ってみます。
+
+2021-01-17 07:26:21
+配列 - C# プログラミング ガイド | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/arrays/
+
+```
+配列型は、抽象基本型 Array から派生した参照型です。 この型は IEnumerable と IEnumerable<T> を実装するので、C# のすべての配列で foreach 反復処理を使用できます。
+```
+
+思いつきですが、配列にLinqって使えるんでしょうか。試してみます。
+
+2021-01-17 07:32:33
+できました。
+
+次の記事読みます
+オブジェクトとしての配列 - C# プログラミング ガイド | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/arrays/arrays-as-objects
+
+ArrayクラスがC#の配列の正体ということでしょうか。
+そしてArrayクラスはIEnumerableを継承しているということですね。
+
+2021-01-17 07:37:15
+別の記事を見つけたのでそちらを読んでみます。
+
+コレクション (C#) | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/concepts/collections
+
+2021-01-17 07:38:24
+```
+配列は、数が固定されている厳密に型指定されたオブジェクトの作成および処理に最も適しています。 配列の詳細については、「配列」を参照してください。
+
+コレクションは、オブジェクトのグループをより柔軟に処理できます。 配列の場合とは違って、コレクションで扱うオブジェクトのグループは、アプリケーションの変更に伴う必要に応じて動的に拡大および縮小できます。 コレクションによっては、コレクションに含まれるオブジェクトのキーを割り当てると、そのキーを使用してオブジェクトを迅速に取り出すことができます。
+```
+
+コレクションというものと配列の違いが書かれていました。
+
+```
+含まれる要素が 1 つのデータ型だけのコレクションの場合は、System.Collections.Generic 名前空間のクラスのいずれかを使用できます。 ジェネリック コレクションでは、タイプ セーフが強制されるため、他のデータ型を追加することはできません。 ジェネリック コレクションから要素を取得する場合は、データ型を判断したり、変換したりする必要はありません。
+```
+
+Collections.Genericはよく使いますね。
+こういった背景があったことを知りませんでした。
