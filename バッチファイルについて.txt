@@ -1,0 +1,28 @@
+2020-10-20 06:34:10
+バッチファイルはシフトJISで保存しましょう。
+https://answers.microsoft.com/ja-jp/windows/forum/all/%e3%83%a1%e3%83%a2%e5%b8%b3%e3%81%ae%e4%bf%9d/089fd2b1-1e03-4eda-b8e0-be51d38c258d
+
+2020-10-26 00:21:24
+手記のファイルを作るバッチファイルを改良したいです。
+その日のファイルがすでにあるときは、ファイルを作る操作をしないでほしいです。
+
+2020-10-26 00:56:26
+将来的にはpowershellのスクリプトで書き直そうと思っているのですが、とりあえずはbatファイルで応急処置できないか調べてみます。
+
+ファイルが存在している場合にのみコマンドを実行する https://jj-blues.com/cms/wantto-executeiffileexist/
+
+**
+@echo off
+set filename=%date:~0,4%年%date:~5,2%月%date:~8,2%日
+if not exist %filename%.txt (type nul > %filename%.txt)
+**
+
+2:16 2019/12/23
+以前作ったバッチファイルをどうやって作ったか思い出そうと思う
+
+過去ログ漁ったけど、書いてなかった
+バッチファイルの中身を見てみた。
+**
+@echo off
+set filename="%date:~0,4%年%date:~5,2%月%date:~8,2%日"
+**

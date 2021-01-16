@@ -1,0 +1,18 @@
+
+15:33 2020/10/13
+VisualStudio2019 のテンプレートを作ってみたいです。
+具体的にどんなテンプレートを作りたいかというと、
+ファイルを作ったときにusingがなくて、namespaceとpublic classのブロックだけのテンプレートがほしいです。
+
+方法: 項目テンプレートを作成する
+https://docs.microsoft.com/ja-jp/visualstudio/ide/how-to-create-item-templates?view=vs-2019
+
+VisualStudio 項目テンプレートの作り方 
+https://shikaku-sh.hatenablog.com/entry/howto-make-visualstudio-itemtemplate
+
+17:34 2020/10/13
+アイコンを作る必要があるっぽいです。
+参考画像として公式のアイコンをダウンロードしてみます。
+
+Visual Studio Image Library 
+https://www.microsoft.com/en-us/download/details.aspx?id=35825

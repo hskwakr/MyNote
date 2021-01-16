@@ -1,0 +1,10 @@
+2021-01-17 03:39:11
+C# code snippets - Visual Studio | Microsoft Docs https://docs.microsoft.com/en-us/visualstudio/ide/visual-csharp-code-snippets?view=vs-2019
+
+2021-01-08 15:02:24
+動画の中で一瞬でコンストラクターを作ってました。
+cwみたいなショートカットがありそうですね。
+
+ctorでできました
+
+コンストラクターのクイック アクションを生成する - Visual Studio | Microsoft Docs https://docs.microsoft.com/ja-jp/visualstudio/ide/reference/generate-constructor?view=vs-2019

@@ -1,0 +1,25 @@
+- オブジェクトを配列として定義しない理由ってどう説明しますか？
+
+11:16 2020/01/18
+リストって何ですか？
+https://ja.wikipedia.org/wiki/%E3%83%AA%E3%82%B9%E3%83%88_(%E6%8A%BD%E8%B1%A1%E3%83%87%E3%83%BC%E3%82%BF%E5%9E%8B)
+**
+抽象データ型としてのリスト (英: list) は、順序つきのデータコンテナとして定義される。 
+**
+
+コレクションって何ですか？
+https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A_(%E3%83%87%E3%83%BC%E3%82%BF%E5%9E%8B)
+**
+コンテナとはオブジェクトの集まりを表現するデータ構造、抽象データ型またはクラスの総称である。コレクションとも言う。
+**
+
+List
+**
+この List<T> 型の重要な点は増減が可能で、要素を追加したり削除したりできることです。 
+**
+
+4:11 2020/08/13
+**
+Notes. An object array makes code more complex (due to casting). It also decreases runtime performance. When possible, use types like string or int for arrays instead.
+**
+https://www.dotnetperls.com/object-array

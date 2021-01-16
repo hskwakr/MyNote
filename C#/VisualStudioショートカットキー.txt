@@ -1,0 +1,27 @@
+2021-01-17 03:41:26
+キーボードとマウスのショートカット - Visual Studio | Microsoft Docs https://docs.microsoft.com/ja-jp/visualstudio/ide/productivity-shortcuts?view=vs-2019
+
+```
+- エディタ
+クイック アクション 	Ctrl+ .
+行の複製 	Ctrl+E、V
+IntelliSense 候補提示モード 	Ctrl+Alt+スペース (トグル)
+
+- デバッグ
+ステップ イン 	F11
+ステップ アウト 	Shift+F11
+```
+
+2021-01-17 03:52:19
+既定のキーボード ショートカット - Visual Studio | Microsoft Docs https://docs.microsoft.com/ja-jp/visualstudio/ide/default-keyboard-shortcuts-in-visual-studio?view=vs-2019#bkmk_refactor
+
+```
+Refactor.Rename 	Ctrl + R、Ctrl + R
+```
+
+2021-01-17 03:53:56
+【Visual Studio】よく使うショートカットキー（ホットキー）まとめ - コガネブログ https://baba-s.hatenablog.com/entry/2017/09/22/100000
+```
+- インテリセンス
+入力候補 	Ctrl + Space
+```

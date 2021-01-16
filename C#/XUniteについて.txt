@@ -1,0 +1,124 @@
+
+2020-12-13 03:42:44
+XUnitでオブジェクトが等しいかどうかを確認する方法がよくわかっていませんでした。
+
+c# - XUnit Assertion for checking equality of objects - Stack Overflow https://stackoverflow.com/questions/11135337/xunit-assertion-for-checking-equality-of-objects
+
+記事の下の方にIEqualityComparer<T> を実装したクラスをテスト内で作れば、実際のコードを汚さなくて済むそうです。
+
+ちょっと試してみます。
+
+2020-12-10 23:01:14
+例外のスローをテストしたいとき
+
+xUnit - How to assert that a method throws an exception https://peterdaugaardrasmussen.com/2020/09/09/xunit-assert-that-a-call-throws-an-exception/
+
+2020-12-04 13:31:04
+Listを返すメソッドをテストする方法がよくわかっていません。
+
+c# - xUnit : Assert two List<T> are equal? - Stack Overflow https://stackoverflow.com/questions/419659/xunit-assert-two-listt-are-equal
+
+***
+Recently, I was using xUnit 2.4.0 and Moq 4.10.1 packages in my asp.net core 2.2 app.
+
+In my case I managed to get it work with two steps process:
+
+    Defining an implementation of IEqualityComparer<T>
+
+    Pass the comparer instance as a third parameter into Assert.True method:
+
+    Assert.True(expected, actual, new MyEqualityComparer());
+
+But there is another nicer way to get the same result using FluentAssertions package. It allows you to do the following:
+
+// Assert          
+expected.Should().BeEquivalentTo(actual));
+
+Interestingly that Assert.Equal() always fails even when I ordered the elements of two lists to get them in the same order.
+***
+
+FluentAssertionsを使ったほうがシンプルっぽいです。
+
+2020-12-04 16:58:55
+Introduction - Fluent Assertions https://fluentassertions.com/introduction
+
+7:10 2020/10/06
+Fluent Assertions 
+https://fluentassertions.com/
+
+ユニットテスト用の拡張パッケージがあるようで、このパッケージの中に２つのオブジェクトの構造を比べるというメソッドがあるらしいです。
+
+Object graph comparison 
+https://fluentassertions.com/objectgraphs/
+
+9:13 2020/10/06
+うまく比べることができませんでした。
+**
+actual("DecisionTrees").Should().BeEquivalentTo(new DecisionTrees());
+
+No members were found for comparison. Please specify some members to include in the comparison or choose a more meaningful assertion.
+**
+
+10:00 2020/10/06
+**
+do you want to see if their member variables are the same?
+ if they are the same type
+**
+
+Correct way to unit test the type of an object
+https://stackoverflow.com/questions/22362634/correct-way-to-unit-test-the-type-of-an-object
+
+IsType(Type, Object)
+https://stakx.github.io/xunit/api/Xunit.Assert.html#Xunit_Assert_IsType_Type_System_Object_
+
+Xunit.Assert.IsType(object)
+https://www.csharpcodi.com/csharp-examples/Xunit.Assert.IsType(object)/
+
+16:00 2020/10/05
+xunitで例外のテストしたいときはどうしたらいいのか。
+
+Assert.Throws
+https://stakx.github.io/xunit/api/Xunit.Assert.html#Xunit_Assert_Throws_Type_Action_
+
+21:59 2020/10/05
+Assertでオブジェクトを比べることがうまくできません。
+
+**
+Assert.Equal(new DecisionTrees(), Unit("DecisionTrees"));
+
+Assert.Equal() Failure
+    Expected: DecisionTrees { }
+    Actual:   DecisionTrees { }
+**
+
+C# - Asserting two objects are equal in unit tests
+https://stackoverflow.com/questions/23530982/c-sharp-asserting-two-objects-are-equal-in-unit-tests
+
+参照を比較しているので、同じインスタンスじゃないと失敗するらしいです。
+
+22:46 2020/10/05
+なんかこれを試す価値がありそうです。
+
+Equal<T>(T, T)
+https://stakx.github.io/xunit/api/Xunit.Assert.html#Xunit_Assert_Equal__1___0___0_
+
+こんな記事も見つけました。
+How to Compare Object Instances in your Unit Tests Quickly and Easily
+https://buildplease.com/pages/testing-deep-equalilty/
+
+12:39 2020/10/03
+Getting Started with xUnit.net
+https://xunit.github.io/docs/getting-started/netfx/visual-studio
+
+14:37 2020/10/03
+Class FactAttribute 
+https://stakx.github.io/xunit/api/Xunit.FactAttribute.html
+[Fact]
+
+17:59 2020/10/03
+xUnit.net でユニットテストを始める
+https://qiita.com/takutoy/items/84fa6498f0726418825d
+**
+Setup と Teardown
+xUnit.net ではテストの Setup はコンストラクタ、Teardown は IDisposable.Dispose() に定義する。
+**

@@ -1,0 +1,4 @@
+2020-12-15 02:55:45
+リファクタリング前に名前の付け方についておさらいしてみます。
+
+C# Naming Conventions https://www.c-sharpcorner.com/UploadFile/8a67c0/C-Sharp-coding-standards-and-naming-conventions/

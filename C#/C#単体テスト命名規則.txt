@@ -1,0 +1,18 @@
+13:52 2020/10/05
+テストクラスの名前ってどうしたらいいでしょうか。
+
+Unit test naming best practices [closed]
+https://stackoverflow.com/questions/155436/unit-test-naming-best-practices
+
+こんな方法があるらしいです。
+Structuring Unit Tests
+https://haacked.com/archive/2012/01/02/structuring-unit-tests.aspx/
+
+
+各Factの名前はこれを参考にします。
+
+Naming standards for unit tests
+https://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html
+**
+ [UnitOfWork_StateUnderTest_ExpectedBehavior]
+**

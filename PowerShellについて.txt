@@ -1,0 +1,70 @@
+- PowerShell
+- WindowsTerminal
+
+2020-10-20 06:34:46
+PowerShellのプロファイルを作る方法
+https://docs.microsoft.com/ja-jp/windows/terminal/tutorials/powerline-setup
+
+PowerShellのプロンプトをいじる方法
+https://docs.microsoft.com/ja-jp/powershell/module/microsoft.powershell.core/about/about_prompts?view=powershell-7
+
+9:27 2019/12/23
+この機会にpowershellを学んでみようと思う。
+https://docs.microsoft.com/ja-jp/powershell/scripting/overview?view=powershell-7
+
+11:25 2019/12/23
+困ったらこれを押す。
+**
+ PowerShell は自動的にコマンド ラインを解析して処理するので、 -? パラメーターは常に、"このコマンドのヘルプを表示する" という意味になります。
+**
+
+11:47 2019/12/23
+powershellのエイリアスの一覧
+https://docs.microsoft.com/ja-jp/powershell/scripting/learn/using-familiar-command-names?view=powershell-7
+
+12:08 2019/12/23
+ワイルドカードについて
+**
+アスタリスク (*) は、PowerShell コマンドの引数のワイルドカードによるマッチングに使用されます。 * は、「1 つ以上の任意の文字に一致する」という意味です。 Get-Command a* を入力すると、文字 "a" で始まるコマンドをすべて検索できます。 cmd.exe のワイルドカードのマッチングとは異なり、PowerShell のワイルドカードは、ピリオドもマッチングします。
+**
+
+12:18 2019/12/23
+現在のセッションの変数をクリアする
+**
+Remove-Variable コマンドレットを使用して、現在のセッションから、PowerShell によって制御されない変数を削除できます。 すべての変数をクリアするには、次のコマンドを入力します。
+
+Remove-Variable -Name * -Force -ErrorAction SilentlyContinue
+**
+
+12:49 2019/12/23
+全角文字使うと問題が発生するかもしれない
+**
+エンコードの問題は、VSCode またはスクリプト ファイルのエンコードが、想定される PowerShell のエンコードと一致しない場合に発生します。 PowerShell でファイルのエンコードが自動的に決定される方法はありません。
+
+7 ビット ASCII 文字セット以外の文字を使用している場合は、エンコードの問題が発生する可能性が高くなります。 たとえば、次のように入力します。
+
+    em ダッシュ 、改行なしスペース 、左二重引用符 などのアルファベット以外の拡張文字
+    アクセント付きラテン文字 
+    キリル文字などの非ラテン文字
+    CJK 文字
+**
+https://docs.microsoft.com/ja-jp/powershell/scripting/components/vscode/understanding-file-encoding?view=powershell-7#common-causes-of-encoding-issues
+
+0:46 2019/12/17
+その前に気になったことがあって、powershell core っていう新しいクロスプラットフォームのpowershellがあるっぽい。
+それに変えてみようと思う。
+https://blog.ipswitch.com/jp/what-exacty-is-powershell-core-anyway
+https://docs.microsoft.com/ja-jp/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6
+
+1:07 2019/12/17
+ここからインストールした
+https://github.com/PowerShell/PowerShell/releases/tag/v7.0.0-preview.6
+https://github.com/PowerShell/PowerShell
+
+複数のshellを切り替えて使う人のためのプラグインがあるらしい。
+https://github.com/Tyriar/vscode-shell-launcher
+
+キーバインド
+Ctrl + Shift + \
+
+setting.jsonにmingwとpwshの設定したけど、mingwの開き方があんまり気に入らないのでそのうち調べよう

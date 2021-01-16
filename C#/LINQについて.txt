@@ -1,0 +1,51 @@
+
+2020-10-21 00:11:28
+[C# LINQ] Whereの使い方から注意点まで
+https://clickan.click/csharp-linq-where/
+
+2020-10-21 01:26:40
+C# の統合言語クエリ (LINQ) | Microsoft Docs
+https://docs.microsoft.com/ja-jp/dotnet/csharp/linq/
+
+LINQ クエリの概要 (C#) | Microsoft Docs
+https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries
+
+クエリを作る部分とクエリの実行部分があるらしいです。
+
+selectやwhereはクエリを作る部分だと思います。
+
+2020-10-21 01:33:44
+Enumerable.Select Method (System.Linq) | Microsoft Docs
+https://docs.microsoft.com/en-us/dotnet/api/system.linq.enumerable.select?view=netcore-3.1#System_Linq_Enumerable_Select__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__
+
+2020-10-21 01:42:29
+よさげなリンクを見つけました。
+
+クエリ キーワード - C# リファレンス | Microsoft Docs
+https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/keywords/query-keywords
+
+クエリ式の基本 (C# での LINQ) | Microsoft Docs
+https://docs.microsoft.com/ja-jp/dotnet/csharp/linq/query-expression-basics
+**
+クエリ式は from 句で始まり、select または group 句で終わる必要があります。
+**
+
+できるだけクエリ式で書いたほうが読みやすいらしいです。
+
+2020-10-21 01:52:03
+これまでのLinqのサイトリンクはクエリを作るまでのことが書かれてました。
+
+これからクエリの実行について学んでみます。
+
+標準クエリ演算子の概要 (C#) | Microsoft Docs
+https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/concepts/linq/standard-query-operators-overview
+
+ここのリストはクエリに対する操作（クエリの実行）の一覧です。
+https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/concepts/linq/standard-query-operators-overview#related-sections
+
+
+19:42 2020/10/17
+Fluent interface使うよりもLinq使ったほうがいいみたいな記事がありました。
+
+Fluent interface vs Linq
+http://act.neue.cc/fluent.txt

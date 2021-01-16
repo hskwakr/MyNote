@@ -1,0 +1,143 @@
+
+11:10 2020/01/16
+文字列補完とは何か
+https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/tokens/interpolated
+
+
+2021-01-15 20:27:51
+string 変数が等しいことを確認する方法を忘れました。
+
+文字列を比較する方法 - C# ガイド | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/csharp/how-to/compare-strings
+
+== でよさそうです。
+```
+    String.CompareTo
+    String.Equals
+    String.Equality と String.Inequality。つまり、それぞれ等価演算子 == と !=。
+```
+
+16:23 2020/10/12
+StringBuilder Class
+https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=netcore-3.1
+
+StringBuilderは可変でStringは不変の文字列らしいです。
+Stringで文字列を追加する操作をしたとしても、実際は新しい文字列を作っているらしいです。
+
+**
+For routines that perform extensive string manipulation (such as apps that modify a string numerous times in a loop), modifying a string repeatedly can exact a significant performance penalty. The alternative is to use StringBuilder, which is a mutable string class. Mutability means that once an instance of the class has been created, it can be modified by appending, removing, replacing, or inserting characters. 
+**
+
+繰り返し文字列を操作するときはStringBuilderで操作すると負荷が少なくなるかもしれないそうです。
+
+18:16 2020/10/12
+new StreamBuilder().AppendLine()
+AppendLineメソッドが文字列に入れる改行コードと同じ改行コードってどうやったら手にすることができるのでしょうか。
+調べてみます。
+
+StringBuilder.AppendLine Method
+https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder.appendline?view=netcore-3.1
+
+調度その質問をしている人がいました。
+
+.NET “default line terminator”?
+https://stackoverflow.com/questions/1538774/net-default-line-terminator
+
+Environment.NewLine Property
+https://docs.microsoft.com/en-us/dotnet/api/system.environment.newline?view=netcore-3.1
+
+15:39 2020/08/28
+Console.ReadLine Convert String to Int
+https://www.csharp-console-examples.com/csharp-console/c-console-readline-convert-string-to-int/
+
+5:08 2020/08/11
+文字列を空白で分割する方法
+https://docs.microsoft.com/ja-jp/dotnet/api/system.string.split?view=netcore-3.1#System_String_Split_System_Char_System_Int32_System_StringSplitOptions_
+
+https://stackoverflow.com/questions/6111298/best-way-to-specify-whitespace-in-a-string-split-operation
+
+10:49 2020/04/23
+ text.Trim()
+you should use this
+
+14:03 2020/04/22
+String.Trim メソッド
+https://docs.microsoft.com/ja-jp/dotnet/api/system.string.trim?view=netframework-4.8
+
+String.Substring メソッド
+https://docs.microsoft.com/ja-jp/dotnet/api/system.string.substring?view=netframework-4.8
+
+String.Empty フィールド
+https://docs.microsoft.com/ja-jp/dotnet/api/system.string.empty?view=netframework-4.8
+
+11:04 2020/01/25
+文字列補間って何ですか？
+https://docs.microsoft.com/ja-jp/dotnet/csharp/language-reference/tokens/interpolated
+**
+$ 特殊文字は、リテラル文字列を挿入文字列として識別します。 挿入文字列は、補間式が含まれている可能性がある文字列リテラルです。 挿入文字列が結果の文字列に解決されると、補間式を含む項目は、式の結果の文字列表現によって置き換えられます。
+**
+
+リテラルって何ですか？
+https://ja.wikipedia.org/wiki/%E3%83%AA%E3%83%86%E3%83%A9%E3%83%AB
+**
+リテラルは、ソースコード内に値を直接表記したものをいう。言語によってリテラルとして表記できる型の種類や表記方法は異なる。
+**
+
+C#の文字列って何ですか？
+https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/strings/
+**
+文字列は、値がテキストの String 型のオブジェクトです。 内部では、テキストは Char オブジェクトの順次読み取り専用コレクションとして格納されます。 C# の文字列の末尾には null 終端文字はありません。したがって、C# の文字列には任意の数の null 文字 ('\0') を埋め込むことができます。 文字列の Length プロパティは、Unicode 文字の数ではなく、文字列に含まれている Char オブジェクトの数を表します。 文字列内の個別の Unicode コード ポイントにアクセスするには、StringInfo オブジェクトを使用します。
+**
+
+タプルって何ですか？
+**
+C# のタプルは、軽量構文を使用して定義する型で、 構文がシンプルである、変換の規則が要素の数 ("カーディナリティ" と呼ばれます) と種類に基づく、コピー、等値テスト、および割り当ての規則が一貫している、などのメリットがあります。 そのトレードオフとして、タプルでは、継承に関連するオブジェクト指向の表現形式の一部がサポートされていません。
+**
+
+11:53 2020/01/25
+次の記事に進みます。
+https://docs.microsoft.com/ja-jp/dotnet/csharp/tutorials/string-interpolation
+
+複合書式指定って何ですか？
+https://docs.microsoft.com/ja-jp/dotnet/standard/base-types/composite-formatting
+**
+NET の複合書式指定機能は、オブジェクトのリストおよび複合書式指定文字列を入力として使用します。 複合書式指定文字列は、固定テキストに、書式指定項目と呼ばれるインデックス化されたプレースホルダーが混合されて構成されます。
+
+このプレースホルダーはリスト内のオブジェクトに対応します。 書式設定操作によって生成される結果の文字列は、元の固定テキストに文字列で表されたリスト内のオブジェクトが混合されて構成されます。
+
+string name = "Fred";
+String.Format("Name = {0}, hours = {1:hh}", name, DateTime.Now);
+**
+https://docs.microsoft.com/ja-jp/dotnet/csharp/tutorials/string-interpolation#code-try-0
+**
+挿入文字列では、文字列の複合書式設定機能に含まれるすべての機能がサポートされます。 そのため、String.Format メソッドを使用するよりも読みやすい代替手法になります。
+**
+
+複合書式指定について
+https://docs.microsoft.com/ja-jp/dotnet/csharp/tutorials/string-interpolation#code-try-3
+**
+{<interpolationExpression>}
+挿入文字列では、文字列の複合書式設定機能に含まれるすべての機能がサポートされます。 そのため、String.Format メソッドを使用するよりも読みやすい代替手法になります。
+
+{<interpolationExpression>:<formatString>}
+詳細については、「複合書式設定」トピックの「Format String コンポーネント」のセクションを参照してください。 このセクションでは、.NET の基本データ型でサポートされる標準とカスタムの書式設定文字列について説明するトピックへのリンクを提供しています。
+
+{<interpolationExpression>,<alignment>}
+alignment の値が正の値である場合、書式設定された式の結果は右揃えになります。負の値である場合は、左揃えになります。
+
+{<interpolationExpression>,<alignment>:<formatString>}
+配置と書式設定文字列の両方を指定する必要がある場合は、alignment コンポーネントから開始します。
+
+書式設定された式の結果の長さが指定したフィールドの幅を超える場合、alignment の値は無視されます。
+**
+
+verbatim 補完文字列って何ですか？
+https://docs.microsoft.com/ja-jp/dotnet/csharp/tutorials/string-interpolation#code-try-7
+**
+verbatim 補間文字列は、$ 文字で始まり、@ 文字が続きます。 C# 8.0 以降では、$ と @ のトークンを任意の順序で使用できます。$@"..." と @$"..." はどちらも有効な verbatim 補間文字列です。
+
+中かっこ "{" または "}" を結果文字列に含める場合は、2 つの中かっこ "{{" または "}}" を使用します。 詳細については、「複合書式設定」トピックの「エスケープ中かっこ ({})」のセクションを参照してください。
+
+var stringWithEscapes = $"C:\\Users\\{userName}\\Documents";
+var verbatimInterpolated = $@"C:\Users\{userName}\Documents";
+**
+

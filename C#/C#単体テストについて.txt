@@ -1,0 +1,105 @@
+- クラスライブラリとは別にUnitTestプロジェクトを用意しましょう
+    - 作成時にフォルダ構造を変えてあげるといいかも
+
+- TestExploreでテストの実行やデバッグをしましょう
+
+19:50 2020/10/05
+テストの作り方がそもそも間違えてました。
+テスト用のプロジェクトをソリューションに追加するといいらしいです。
+https://www.c-sharpcorner.com/article/a-basic-introduction-of-unit-test-for-beginners/
+
+クラスライブラリプロジェクトを追加して、xunitをnugetで取得して、そこでテストコードを書いていくっぽいです。
+
+それからソリューションをビルドしてテストエクスプローラを開いたらうまくいきました。
+
+14:49 2020/10/07
+チュートリアルの写経が終わって、テストを書こうと思ったときに、どういうテストをしたらいいのかということをあまり知らないことに気づきました。
+
+まずは大まかにテストについて勉強したいです。
+
+他にもTDDというものについてもあまり知りません。
+テストについて勉強したあとにTDDについて調べるかもしれません。
+**** MaightTODO ****
+
+15:00 2020/10/07
+ソフトウェアテスト
+https://en.wikipedia.org/wiki/Software_testing
+
+ユニットテストを書こう！
+https://qiita.com/kompiro/items/78f2c8d2022a685baa83
+
+コードカバレッジ
+https://en.wikipedia.org/wiki/Code_coverage
+
+16:42 2020/10/07
+「何をテストするべきなのか」がまだよくわかりません。
+
+これだけは覚えたい、ユニットテストを書くための４つのデザイン
+https://qiita.com/koduki/items/4fde43b68fe450c6a5d8
+**
+ユニットテストで最も意識を傾けないといけないのはロジックのテストです。
+ファイル入出力や標準入出力、あるいはログ出力のような既に品質が十分に確認されたテストをする必要はありません。
+**
+
+ふつうのユニットテストのための７つのルール
+https://koduki.hatenablog.com/entry/2016/10/31/080158
+
+20:04 2020/10/07
+コードカバレッジはテストを評価するものだと思いました。
+今はある程度高いパーセントのカバレッジのテストがかければいいことにしてはどうでしょうか。
+
+ということはカバレッジを確認してくれるツールが必要だと思います。
+
+20:13 2020/10/07
+こんなの見つけました。
+
+AxoCoverというVisual Studio拡張のカバレッジツールが素晴らしい
+https://www.nuits.jp/entry/2017/08/03/105224
+
+21:04 2020/10/07
+VS2019非対応でした。
+代わりに見つけたやつ試してみます
+
+Fine Code Coverage
+https://marketplace.visualstudio.com/items?itemName=FortuneNgwenya.FineCodeCoverage&ssr=false
+
+こんなのもありました
+
+opencover 
+https://github.com/OpenCover/opencover
+
+21:19 2020/10/07
+Fine Code Coverage が動いたのでこれで良しとします。
+
+14:52 2020/10/02
+テストの自動実行というものがあるらしいです。
+
+Learn GitHub Actions
+https://docs.github.com/en/free-pro-team@latest/actions/learn-github-actions
+
+16:15 2020/10/02
+思っていたより壮大だったので、別の方法を探しました。
+テストジェネレータというものがあるっぽいです。
+
+Getting Started with xUnit.net
+https://xunit.github.io/docs/getting-started/netfx/visual-studio
+
+17:11 2020/10/02
+このジェネレータは自動化にも使えるっぽいので、とりあえずジェネレータの使い方を勉強してみようと思います。
+
+Getting Test Results in Azure DevOps Pipelines
+https://xunit.github.io/docs/getting-test-results-in-azure-devops
+
+Azure DevOps
+https://azure.microsoft.com/ja-jp/services/devops/
+
+23:03 2019/12/07
+テストにおける用語の統一について。
+**
+フェイク - フェイクは、スタブまたはモック オブジェクトのいずれかを示すのに使用できる汎用的な用語です。 スタブとモックのどちらであるかは、使用されているコンテキストによって決まります。 つまり、フェイクはスタブとモックのどちらにもなりえます。
+
+モック - モック オブジェクトは、単体テストに合格したか失敗したかを判断する、システム内のフェイク オブジェクトです。 モックは、アサートされるまでフェイクとして開始します。
+
+スタブ - スタブは、システム内の既存の依存関係 (コラボレーター) の制御可能な置換です。 スタブを使用すると、依存関係を直接処理することなく、コードをテストできます。 既定では、フェイクはスタブとして開始します。
+**
+https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-best-practices#lets-speak-the-same-language
