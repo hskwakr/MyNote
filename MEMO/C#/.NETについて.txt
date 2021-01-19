@@ -1,0 +1,37 @@
+
+20:47 2019/12/06
+.NET Standardとは
+**
+.NET Standard は、すべての .NET 実装で使用できるようにすることを目的とした .NET API の正式な仕様です。
+
+.NET Standard により、次の主なシナリオが可能になります。
+
+・ワークロードに関係なく、すべての .NET 実装用に統一された BCL API のセットを定義し、実装する。
+・開発者が、この同じ API のセットを使用して、.NET 実装間で使用可能なポータブル ライブラリを生成できるようにする。
+・.NET API による共有ソースの条件付きコンパイルを削減あるいはなくして、OS API に対してのみにする。
+
+さまざまな .NET 実装が、.NET Standard の特定のバージョンを対象とします。 各 .NET 実装バージョンは、それがサポートしている最高の .NET Standard バージョンをアドバタイズし、そのことは以前のバージョンもサポートしていることを意味します。 たとえば、.NET Framework 4.6 は .NET Standard 1.3 を実装しており、このことは、.NET Standard のバージョン 1.0 ～ 1.3 で定義されているすべての API を公開していることを意味します。 同様に、.NET Framework 4.6.1 は .NET Standard 1.4 を実装し、.NET Core 1.0 は .NET Standard 1.6 を実装しています。
+**
+https://docs.microsoft.com/ja-jp/dotnet/standard/net-standard
+
+21:11 2019/12/06
+.NET Standardにはバージョンがあるっぽい。自分の.NET Standardのバージョンは？]
+自分の.NET Coreの調べ方。
+**
+dotnet --info
+.NET Core SDK (global.json を反映):
+ Version:   3.1.100
+ Commit:    cd82f021f4
+
+ランタイム環境:
+ OS Name:     Windows
+ OS Version:  10.0.18362
+ OS Platform: Windows
+ RID:         win10-x64
+ Base Path:   C:\Program Files\dotnet\sdk\3.1.100\
+**
+.NET Coreが3.1ということは.NET Standardは2.1らしい。
+
+
+.NET Frameworkと.NET Coreってなんかちがうの？
+https://blog.hiros-dot.net/?p=9086
