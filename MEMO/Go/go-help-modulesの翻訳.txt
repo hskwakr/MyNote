@@ -1,0 +1,67 @@
+2021-02-08 03:17:37
+訳文
+```
+moduleは関連したGo packageの集まりです。
+moduleはソースコードの置換やバージョン管理の構成要素です。
+
+go commandはmoduleや他のmoduleの依存関係の解決や記録、インクルードの作業を直接的に支援します。
+moduleは従来のGOPATHベースのやり方を、特定のbuildに使われているソースファイルを明確にするやり方に置き換えます。
+
+module サポート
+
+go commandにはGo moduleの支援をするコマンドがあります。
+module-awareモードはgo.modファイルが現在のディレクトリやどの親ディレクトリで存在してもデフォルトで有効です。
+moduleの支援をうまく利用する一番早い方法は、あなたのリポジトリを確認して、そこに（次のセクションで述べられる）go.modファイルを作って、そのファイルツリーの中からgo commandを実行することです。
+
+より粒度の細かい制御をするには、go commandは３つのstringの値: off, on, auto(デフォルト)のひとつを設定できる一時環境変数GO111MODULEの値の遵守を続けます。
+GO111MODULE=onならば、go commandはmoduleの使用を求め、GOPATHを調べることをしません。
+私たちはこれをbeing module-awareもしくは"module-awareモード"での実行と呼んでいます。
+
+GO111MODULE=offならば、go commandはmoduleサポートをしません。
+その代わりに依存関係をみつけるためにvendorディレクトリーとGOPATHをみます。
+私たちはこれを"GOPATH mode"と呼んでいます。
+
+GO111MODULE=autoか設定されてないときは、go commandはカレントディレクトリに基づいてmoduleサポートを有効か無効にします。
+moduleサポートはカレントディレクトリかその下位ディレクトリがgo.modファイルを含んでいるときだけ有効になります。
+
+module-awareモードでは、GOPATHはbuild中のimportの意味を決めませんが、それでも(GOPATH/pkg/modの中に)依存関係と（GOBINが設定されない限りGOPATH/binの中に）インストールされたコマンドを保存します。
+
+moduleの特徴
+
+moduleはGoソースファイルのツリーのルートディレクトリのgo.modファイルによって定義されています。
+go.modファイルを含むディレクトリはmodule rootと呼ばれています。
+通常はmodule rootはソースコードリポジトリのルートにも相当するでしょう。（しなくてもかまいません）
+moduleはmodule rootとサブディレクトリの中と、go.modがあるサブツリーを除いたすべてのGo packageのセットです。
+"module path"はmodule rootに相当するimport pathの接尾辞です。
+moduleのパスとバージョンを与えることによってgo.modファイルはそのmoduleのパスを定義してbuild中にimportを解決するときに使われるはずの他のmoduleの特定のバージョンをリストアップします。
+例えば、このgo.modはexample.com/mというmoduleを含むディレクトリがそのmoduleのルートであることと、そのmoduleは特定のバージョンのgolang.org/x/textとgopkg.in/yaml.v2に依存することを宣言しています：
+
+        module example.com/m
+
+        require (
+                golang.org/x/text v0.3.0
+                gopkg.in/yaml.v2 v2.1.0
+        )
+
+go.modファイルはmoduleを直接ビルドするときにだけ適用する代替手段や、moduleが大きなbuildに合併されるときだけ無視されるときにだけ排除されるバージョンも規定するとこができます。
+
+より詳しいことについてはgo help go.modコマンドを見てください。
+
+新しいmoduleを始めるには、ただ単にgo.modをmoduleのルートディレクトリーに作ってmoduleステートメントだけを含みます。
+'go mod init'はこのために使われます。
+
+        go mod init example.com/m
+
+すでにgodepやglide, depのような従来の依存関係管理ツールを使っているプロジェクトの中では、'go mod init'は存在する設定に適合するrequireステートメントも追加するでしょう。
+go.modファイルがあるなら、必要な追加の手順はありません。
+
+'go build'や'go test'、'go list'のようなgo commandはimportを満たすために自動的に新しい依存関係を必要に応じて追加するでしょう。
+
+main moduleとbuild list
+
+"main module"はgo commandを実行するディレクトリを含むmoduleです。
+go commandはカレントディレクトリかその親のディレクトリか、その親の親の・・・go.modを探すことによってmodule rootを探します。
+
+
+```
+
