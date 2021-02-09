@@ -4,24 +4,24 @@
 moduleは関連したGo packageの集まりです。
 moduleはソースコードの置換やバージョン管理の構成要素です。
 
-go commandはmoduleや他のmoduleの依存関係の解決や記録、インクルードの作業を直接的に支援します。
+goコマンドはmoduleや他のmoduleの依存関係の解決や記録、インクルードの作業を直接的に支援します。
 moduleは従来のGOPATHベースのやり方を、特定のbuildに使われているソースファイルを明確にするやり方に置き換えます。
 
 module サポート
 
-go commandにはGo moduleの支援をするコマンドがあります。
+goコマンドにはGo moduleの支援をするコマンドがあります。
 module-awareモードはgo.modファイルが現在のディレクトリやどの親ディレクトリで存在してもデフォルトで有効です。
-moduleの支援をうまく利用する一番早い方法は、あなたのリポジトリを確認して、そこに（次のセクションで述べられる）go.modファイルを作って、そのファイルツリーの中からgo commandを実行することです。
+moduleの支援をうまく利用する一番早い方法は、あなたのリポジトリを確認して、そこに（次のセクションで述べられる）go.modファイルを作って、そのファイルツリーの中からgoコマンドを実行することです。
 
-より粒度の細かい制御をするには、go commandは３つのstringの値: off, on, auto(デフォルト)のひとつを設定できる一時環境変数GO111MODULEの値の遵守を続けます。
-GO111MODULE=onならば、go commandはmoduleの使用を求め、GOPATHを調べることをしません。
+より粒度の細かい制御をするには、goコマンドは３つのstringの値: off, on, auto(デフォルト)のひとつを設定できる一時環境変数GO111MODULEの値の遵守を続けます。
+GO111MODULE=onならば、goコマンドはmoduleの使用を求め、GOPATHを調べることをしません。
 私たちはこれをbeing module-awareもしくは"module-awareモード"での実行と呼んでいます。
 
-GO111MODULE=offならば、go commandはmoduleサポートをしません。
+GO111MODULE=offならば、goコマンドはmoduleサポートをしません。
 その代わりに依存関係をみつけるためにvendorディレクトリーとGOPATHをみます。
 私たちはこれを"GOPATH mode"と呼んでいます。
 
-GO111MODULE=autoか設定されてないときは、go commandはカレントディレクトリに基づいてmoduleサポートを有効か無効にします。
+GO111MODULE=autoか設定されてないときは、goコマンドはカレントディレクトリに基づいてmoduleサポートを有効か無効にします。
 moduleサポートはカレントディレクトリかその下位ディレクトリがgo.modファイルを含んでいるときだけ有効になります。
 
 module-awareモードでは、GOPATHはbuild中のimportの意味を決めませんが、それでも(GOPATH/pkg/modの中に)依存関係と（GOBINが設定されない限りGOPATH/binの中に）インストールされたコマンドを保存します。
@@ -55,12 +55,12 @@ go.modファイルはmoduleを直接ビルドするときにだけ適用する�
 すでにgodepやglide, depのような従来の依存関係管理ツールを使っているプロジェクトの中では、'go mod init'は存在する設定に適合するrequireステートメントも追加するでしょう。
 go.modファイルがあるなら、必要な追加の手順はありません。
 
-'go build'や'go test'、'go list'のようなgo commandはimportを満たすために自動的に新しい依存関係を必要に応じて追加するでしょう。
+'go build'や'go test'、'go list'のようなgoコマンドはimportを満たすために自動的に新しい依存関係を必要に応じて追加するでしょう。
 
 main moduleとbuild list
 
-"main module"はgo commandを実行するディレクトリを含むmoduleです。
-go commandはカレントディレクトリかその親のディレクトリか、その親の親の・・・go.modを探すことによってmodule rootを探します。
+"main module"はgoコマンドを実行するディレクトリを含むmoduleです。
+goコマンドはカレントディレクトリかその親のディレクトリか、その親の親の・・・go.modを探すことによってmodule rootを探します。
 
 
 ```
