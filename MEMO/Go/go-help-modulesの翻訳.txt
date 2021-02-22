@@ -79,6 +79,10 @@ buildするために提供するpackageのmoduleのセットは"build list"と�
 'go list'コマンドはmain moduleとbuild listついての情報を提供します。
 例えば:
 
+        go list -m              # print path of main module
+        go list -m -f={{.Dir}}  # print root directory of main module
+        go list -m all          # print build list
+
 module requirementのメンテナンス
 
 go.modファイルはプログラマーとツールの両面から読み書きができるようにあるべきです。
