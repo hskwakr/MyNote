@@ -62,6 +62,44 @@ main moduleとbuild list
 "main module"はgoコマンドを実行するディレクトリを含むmoduleです。
 goコマンドはカレントディレクトリかその親のディレクトリか、その親の親の・・・go.modを探すことによってmodule rootを探します。
 
+main moduleのgo.modファイルはrequireとreplace、cxcludeステートメントを通してgo commandが使えるpackageの詳細なセットを定義します。
+
+main moduleのrequireステートメントによって見つけられた依存関係moduleもそれらmoduleのgo.modファイルを通してのみpackageのセットの定義情報を提供します。
+
+依存関係module内のreplace、excludeステートメントは無視されます。
+
+そのため、replaceとexcludeステートメントは依存関係の支配を受けることなくmain module自身のbuildの完全な制御を許します。
+
+buildするために提供するpackageのmoduleのセットは"build list"と呼ばれます。
+
+そしてgo commandはlistに既にlistにあるmoduleによって要求された正確なmoduleのバージョンをlistに使いするものがなくなるまで再帰的に追加します。
+
+もしlistにある特定のmoduleの複数のバージョンが追加された場合、（semantic version orderingによって）後ろの最新のバージョンだけがbuild用に保持されます。
+
+'go list'コマンドはmain moduleとbuild listついての情報を提供します。
+例えば:
+
+module requirementのメンテナンス
+
+go.modファイルはプログラマーとツールの両面から読み書きができるようにあるべきです。
+
+goコマンド自体は標準の書式設定とrequireステートメントの正確さをメンテナンスするためにgo.modファイルを自動的に更新します。
+
+馴染みのないimportを見つけたgoコマンドはそのimportを含んでいるmoduleを検索して最新のバージョンのmoduleをgo.modに自動的に追加します。
+
+そのため大抵の場合、importをソースコードに追加して'go build'か'go test'または'go list'をすれば十分です。
+
+packageの分析の一環として、goコマンドはimportを発見して解決し、go.modファイルを更新します。
+
+moduleからひとつだけのpackageを検討しているときでも、あらゆるgoコマンドはmodule要求が見つからなくて追加される必要があると判断することができます。
+
+その一方で、module要求が必要なくて削除していいか決めることにはmodule内のbuildの構成を横断して全てのpackageを必要とします。(アーキテクチャ、OS、build tagなど)
+
+'go mod tidy'コマンドはそのビューをビルドしてほかの見つかっていないmodule要求を追加して必要のないものを削除します。
+
+go.modファイルのrequireステートメントのメンテナンスの一環として、goコマンドはどれが現在のmoduleによって直接importされたpackageを提供するのかと、どれがほかのmoduleの依存関係によってのみ間接的に使われるpackageを提供するのか追跡します。
+
+間接的使用のためだけのmodule要求にはgo.modファイルの中で"// indirect"コメントで印をつけます。
 
 ```
 
