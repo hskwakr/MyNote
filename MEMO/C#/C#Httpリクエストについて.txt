@@ -1,0 +1,61 @@
+2021-05-11 13:43:40
+HttpClient クラス (System.Net.Http) | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/api/system.net.http.httpclient?view=net-5.0
+
+2021-05-11 14:03:37
+```
+HttpClient System.Net.Http 名前空間のおよび関連するクラスを使用しているアプリで 大量のデータ (50 mb 以上) をダウンロードする場合、アプリはこれらのダウンロードをストリーミングし、既定のバッファリングを使用しないようにする必要があります。 既定のバッファリングを使用すると、クライアントのメモリ使用量が非常に大きくなり、パフォーマンスが大幅に低下する可能性があります。
+
+HttpClient は、1回インスタンス化し、アプリケーションの有効期間全体に再利用することを目的としています。 すべての要求に対して HttpClient クラスをインスタンス化すると、大量の読み込みで使用可能なソケットの数が枯渇します。
+
+.NET Core 2.1 以降、HttpClientHandler の代わりに、 System.Net.Http.SocketsHttpHandler クラスは、 HttpClient などの上位レベルの HTTP ネットワーククラスで使用される実装を提供します。SocketsHttpHandler の使用には、 次のようないくつかの利点があります。
+    - 以前の実装と比較して、パフォーマンスが大幅に向上しています。
+    - プラットフォームの依存関係を削除することで、デプロイとサービスが簡単になります。 たとえば、 libcurl は、macOS 用の .Net core と Linux 用の .Net core に依存しなくなりました。
+    - すべての .NET プラットフォームでの一貫した動作。
+```
+
+2021-05-11 14:41:23
+探している途中で
+GETメソッドで送るパラメータをUrlエンコードしてくれるクラスを見つけました。
+
+FormUrlEncodedContent クラス (System.Net.Http) | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/api/system.net.http.formurlencodedcontent?view=net-5.0
+
+2021-05-11 14:56:08
+NET CoreだとHttpClient用のファクトリクラスがあるみたいです。
+
+HttpClientをusingで囲わないでください - Qiita https://qiita.com/superriver/items/91781bca04a76aec7dc0
+
+```
+上記は.NET Frameworkの場合でしたが、.NET Coreではもう少し便利になっています。詳細は以下のリンクで説明されていますので、そちらに譲ります。ありがとうございます。
+```
+
+2021-05-11 15:00:01
+HttpClientクラスを使ったクラスをテストするサンプルをyoutubeで見つけました（たぶん）
+
+1. C# || HttpClient || Setting up HttpClient in Project. - YouTube https://www.youtube.com/watch?v=I7CBrwWAa14&list=PLlsKgYi2Lw722PMqESdivKJQgRtJAdbzn
+
+とりあえず写経してみます。
+
+2021-05-11 16:00:03
+Httpリクエストを送る処理のテストを書くときはステータスコードの一覧が乗ってるサイトを開きながら作ると便利そうです。
+
+HTTP レスポンスステータスコード - HTTP | MDN https://developer.mozilla.org/ja/docs/Web/HTTP/Status
+
+2021-05-11 16:15:59
+REST APIを試すためのサイトを見つけました。
+
+Dummy sample rest api - dummy.restapiexample.com http://www.dummy.restapiexample.com/
+
+2021-05-13 18:38:12
+```
+System.Net.WebException: 要求は中止されました: SSL/TLS のセキュリティで保護されているチャネルを作成できませんでした
+```
+
+という例外が発生していました。
+対策を調べます。
+
+2021-05-13 19:39:21
+この記事を参考にしてみます。
+
+System.Net.WebException: 要求は中止されました: SSL/TLS のセキュリティで保護されているチャネルを作成できませんでした https://social.msdn.microsoft.com/Forums/ja-JP/5d614cf3-a45f-4e25-86b7-5b1fafb7285a/systemnetwebexception
+
+うまくいきました。
