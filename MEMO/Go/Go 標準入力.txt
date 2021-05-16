@@ -1,0 +1,50 @@
+2021-03-26 22:09:17
+PracticeA - Welcome to AtCoder
+
+標準入力でつまずいています。
+```
+	fmt.Scanf("%d", &a)
+	fmt.Scanf("%d %d", &b, &c)
+	fmt.Scanf("%s", &s)
+```
+
+このコードを実行すると２回目の入力のところで終了してしまいました
+
+```
+go run main.go
+1
+1 1
+1 1
+```
+
+fmt · pkg.go.dev https://pkg.go.dev/fmt?utm_source=gopls#Scanf
+Scanfのgodocを読んだら返り値で成功した数とerrを返してたので確かめてみました。
+
+```
+	fmt.Scanf("%d", &a)
+	_, err := fmt.Scanf("%d %d", &b, &c)
+	if err != nil {
+		fmt.Print(err)
+	}
+	fmt.Scanf("%s", &s)
+```
+
+１回目の入力が終わったところでエラーメッセージが表示されました。
+
+```
+ go run main.go
+1
+unexpected newline1
+```
+
+ちょうどその時に親切な方に教えてもらった方法でうまく動きました。
+```
+fmt.Scan(&a, &b, &c, &s) ってやってみて下さい
+```
+
+2021-03-26 22:25:02
+改行コードって難しいっ - Qiita https://qiita.com/tutuz/items/020bc05d3957189222e8
+
+この記事に理由が書いてありました。
+
+fmtのscanのコードが呪われているせいらしいです。
