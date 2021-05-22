@@ -1,0 +1,1391 @@
+
+2021-01-14 05:26:17
+EFの勉強してみます。
+
+Entity Framework Core の概要 - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/
+
+2021-01-14 18:11:06
+概要 - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/get-started/overview/first-app?tabs=visual-studio
+
+2021-01-15 01:28:05
+モデルの作成と構成 - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/modeling/
+
+むずかしかったです。
+モデルってなんでしょうか。
+
+2021-01-15 01:34:09
+なんとなく、ふわっとした感覚でわかりました。
+
+Entity Framework - Wikipedia https://ja.wikipedia.org/wiki/Entity_Framework
+
+2021-01-15 02:06:40
+次回はここから読みます。
+
+エンティティ型-EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/modeling/entity-types?tabs=data-annotations
+
+もしくはこれを読むのもありかもしれません。
+
+第1回 最新DBアクセス・フレームワークの基本的な考え方（1/4） - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/ef4basic01/ef4basic01_01.html
+
+2021-01-15 02:44:29
+先に@ITの記事読むべきだと思います。
+少し目を通しましたがよくまとまっていると思いました。
+
+2021-01-15 16:58:58
+連載：ADO.NET Entity Framework入門 - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/index/index.html
+
+これ読みます。
+
+2021-01-15 17:05:56
+```
+第1回　最新DBアクセス・フレームワークの基本的な考え方
+
+第2回　EDMにおける多対多関係とEntity Frameworkでのデータの取得／保存
+
+第3回　Entity Frameworkにおけるクエリと更新
+
+第4回　データベースからのEntity Data Model生成
+
+第5回　POCOによるエンティティ・クラス
+
+第6回　EF4によるN層アーキテクチャと自己追跡エンティティ【前編】
+
+第7回　EF4によるN層アーキテクチャと自己追跡エンティティ【後編】
+```
+
+僕がこの記事に期待してるのはEntity Frameworkの基礎知識とか背景とかです。
+
+なので、第１～４回までは呼んだほうがよさそうです。
+
+５～７回はちょっと読んで、自分に関係なさそうだったら飛ばそうと思います。
+
+2021-01-15 17:10:45
+第１回を読んでみます。
+```
+
+    ADO.NET Entity Framework概要
+    論理モデルによるプログラミングと概念モデルによるプログラミング
+    EDMの作成と論理モデルの生成
+    論理モデルの自動生成
+
+```
+
+Microsoft Docsの記事を読んでてわからなかった部分がモデルです。モデルという言葉が何を意味していたのかよくわかりませんでした。
+第１回の記事には特にその部分に注意を向けたいです。
+
+第1回 最新DBアクセス・フレームワークの基本的な考え方（1/4） - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/ef4basic01/ef4basic01_01.html
+
+2021-01-15 17:14:01
+O/RM とは
+オブジェクト関係マッピング - Wikipedia https://ja.wikipedia.org/wiki/%E3%82%AA%E3%83%96%E3%82%B8%E3%82%A7%E3%82%AF%E3%83%88%E9%96%A2%E4%BF%82%E3%83%9E%E3%83%83%E3%83%94%E3%83%B3%E3%82%B0
+
+POCO とは
+```
+「Plain-Old CLR Object」の略で、特別なクラスやインターフェイスを継承していないクラス（のオブジェクト）のこと。
+```
+
+
+```
+アドレス帳アプリ
+- 複数のユーザ
+- ユーザごとに複数のアドレス帳エントリ
+
+アドレス帳
+- 複数のデータ項目のエントリ
+
+エントリ（たぶんアドレス帳のこと）
+- 複数のカテゴリを持つことができる
+- エントリは特定の順番に従って表示できる
+- エントリは氏名・メールアドレスによる検索ができる
+```
+
+概念モデル
+```
+データの表現形式(RDBのテーブルなど）に依存しない。
+アプリケーションで扱うデータをモデル化したもの。
+ビジネス要件から概念モデルを設計する
+```
+
+エントリをエンティティで表そう
+データ項目はプロパティにしよう
+エントリとカテゴリの関係は多対多の関係で表そう
+
+というような作業をイメージしました。
+
+論理モデル
+```
+概念モデルを実際のデータの表現形式に合わせて変換したもの。
+（RDBでは）テーブルと主キー/外部キーなどを用いて論理モデルを設計する。
+（RDBでは）正規化をする必要がある。
+
+論理モデルは実際のデータ表現形式に影響を受けるため、概念モデルを論理モデルとして実際に変換できない場合がある。
+```
+
+RDBを使おう
+エンティティはテーブルで表そう
+プロパティはフィールドで表そう
+多対多の関係は中間テーブルで表そう
+
+というような作業をイメージしました。
+
+物理モデル
+```
+使用するデータベース製品に合わせ、論理モデルを修正したもの。
+主にパフォーマンスを考慮した修正が行われる。
+（RDBでは）インデックスの作成やパーティションの分割など。
+```
+
+行・列によるデータ表現をするために
+インデックスをつくろう
+パーティション分割をしよう
+
+というような作業をイメージしました。
+
+```
+Entity Frameworkは論理モデルではなく、概念モデルによるプログラミングを実現するフレームワークである。
+```
+
+```
+オブジェクト指向言語では概念モデルを直接実装できる
+```
+
+インピーダンス・ミスマッチ
+```
+インピーダンス・ミスマッチはもともと電気工学の用語で、入出力のインピーダンスが不整合な様子を表すが、転じてソフトウェア・モデル間の不整合を表す用語となっている。
+```
+
+RDBで表すために手間がかかって、その手間がアプリケーションに悪い影響を与えているというイメージがわきました。
+
+```
+こうしたモデル変換で生じる問題に対応して、生産性を向上するために、これまでよく用いられてきたのが「O/Rマッパー」（Object / Relational Mapper）と呼ばれるフレームワークだ。
+```
+
+```
+O/Rマッパーはオブジェクトモデルとリレーショナルモデルを仲立ちし、オブジェクトモデルを用いたデータアクセスを可能とする。
+
+具体的には、データベースのテーブルをオブジェクトにマッピングし、リレーションシップをオブジェクト同士の参照としたオブジェクト・モデルを構築できる。
+```
+
+モデルという言葉があふれています。
+ちょっと混乱しそうなので、振り返ります。
+
+「概念モデル」「論理モデル」「物理モデル」はビジネス要件からどういう風にデータにできそうなものを抽出するかというときのツールだと感じました。
+どちらかというとデータベースよりの言葉なのかな。
+
+「オブジェクトモデル」と「リレーショナルモデル」は上の３つとはちょっとニュアンスが違っているように感じます。
+どちらかというとアプリケーションよりの言葉な気がします。
+
+```
+O/Rマッパーは基本的に「テーブルとオブジェクトを1対1に対応させる」論理モデルを基にしたフレームワークであるため、概念モデルと論理モデル間のインピーダンス・ミスマッチへの根本的な解決策ではない。
+```
+
+```
+Entity Frameworkが目指すのは、概念モデルによるプログラミングである。Entity Frameworkではエンティティ・データ・モデル（Entity Data Model、以降、EDM）という概念モデルを採用し、開発者はこのEDMに対して処理を行うことで、透過的にデータベースに対する操作を行うことができる。
+```
+
+これまで出てきたモデルという言葉たちはこれを説明するために使われた気がしてきました。
+
+```
+開発者は概念モデルを使った実装を行うことができる。そして、以降のサンプルで見るとおり、Visual Studioを使うことで、これらの3種類のXMLを意識することなく、概念モデルおよび論理モデルの設計を行うことができる。
+```
+
+2021-01-15 18:18:58
+僕が使ってる.NETのバージョンの違いでこのサイトのサンプルを試すのは難しそうです。
+
+2021-01-15 22:03:46
+
+```
+アドレス帳アプリ
+- 複数のユーザ
+- ユーザごとに複数のアドレス帳エントリ
+
+アドレス帳
+- 複数のデータ項目のエントリ
+
+エントリ（たぶんアドレス帳のこと）
+- 複数のカテゴリを持つことができる
+- エントリは特定の順番に従って表示できる
+- エントリは氏名・メールアドレスによる検索ができる
+```
+
+Entity Frameworkをつかって上のビジネス要件をクリアしたアプリをつくろうとしています。
+
+2021-01-15 22:05:35
+アドレス帳とデータ項目の関係のテストは大体パスしたので、ここにEntity Frameworkを適用していきたいです。
+
+参考サイトはEFと.NETのバージョンが違うため、前回試したMicrosoftDocsの記事を参考にします。
+
+概要 - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/get-started/overview/first-app?tabs=visual-studio
+
+2021-01-16 01:27:02
+サンプルを参考にEFをインストールして
+Add-Migrationを実行したら警告文のようなものがでました。
+
+```
+The entity type 'AddressBook' requires a primary key to be defined. If you intended to use a keyless entity type, call 'HasNoKey' in 'OnModelCreating'. For more information on keyless entity types, see https://go.microsoft.com/fwlink/?linkid=2141943.
+
+
+エンティティの型AddressBookは主キーを定義する必要があります。
+```
+
+主キーを設定しなさいと警告されましたが、サンプルの記事ではどのプロパティを主キーにしていたか忘れました。
+確かめてみます。
+
+文字として明示してる部分は見つけられなかったのですがIDというものを主キーにしてました。
+
+2021-01-16 01:47:46
+うまく
+Add-Migration InitialCreate
+実行できました。
+
+しかしUpdate-Databaseは失敗しました。
+
+2021-01-16 01:56:37
+うまくいきまいした。これでテストが通るか確認できます。
+
+Add-Migration InitialCreate
+Update-Database
+
+この二つを実行するときは必ずBuildが通る状態になっている必要があるようです（エラーが０でないといけない）
+
+2021-01-16 02:06:57
+Testの中で例外が発生していました。
+
+		Message	"SQLite Error 1: 'no such table: AddressBooks'."	string
+
+AddressBooksテーブルがないみたいです。
+
+ちなみにテーブルを作った記憶は当たり前ですがありません。
+
+素人なのでどうしたらいいかわからないため、この取り組みを中断してちょっとサンプルの記事を進めてみたいと思います。
+
+第１回はおおかた読んだので、第２回に移ります。
+
+2021-01-16 02:10:56
+
+```
+ 第2回　EDMにおける多対多関係とEntity Frameworkでのデータの取得／保存
+
+    多対多関係の実現
+    EDMからデータベースの自動生成
+    Entity Frameworkで自動生成されるクラス
+    Entity Frameworkでのデータ保存／取得サンプル
+```
+
+目次を見る感じだと、Entity Frameworkの具体的な使い方について書かれているような感じがします。
+
+2021-01-16 02:13:57
+第2回 EDMにおける多対多関係とEntity Frameworkでのデータの取得／保存（1/4） - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/ef4basic02/ef4basic02_01.html
+
+2021-01-16 02:15:10
+```
+今回は、より複雑な構造を持つ概念モデルをEntity Frameworkでどのように扱えるか、多対多関係を持つエンティティをサンプルとして解説する。
+```
+
+```
+各エントリは複数のカテゴリを持つことができ、各カテゴリは複数のエントリを持つことができる、多対多関係となっている。
+```
+
+サンプルのそもそもの問題として、僕のEFにはGUIツールがありません。
+これはどういうことなんでしょう？
+僕が見逃しているのか、バージョンアップをしていく中で淘汰されたかの２択が思い浮かびます。
+
+ちょっとGUIツールについて調べてみます。
+
+2021-01-16 02:24:30
+実はあったみたいです。
+
+Tools & Extensions - EF Core | Microsoft Docs https://docs.microsoft.com/en-us/ef/core/extensions/
+
+2021-01-16 02:27:45
+試しにllblgenというものについて調べたら
+３万円するそうです。
+高いですね。
+
+2021-01-16 02:30:54
+製品によって対応するEF Coreのバージョンが違うようです。
+一応自分がつかっているEF Coreのバージョンの調べ方を探してみます。
+
+ソリューションウィンドウのプロジェクトの中のDependencys -> Packagesのなかに
+EF Coreがありました。バージョンも書いてありました。
+
+ちなみにバージョンは5.0.2でした。
+
+2021-01-16 02:37:03
+Devart Entity Developerも３万円でした。
+高いですね。EF Core 用のGUIの相場がわかりそうですね。どうでもいいですが。
+
+2021-01-16 02:43:01
+Inspect your DbContext model · ErikEJ/EFCorePowerTools Wiki · GitHub https://github.com/ErikEJ/EFCorePowerTools/wiki/Inspect-your-DbContext-model
+
+これつかえそうです。
+ただ、自分の中でMicrosoft DocsのチュートリアルでGUIが使われていなかったことが引っかかっています。
+
+GUIなしで済むなら、できるだけMicrosoft Docsの意向に従いたいのが本心です。
+
+なのでこの情報を頭の隅に置きつつ、サンプルを読み進めて行きます。
+
+2021-01-16 02:46:56
+EDMを生成したとき（たぶんマイグレーションしたタイミング）に自動生成されるクラスが２つある
+
+エンティティクラス
+```
+エンティティ・クラスとは、EDMで定義したエンティティに対応するクラスである。アプリケーションからEntity Frameworkを使用する際には、このエンティティ・クラスを介してデータのやりとりを行う。
+
+例えばデータベースのデータはエンティティ・クラスのインスタンスとして取得できる。また、エンティティ・クラスのインスタンスの新規作成やプロパティの変更は、データベースへのレコードの挿入、更新などの操作に対応する。
+
+Entryエンティティに対応するエンティティ・クラスは、AddressBook.Designer.cs／.vbファイルのEntryクラスとして生成されている
+```
+
+自分のサンプルにも生成されていました。
+
+オブジェクトコンテキストクラス
+```
+オブジェクト・コンテキストとは、データベースへのコネクションをカプセル化し、データベースからのデータ取得、エンティティ・クラスへの変更をデータベースへ反映させるなどの機能を持つクラスである。Entity Frameworkを使用する際には、ほとんどの場合、このオブジェクト・コンテキスト・クラスのインスタンス作成から、すべての操作が始まるといってよい。
+
+オブジェクト・コンテキストは、EDM上では「エンティティ・コンテナ」という、エンティティすべてを格納する論理グループとして扱われる（正確には、EDMのエンティティ・コンテナが概念として先にあり、それを実装したものがオブジェクト・コンテキストである）。
+
+　そのため、デフォルトではEDMの名前に「Container」を付加したものがオブジェクト・コンテキスト・クラスの名前として用いられる。
+
+オブジェクト・コンテキスト・クラスには、各エンティティの集合に相当するプロパティ（Entriesプロパティ）や、新規エンティティを追加するためのメソッド（AddToEntriesメソッド）などが含まれている。特に、エンティティの集合に相当するプロパティは、データのクエリの際に頻繁に使用するので覚えておきたい。
+```
+
+おそらくDbContextクラスのことでしょうか。
+もしかすると記事執筆時点ではDbContextクラスという形ではなかったのかもしれません。
+
+DbContextがオブジェクトコンテキストクラスかどうかを調べてみます。
+
+2021-01-16 03:02:08
+DbContext Class (System.Data.Entity) | Microsoft Docs https://docs.microsoft.com/en-us/dotnet/api/system.data.entity.dbcontext?view=entity-framework-6.2.0
+```
+DbContext is conceptually similar to ObjectContext.
+
+DbContextは、概念的にはObjectContextに似ています。
+```
+
+親戚のような感じでしょうか。珍しくカンがあたりました。
+
+2021-01-17 18:36:30
+今日もEntity Frameworkの勉強をします。
+
+連載：ADO.NET Entity Framework入門 - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/index/index.html
+
+2021-01-17 18:39:28
+第３回から読みます。
+
+```
+第3回　Entity Frameworkにおけるクエリと更新
+
+    Entity SQLによるクエリ／クエリ・ビルダによるクエリ
+    LINQ to Entitiesによるクエリ／遅延読み込み
+    Entity Frameworkでのデータ保存／まとめ
+
+```
+
+目次を見る感じだと第２回でデータベースの用意はできたっぽいので、第３回はデータベースとのコミュニケーションの話のような感じがしています。
+
+実際に読んでみます。
+
+第3回 Entity Frameworkにおけるクエリと更新（1/3） - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/ef4basic03/ef4basic03_01.html
+
+2021-01-17 18:42:22
+
+Entity Frameworkでのクエリ方法
+```
+アプリケーションからクエリを行うには、Object Servicesを介する方法と、EntityClientデータ・プロバイダを直接呼び出す方法がある。Object Services経由では、「Entity SQL」「クエリ・ビルダ」「LINQ to Entities」の3つのクエリ方法がある。
+```
+
+Entity Frameworkの下にはADO.NETが動いてるらしいです。
+ADO.NETがデータベースにアクセスするドライバ的な役割を担っているっぽいです。
+
+そしてEntity Frameworkからクエリを行う方法は２つあるようです。
+
+- EntityClientデータ・プロバイダを直接呼び出す方法
+```
+　EntityClientデータ・プロバイダは、Entity Frameworkの下位のコンポーネントで、ADO.NETデータ・プロバイダを介してデータベースにアクセスする。
+```
+
+- Object Servicesを介する方法
+```
+Object Servicesは、EntityClientデータ・プロバイダの上位に位置するコンポーネントで、データのクエリや更新を、EDMのエンティティ・クラスを基本として行う。
+```
+
+Object Servicesの方法ではさらに３つの方法に分けることができるらしいです。
+
+- Entity SQL
+```
+Entity SQLは文字列として指定するため、コーディング、コンパイル時に検証は行われない。
+```
+
+- クエリ・ビルダ
+```
+クエリ・ビルダはメソッドの連なりによりEntity SQLに相当するクエリを表現するため、構文エラーなどはコンパイラが発見することができる。ただし、メソッドに与えるパラメータの内容は文字列であるため、そこにミスがあった場合には実行時まで発見されない。
+```
+
+- LINQ to Entities
+```
+C#やVBなどの言語に統合されているため、LINQ to SQLなどのほかのLINQ技術と同様に、Visual StudioによるIntelliSense機能や、コンパイル時の構文チェックなど、コーディングのサポートを受けることができる。なお、ほかのLINQ技術と同様、更新機能は持っていない。
+```
+
+エンティティの読み込み方法には２つの種類があるようです（現時点だとそれほど気にしなくていい情報かもしれません）
+```
+使用するエンティティを含め、最初にまとめて読み込む方法はEager-loadingと呼ぶ。定まった和訳はないようだが、「Lazy-loading」＝「実際に必要になるまで読み込みを怠ける」に対し、「Eager-loading」＝「最初から熱心に読み込みを行う」といった意味合いを持つ（「lazy：怠惰な」は「eager：熱心な」の反対語）。
+```
+
+遅延読み込みという方法ではあとからデータをまとめて取得してくるそうです。
+
+以前LINQのクエリー部分と実行部分に別れる話を勉強しましたが、それに近い印象をもちました。
+
+```
+遅延読み込みを行うかどうかは、エンティティ・コンテナ（リスト1～3ではAddressBookContainer）のContextOptionsプロパティのLazyLoadingEnabledプロパティで指定できる。
+```
+
+2021-01-17 19:12:52
+```
+Visual Studio 2010でADO.NET Entity Data Modelツールを使ってEDMを作成した場合、デフォルトでこのプロパティにTrue（遅延読み込みを行う）を設定するコードが書き込まれるため
+```
+
+以前EDMを作成するためのGUIツールをさがしていましたが、サンプルの記事についにそのヒントとしてツールの名前を発見できました。
+ちょっと本筋の勉強から脱線してツールについて調べてみます。
+
+Entity Framework Tools - Visual Studio | Microsoft Docs https://docs.microsoft.com/en-us/visualstudio/data-tools/entity-data-model-tools-in-visual-studio?view=vs-2019
+
+```
+The Entity Framework tools are installed as part of the Data storage and processing workload in the Visual Studio Installer. You can also install them as an individual component under the SDKs, libraries, and frameworks category.
+
+Entity Framework ToolはVisual Studioインストーラーの中のData storage and processingワークロードの一部としてインストールされます。
+それらをSDK、ライブラリ、フレームワークのカテゴリの個別のコンポーネントとしてインストールすることもできます。
+```
+
+たぶん「データの保存と処理」という項目のことだと思うので、試しにインストールしてみます。
+
+インストールに時間がかかりそうなので、本筋の勉強に戻ります。
+
+2021-01-17 19:48:04
+インストール終わりましたが、記事に書いてあったようなツールや僕が想像していたようなものは見つかりませんでした。
+
+もとの勉強に戻ろうと思います。
+
+2021-01-17 20:17:33
+遅延読み込みの部分から再開します。
+
+```
+　遅延読み込みは便利な機能であるが、遅延読み込みが発生するたびにデータベースへのクエリが発行されるため、ループ内で遅延読み込み処理を行うとクエリ回数が増大することに注意が必要である。これを「N＋1検索問題」（最初の1回＋ループでの遅延読み込みN回のクエリが発生）と呼ぶ。
+```
+
+遅延読み込みにはデメリットがあるようです。
+
+```
+　同じケースをEager-loadingで処理した場合、最初に関係するエンティティをまとめて読み込むため、クエリは1回だけで済むことになる。しかしながら、Eager-loadingを行うと、クエリ結果が大きくなり、メモリ使用量やパフォーマンスに問題が起きる場合もあるため、状況に応じた使い分けが必要である。
+```
+
+状況によって使い分ける必要があるようです。
+
+- EntityClientデータ・プロバイダによるクエリ
+
+```
+　EntityClientデータ・プロバイダはEntity Frameworkにおいて、データベースにアクセスするための基本的な機能を提供するコンポーネントである。
+EntityClientデータ・プロバイダは結果をオブジェクトとして返すことはできず、結果はプリミティブなデータの集合となる。
+```
+
+Object Servicesの３つの方法とはちがって、EntityClientデータプロバイダーはオブジェクトは返さないようです。
+
+2021-01-17 20:25:17
+第３回の記事を読み終わりました。
+
+EFを通してDBとコミュニケーションをとる方法としてObject Servicesが気になりました。EF Coreでは３つの方法が実際にどういうコードで表せれるのか、この入門記事で見つからなかったら、追々調べてみたいです。
+
+第４回の記事に移りたいと思います。
+
+2021-01-17 20:28:54
+Entity Framework入門記事 第４回を読んでみます。
+
+連載：ADO.NET Entity Framework入門 - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/index/index.html
+
+```
+第4回　データベースからのEntity Data Model生成
+
+    データベースからのEDM生成
+    ストアド・プロシージャの呼び出し
+    複合型の活用／まとめ
+
+```
+
+これまで３つの記事を読んできましたが、
+どの記事にもこのフレームワークの背景となる用語解説が含まれていました。
+
+今回もその背景の部分に注目しつつ勉強したいと思います。
+
+目次を見た感じだと、Entity Data Modelの生成が主なコンテンツとなりそうです。
+
+読んでみます。
+
+2021-01-17 20:32:35
+第4回 データベースからのEntity Data Model生成（1/3） - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/ef4basic04/ef4basic04_01.html
+
+```
+Entity Frameworkの理想は、まず概念モデルの設計があり、そこからデータベースの実装を行うことにあるといえる。しかし、現時点での開発においては、データベース設計が先にあり、プログラミング用のモデルとして概念モデルを後で設計するケースも多いだろう。
+
+　また、概念モデルを先に設計している場合でも、Entity Frameworkのデータベース自動生成機能がシンプルな構造にしか対応していないことから、自動生成をあきらめ、データベースからEDMを生成するケースも考えられる。
+```
+
+記事執筆時点だと概念モデルから上手にデータベースを自動でつくってくれる機能はうまくいかないようです。
+
+現時点だとどうなんでしょうか。気になります。
+
+```
+既存のデータベースを解析し、モデルを生成することを、一般にデータベースのリバース（リバース・エンジニアリングの略）と呼ぶ。Entity Frameworkにおいても、Visual Studioの機能を使用することで、簡単なウィザードにより、データベースからのリバース処理を行える。
+```
+
+データベースを先に作っておいて、それからEntity Frameworkでコミュニケーションをとるインターフェースをつくる方法っぽいです。
+
+個人的にはアプリケーション側からデータベースを生成するよりこっちのほうが健全なデータベースができそうな気がします。
+
+Entity Frameworkは概念モデルでデータベースとコミュニケーションをするツールというイメージです。
+Entity Frameworkを使って概念モデルからデータベースを作る必要は現時点だと薄い気がしています。
+
+読み進めてみます。
+
+```
+データベースからのリバース処理は1回に限られておらず、EDM→データベース、データベース→EDM両方の変換を何度でも実行できる。その場合、更新されたエンティティやテーブルの情報が相互に反映されるようになっている。
+```
+
+開発途中で概念モデルの構造が変わってしまったときなどにこれは便利だと思いました。
+
+最初のデータベースの構築はアプリケーションを通さずに作って、開発途中で概念モデルが変わったりしたらアプリケーション側からデータベースの構造を変更できるのがいいのかなというざっくりとした自分のイメージが湧きました。
+
+```
+Entity Frameworkからストアド・プロシージャを呼び出すには、さらにストアド・プロシージャをEDMの関数としてインポートするという手順が必要である。
+```
+
+ストアド・プロシージャとは何でしょうか。
+大事そうなので調べてみます。
+
+2021-01-17 21:00:57
+ストアドプロシージャ - Wikipedia https://ja.wikipedia.org/wiki/%E3%82%B9%E3%83%88%E3%82%A2%E3%83%89%E3%83%97%E3%83%AD%E3%82%B7%E3%83%BC%E3%82%B8%E3%83%A3
+```
+    - ひとつの要求で複数のSQL文を実行できる（ネットワークに対する負荷を軽減できる）
+    - あらかじめ構文解析や内部中間コードへの変換をすませるため、処理時間が軽減される
+    - データベーストリガと組み合わせることで、複雑なルールによるデータの参照整合性保持が可能になる。簡単に言えば、アプリケーション側にロジックを持たずとも、データベース内のデータのつじつまが合うようにすることができる。
+    - Java等のホスト言語とSQL文が確実に分離されソースコードの見通しが良くなること、また、Webサイトなど運用中でもストアドプロシージャの入れ替えによる修正が可能なため保守性に優れる。
+```
+
+C#でいうところのメソッドのようなものっぽいです。
+複数の命令をひとつにまとめたものっぽいです。
+
+2021-01-17 21:03:30
+EFにもどります。
+
+データベースの一連の処理をEDMのメソッドとして用意できるということでしょうか。たぶん。
+
+- 複合型とは
+```
+　これまで扱ってきたEDMのエンティティのプロパティは、スカラー・プロパティと呼ばれる、数値、文字列などのプリミティブな型であった。EDMは、データベース上のフィールドと1対1に対応するスカラー・プロパティだけでなく、図9のように、複数のスカラー・プロパティで構成される複合型をプロパティとする複合プロパティにも対応している
+```
+
+C#のオブジェクトや構造体っぽいですね。
+
+```
+　複合型とエンティティは、表1にあるように複合プロパティ、スカラー・プロパティを内部に持つことができる点で共通している。違いとしては、エンティティが一意なIDであるキー・プロパティ（データベース上では主キーなどで表現される）を持つのに対し、複合型はキー・プロパティを持たないことにある。従って、複合型はエンティティの一部となって、テーブルのいくつかのフィールドにマッピングすることはできるが、エンティティのようにそれ自体をテーブルに対応させることはできない。
+
+また、エンティティのようにほかのエンティティとのリレーションシップを持たせることもできない。
+```
+
+エンティティと複合型はちがうものだそうです。
+
+```
+　複合型は、論理モデルと概念モデルのギャップを埋めるための手段といえるだろう。データベースの論理モデルは、数値、文字列、日付、バイナリなどのプリミティブな型によるフラットな行列を基本としているため、テーブル内に複合型を持つことはできない*3が、複合型を使用することで、そうした論理モデル側の制限を概念モデル側に持ち込むことなく、扱いやすい構造の概念モデルを設計することができる。
+```
+
+複合型は概念モデルの居心地をよくするものっぽいです。
+
+```
+データベース側で適切なフィールド名を設定したうえで、リバースの際に複合型を活用する、というのが現実的なシナリオと思われる。
+```
+
+環境構築時はアプリケーション側を通さずにデータベースをつくるのが健全なイメージが固まりつつあります。
+
+2021-01-17 21:40:42
+第４回の記事を読み終わりました。
+
+データベースの構築からEntity Frameworkとの紐付けの流れに興味がわいてきました。
+
+第５回の記事に向かいます。
+
+2021-01-17 21:57:13
+Entity Framework入門記事第５回を読みます。
+
+連載：ADO.NET Entity Framework入門 - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/index/index.html
+
+```
+第5回　POCOによるエンティティ・クラス
+
+    POCOと永続性非依存（Persistence Ignorance）原則
+    POCOによるエンティティ・クラスの作成／【コラム】T4テンプレート
+    生成されたオブジェクト・コンテキスト・クラスの確認／【コラム】コード・ファースト
+
+```
+
+目次を見た感じだと、POCOというものが主役っぽいです。
+
+POCOについて第１回でちらっと見かけましたがどんなものなのか忘れてしまいました。
+
+調べてみます。
+
+```
+    2021-01-15 17:10:45
+    POCO とは
+    ```
+    「Plain-Old CLR Object」の略で、特別なクラスやインターフェイスを継承していないクラス（のオブジェクト）のこと。
+    ```
+```
+
+おそらくですが
+```
+class Foo {}
+```
+こういう何も継承してないクラスのことなのでしょう。たぶん
+
+POCOについてはなんとなくわかりましたが、それがEFとどのように関係するのか全く読めません。
+
+読んでみます。
+
+2021-01-17 22:03:46
+第5回 POCOによるエンティティ・クラス（1/3） - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/ef4basic05/ef4basic05_01.html
+
+```
+データベースに直接アクセスする部分がEntity Frameworkに依存することには何ら問題はないが、実際の業務処理を行うビジネス・ロジック部分までがEntity Frameworkに依存するのは望ましいことではない。
+
+　.NET Framework 4のEntity Frameworkの新機能である「POCOによるエンティティ・クラス」を用いることで、Entity Frameworkへの依存関係を、本当に必要な部分に限ることができる。また、一般にN層アーキテクチャなどと呼ばれる、アプリケーションを階層に分割するソフトウェア・アーキテクチャへの対応も容易になる。
+```
+
+なるほど、ちょっと見えてきました。
+
+以前データベースを外部要因として切り離すデザインパターンとしてRepositoryパターンを学びましたが、それをPOCOで実現しようとしているのではないのでしょうか。たぶん。
+
+読み進めてみます。
+
+```
+一定以上の規模のシステムにおいては、階層化は不可避であり、それに対応する技術が求められていく。POCOによるエンティティ・クラスは、Entity FrameworkがN層アーキテクチャに対応するうえでも重要な機能である。その点を理解するに当たって、まずは「永続性非依存」という重要な原則について解説する。
+```
+
+難しそうな単語が現れました。永続化非依存。
+どういう意味なんでしょうか。
+読み進めてみます。
+
+- POCOと永続性非依存（Persistence Ignorance）原則
+
+```
+重要になるのは永続性非依存（Persistence Ignorance）と呼ばれる原則である。これは、永続性すなわちデータの永続化（保存、読込）は、直接処理を行う層のみが意識し、直接関与しないそれ以外の層は、永続化処理に依存しないようにする、という原則である
+
+Persistence Ignoranceは「永続性無知」とも訳される。永続処理を行う層以外は、データがどうやって永続化されるかについて「無知である」「無知でいられる」の意。この場合の「無知」にはネガティブな意味はない。
+```
+
+なんとなく理解できますが、うまく言語化できません。
+ひとつのクラスにひとつだけ責任をもたせる考え方やクラスに正しい名前をつける考え方にちかいと思います。
+
+この前のサンプルでエンティティクラスAddressBooksContextクラスはSqliteに接続するための処理を書いてました。
+
+たとえとして、このアプリケーションのDBを変更するときが来たとしましょう。
+
+実際に変更するのは
+```
+protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlite("Data Source=AddressBooks.db");
+        }
+```
+
+この部分だと思いますが、もしDBの接続を専用に行ってくれる別のインターフェースがあったら、DBの変更という状況でAddressBooksContextのコードを変更する必要がなくなると思います。
+
+```
+protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            _dbConfiguration.Configure(options)
+        }
+
+IDBConfigurationみたいなインターフェースを依存性でもたせるみたいな
+```
+
+おそらく永続性非依存っていうのはそういうことを言いたいのではないかなと思いました。
+
+POCO Entity Generatorなるものがあると書かれていますが、記事執筆時点と現在のバージョンの差によって、存在は疑わしいです。
+
+ダメ元で探してみます。
+
+2021-01-17 22:42:54
+Visual Studioの拡張機能の中で調べてみたら、それっぽいのがたくさん出てきました。
+
+まずはリンクを残していきます。
+Entity Developer ORM Designer for Entity Framework - Visual Studio Marketplace https://marketplace.visualstudio.com/items?itemName=DevartSoftware.EntityDeveloperforEntityFramework
+```
+You can use Model-First and Database-First approaches to design your model and generate C# or Visual Basic .NET code for it. 
+```
+アプリ側のモデル（たぶん）からでも、
+既存のデータベースからでも支援できるよってことでしょうか
+
+EntityFramework Reverse POCO Generator - Visual Studio Marketplace https://marketplace.visualstudio.com/items?itemName=SimonHughes.EntityFrameworkReversePOCOGenerator
+```
+Reverse engineers an existing database and generates Entity Framework Code First Poco classes, Configuration mappings and DbContext.
+```
+既存のデータベースからPOCOとエンティティクラスを自動生成してくれるっぽいです。
+ただし、対応してるデータベースに限りがあるっぽいです。
+
+
+Entity Framework 6 Power Tools Community Edition - Visual Studio Marketplace https://marketplace.visualstudio.com/items?itemName=ErikEJ.EntityFramework6PowerToolsCommunityEdition
+
+2021-01-17 22:47:01
+今探しているのはPOCOからエンティティクラスを自動生成してくれるツールです。
+
+といっても今すぐに使うから必要というわけではなく、サンプルで使っていたからあるかなーと思って探してみただけなので、この部分を最悪スルーしても問題ないと思います。
+
+2021-01-17 22:54:26
+検討するとしたらコイツが気になります。
+
+Entity Developer ORM Designer for Entity Framework - Visual Studio Marketplace https://marketplace.visualstudio.com/items?itemName=DevartSoftware.EntityDeveloperforEntityFramework
+
+試しに使おうとしたらサイトのログインを促されました。
+そしてDevartという名前には既視感があります。
+
+```
+
+    2021-01-16 02:37:03
+    Devart Entity Developerも３万円でした。
+    高いですね。EF Core 用のGUIの相場がわかりそうですね。どうでもいいですが。
+
+```
+例の３万円のツールっぽいですね。
+なるほど。Visual Studioの拡張から試用サイトにとばしてるっぽいです。かしこいですね。
+
+このツールを使うのは諦めます。
+
+T4テンプレート
+```
+図7を見ると分かるとおり、POCO Entity GeneratorによるEDMからのコード生成の際に、エンティティ・クラスだけでなく、Model1.ttなどの「.tt」拡張子を持ったファイルが生成されている。これらはT4（Text Template Transformation Toolkit）と呼ばれる、Visual Studioの持つテンプレート機能を用いたテンプレート定義ファイルである。
+
+　それぞれのファイルには、C#、VBのコードを生成するためのテンプレートが記述されており、それに沿ってEDMからのコード生成が行われている。
+
+　T4の詳細については、MSDNなどの情報源を参考にしてほしい。
+
+    MSDN「コード生成とテキスト テンプレート」
+    MSDN Blogs「T4 Templateを使ってみよう！」
+
+```
+
+T4テンプレートというものを知りませんでした。
+便利ですね。
+
+- 「コード・ファースト」開発スタイルのサポート
+```
+　Entity Framework 4における、POCOによるエンティティ・クラスのサポートは「コード・ファースト」と呼ばれる新たな開発スタイルへの扉を開いたようだ。
+
+　詳細は「Entity Framework 4でコード・ファースト開発」を参考にしてほしいが、EDMを明示的に作成することなく、POCOによるエンティティ・クラス定義と、非常に簡潔なコンテキスト・クラスを作成するだけで、設定ファイルすらも必要としないデータベースの永続化処理が完結している。Ruby on Railsなどのフレームワークで採用されている「設定に勝る規約（convention over configuration：CoC）」の思想が取り入れられているようだ。
+```
+
+完全にアプリ側だけでデータベースの事情を完結するのがコードファーストという感じでしょうか。
+
+EFの目的はコードファーストとちょっと違いがあると思いますが、興味深い考え方だと思いました。
+
+2021-01-17 23:34:08
+第５回の記事を読み終わりました。
+
+内容としては、どうやってビジネスロジックからデータベースの直接操作を切り離すかというものだったと思います。
+
+次の記事に向かいます。
+
+2021-01-17 23:37:25
+Entity Framework入門記事第６回を読みます。
+
+連載：ADO.NET Entity Framework入門 - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/index/index.html
+
+```
+第6回　EF4によるN層アーキテクチャと自己追跡エンティティ【前編】
+
+    .NETでの3層アーキテクチャ／変更履歴管理とは／自己追跡エンティティとは
+    自己追跡エンティティを使った3層アーキテクチャ・サンプル
+    自己追跡エンティティの実装を確認／【コラム】自己追跡エンティティはPOCO？
+
+```
+
+目次を見た感じだと、主役は自己追跡エンティティというものっぽいです。
+
+名前からはまったく意味合いを想像できません。
+
+エンティティってなんでしたっけ？混乱してきました。
+
+ちょっと振り返って確認してきます。
+
+2021-01-17 23:41:47
+```
+
+    2021-01-16 02:46:56
+    EDMを生成したとき（たぶんマイグレーションしたタイミング）に自動生成されるクラスが２つある
+
+    エンティティクラス
+    ```
+    エンティティ・クラスとは、EDMで定義したエンティティに対応するクラスである。アプリケーションからEntity Frameworkを使用する際には、このエンティティ・クラスを介してデータのやりとりを行う。
+
+    例えばデータベースのデータはエンティティ・クラスのインスタンスとして取得できる。また、エンティティ・クラスのインスタンスの新規作成やプロパティの変更は、データベースへのレコードの挿入、更新などの操作に対応する。
+
+    Entryエンティティに対応するエンティティ・クラスは、AddressBook.Designer.cs／.vbファイルのEntryクラスとして生成されている
+    ```
+
+    自分のサンプルにも生成されていました。
+
+    オブジェクトコンテキストクラス
+    ```
+    オブジェクト・コンテキストとは、データベースへのコネクションをカプセル化し、データベースからのデータ取得、エンティティ・クラスへの変更をデータベースへ反映させるなどの機能を持つクラスである。Entity Frameworkを使用する際には、ほとんどの場合、このオブジェクト・コンテキスト・クラスのインスタンス作成から、すべての操作が始まるといってよい。
+
+    オブジェクト・コンテキストは、EDM上では「エンティティ・コンテナ」という、エンティティすべてを格納する論理グループとして扱われる（正確には、EDMのエンティティ・コンテナが概念として先にあり、それを実装したものがオブジェクト・コンテキストである）。
+
+    　そのため、デフォルトではEDMの名前に「Container」を付加したものがオブジェクト・コンテキスト・クラスの名前として用いられる。
+
+    オブジェクト・コンテキスト・クラスには、各エンティティの集合に相当するプロパティ（Entriesプロパティ）や、新規エンティティを追加するためのメソッド（AddToEntriesメソッド）などが含まれている。特に、エンティティの集合に相当するプロパティは、データのクエリの際に頻繁に使用するので覚えておきたい。
+    ```
+
+    おそらくDbContextクラスのことでしょうか。
+```
+
+EDMは概念モデルの在り方のひとつで、
+エンティティはEDMのひとつの要素という感じでしょうか。たぶん。
+
+EFはそれをエンティティクラスとして使うという感じでしょうか。たぶん。
+
+補足説明として、
+概念モデルはビジネス要件から設計するらしいです。
+このときに使えるツールが
+- エンティティ・リレーションシップ・モデル
+- Entity Data Model(EDM)
+etc...
+
+というのがあって、ぼくはEFをつかうので、EDMに則って概念モデルを作るということでしょうか。たぶん。
+
+なのでエンティティって何？の答えは
+EDMという考えの中の要素の一つということだと思います。
+
+2021-01-17 23:54:06
+第６回の記事を読みます。
+
+```
+「自己追跡エンティティ（Self-Tracking Entity）」という機能を使用することにより、N層アーキテクチャでのエンティティの変更履歴管理がどのように行われるかに注目する。
+```
+
+エンティティの変更履歴管理がどのように活用できるのかまだわかりませんが、
+読み進めます。
+
+```
+　データの更新処理を伴うアプリケーションで問題となるのは、データの変更履歴管理である。変更履歴管理とは、特定のデータの状態がデータベースから読み込んだ状態のままか、あるいは変更／削除／追加されたものか、といった情報の管理である。アプリケーションが常にデータベースと接続している場合には不要であるが、Webアプリケーションのように、データベースからいったんメモリ上にデータを読み込んだうえで編集を行う場合には必要な機能である。
+```
+
+なるほど、必要らしいです。
+
+```
+ADO.NETのデータセット（DataSetクラス）には変更履歴管理の機能が付いており、データベースの行を表すDataRowクラスのDataRowStateプロパティで、その行の変更履歴を管理できる。DataTableオブジェクトへの変更をデータベースに書き戻す際には、この変更履歴情報を基に、必要な行だけが更新されることになる。
+
+　しかし、データベースのフィールドを定義しただけのPOCOによるエンティティ・クラスの実装では、当然ながら各プロパティの現在の値しか保持することができず、変更履歴を管理することはできない。
+```
+
+なんか必要そうに見えてきました。不思議ですね。
+
+```
+変更履歴がない場合、どのエンティティが変更されたかを見分けることはできない。従って、データベースへこれらの行を書き戻す処理の実装は複雑なものになってしまう。
+```
+
+変更したことをなかったことにしたり、もとに戻すときに変更履歴がないと困るんですね。なるほど。
+
+```
+自己追跡エンティティとは、POCOによるエンティティ・クラスに、変更履歴管理機能を追加したものである。
+```
+
+拡張版POCOといった感じでしょうか、それはもうPOCOじゃありませんが、そんな感じだと思います。
+
+```
+いくつかの属性と、クラスが実装しているインターフェイスである。正直、最初にこれを見たときは「これは本当にPOCOなのか？」と疑問に思うかもしれない。しかし、ここで使用されている属性やインターフェイスは、Entity Framework依存のものではなく、.NET Framework汎用のものである。以下にまとめておこう。
+```
+
+ぼくも似たようなこと思ってます。
+POCOじゃないPOCO。
+読み進めます。
+
+```
+IObjectWithChangeTrackerインターフェイスは自己追跡機能を持つオブジェクトであることを表すインターフェイスであり、自己追跡エンティティと同時に自動生成されたファイル（AddressBookModelSelfTracking.cs／AddressBookModelSelfTracking.vb）で定義されている。INotifyPropertyChangedインターフェイスは、プロパティの変更をクライアントに伝えるための.NET標準のインターフェイスである。
+```
+
+こいつらはNet Coreでも生きてるんでしょうか。余裕があるときに確認したいです。
+
+```
+一見するとPOCOに見えないコードではあるが、それぞれは.NET標準であったり、自分で定義したものであったりするため、自己追跡エンティティはEntity Frameworkには依存しておらず、Entity FrameworkをサポートしていないSilverlightでもそのまま使用することができる。
+```
+
+なにかしらのフレームに依存してなければPOCOなんですね。クールPOCOですね。
+
+2021-01-18 00:32:55
+第６回の記事を読みました。
+
+データベースの情報を更新するとき、更新履歴情報を追跡するオブジェクトがあると、データをもとに戻すことが楽にできるということを学びました。
+
+2021-01-18 19:24:41
+データベースが使えているのかどうかを単体テストする方法ってありますか。
+
+テストコードを書きながら方法を探っていきます。
+
+2021-01-18 20:09:46
+Entity Framework Core - How to check if database exists? - Stack Overflow https://stackoverflow.com/questions/33911316/entity-framework-core-how-to-check-if-database-exists
+
+こんな記事がありました。ちょっと試してみます。
+
+2021-01-18 20:15:03
+dbContext.Database.CanConnect()
+を試してみました。
+
+DBの構築をしていないので、なんらかの例外が発生することを期待してテストしました。
+
+```
+Message: 
+    System.InvalidOperationException : No database provider has been configured for this DbContext. A provider can be configured by overriding the 'DbContext.OnConfiguring' method or by using 'AddDbContext' on the application service provider. If 'AddDbContext' is used, then also ensure that your DbContext type accepts a DbContextOptions<TContext> object in its constructor and passes it to the base constructor for DbContext.
+
+データベースプロバイダーが設定されませんでした。
+データベースプロバイダーはOnConfiguringメソッドをオーバーライドすることで設定できます。
+
+ 'AddDbContext'が使用されている場合は、DbContext型がコンストラクターでDbContextOptions <TContext>オブジェクトを受け入れ、それをDbContextの基本コンストラクターに渡すことも確認してください。
+```
+
+DataBaseContextクラスでOnConfiguringメソッドをオーバーライドしてみます。
+
+2021-01-18 20:26:15
+EF CoreでSqliteを使う方法を調べます。
+
+SQLite データベース プロバイダー - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/providers/sqlite/?tabs=dotnet-core-cli
+
+2021-01-18 20:40:51
+マイグレーションってなんでしょう？
+おそらくフレームワークの力でデータベースを作ってくれるっぽいです。
+
+Rails初心者がつまずきやすい「マイグレーション」 https://www.transnet.ne.jp/2015/12/29/rails%E5%88%9D%E5%BF%83%E8%80%85%E3%81%8C%E3%81%A4%E3%81%BE%E3%81%9A%E3%81%8D%E3%82%84%E3%81%99%E3%81%84%E3%80%8C%E3%83%9E%E3%82%A4%E3%82%B0%E3%83%AC%E3%83%BC%E3%82%B7%E3%83%A7%E3%83%B3%E3%80%8Dcolnr/
+```
+マイグレーション機能をひと言で説明すると、「SQLを書くことなくRubyでデータベース内にテーブルを作成することができる機能」です。
+```
+
+2021-01-18 20:54:55
+What is Data Migration? - Definition from Techopedia https://www.techopedia.com/definition/1180/data-migration
+
+```
+
+Data migration occurs for a variety of reasons, including: 
+    Server or storage equipment replacements or upgrades
+    Website consolidation
+    Server maintenance
+    Data center relocation
+
+```
+
+2021-01-18 20:57:38
+マイグレーションという言葉の意味合いはよくわかりませんでした。
+背景によって意味が変わってそうな感じがします。
+（データの引っ越し？）
+
+EFとSqliteの使い方を調べることに戻ります。
+
+2021-01-18 21:04:16
+概要 - Microsoft.Data.Sqlite | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/standard/data/sqlite/?tabs=visual-studio
+```
+Microsoft.Data.Sqlite は SQLite の軽量 ADO.NET プロバイダーです。 SQLite 用の Entity Framework Core プロバイダーはこのライブラリの上に構築されます。 
+```
+
+2021-01-18 21:08:56
+接続文字列 - ADO.NET | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/framework/data/adonet/connection-strings
+
+UseSqliteメソッドにわたす接続文字列のルール
+
+2021-01-18 21:15:38
+接続文字列ビルダー - ADO.NET | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/framework/data/adonet/connection-string-builders
+
+接続文字列をセキュリティを考慮しながら作ってくれるクラスがあるようです。
+
+2021-01-18 21:17:23
+接続文字列と構成ファイル - ADO.NET | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/framework/data/adonet/connection-strings-and-configuration-files
+
+接続文字列をコードに残すと逆アセンブルされるとバレるらしいです。
+なので接続文字列用のファイルを別途で用意するといいらしいです。
+
+```
+アプリケーション構成ファイルには、特定のアプリケーションに固有の設定が格納されます。 たとえば、ASP.NET アプリケーションには少なくとも 1 つの web.config ファイルが存在するほか、Windows アプリケーションにも必要に応じて app.config ファイルを割り当てることができます。 構成ファイルの名前と場所はアプリケーションのホストによって異なりますが、どの構成ファイルにも共通の要素があります。
+
+接続文字列は、アプリケーション構成ファイルのconnectionStrings 要素の configuration セクションにキーと値のペアとして格納できます。
+```
+
+構成ファイルというものがどのプロジェクト化ソリューションにあるっぽいので、そこに接続文字列を入れるといいっぽいです。
+
+2021-01-18 21:32:18
+ちょっとテストしなさすぎました。
+とりあえず接続文字列を設定して、接続できるか試してみます。
+DBつくってないんで無理だと思いますがテスト動かしてみます。
+
+2021-01-18 21:33:47
+テストが例外が発生せずに最後まで動きました。
+
+つぎはTrueが帰ってくるようにしてみます。
+
+2021-01-18 21:35:59
+Getting Started - EF Core | Microsoft Docs https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=visual-studio
+
+この記事を参考にDBの構築に挑戦します
+
+移行の概要 - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli
+
+2021-01-18 21:37:15
+移行の概要 - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli
+```
+実プロジェクトでは、機能が実装されると、データ モデルが変更されます。新しいエンティティまたはプロパティが追加および削除されると、アプリケーションと一致させるために、データベース スキーマを変更しなければならなくなります。 EF Core の移行機能では、データベースの既存のデータを維持しながら、アプリケーションのデータ モデルとデータベース スキーマを同期した状態で、データベース スキーマを増分的に更新することができます。
+```
+
+Entity Framework Coreの中でのMigrationの定義をみつけました。
+
+アプリケーションとデータベースの間で共有しているモデルの整合性をとる作業をmigrationと呼んでいるっぽいです。たぶん。
+
+2021-01-18 21:44:09
+Microsoft.EntityFrameworkCore.Tools https://docs.microsoft.com/ja-jp/ef/core/cli/powershell
+
+migrationをするツールが用意されていました。
+
+これの使い方を勉強して、Sqliteのデータベースを作ってみます。
+
+2021-01-18 21:48:24
+```
+ツールはデザイン時にアプリケーションコードを実行する必要があります。 そのためには、.NET Core または .NET Framework ランタイムを使用する必要があります。
+```
+
+testプロジェクトでツールを使えるんでしょうか。試してみます。
+だめだったら別のプロジェクト用意してみます。
+
+2021-01-18 21:54:58
+migrationツールはエラーもなく実行してくれました。
+
+しかしテストは通りませんでした。
+
+原因を調べてみます。
+
+2021-01-18 21:56:37
+僕の予想では
+return _context.Database.CanConnect();
+
+ここがうまくいってないと思います。
+
+2021-01-18 21:59:15
+CanConnectメソッドの定義はここにありました
+
+DatabaseFacade.CanConnect Method (Microsoft.EntityFrameworkCore.Infrastructure) | Microsoft Docs https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.infrastructure.databasefacade.canconnect?view=efcore-5.0#Microsoft_EntityFrameworkCore_Infrastructure_DatabaseFacade_CanConnect
+
+```
+Determines whether or not the database is available and can be connected to.
+
+データベースが利用可能かどうか、接続できるかを見極めます。
+
+Any exceptions thrown when attempting to connect are caught and not propagated to the application.
+
+接続しようとしたときにスローされた例外はすべてキャッチされ、アプリケーションに伝播されません。
+
+The configured connection string is used to create the connection in the normal way, so all configured options such as timeouts are honored.
+
+構成された接続文字列は通常の方法で接続を作成するために使用されるため、タイムアウトなどの構成されたすべてのオプションが尊重されます。
+
+Note that being able to connect to the database does not mean that it is up-to-date with regard to schema creation, etc.
+
+データベースに接続できるからといって、スキーマの作成などが最新であるとは限りません。
+```
+
+2021-01-18 22:08:44
+この説明だけだとどうして接続できてないのかわかりませんね。
+
+ちょっとこのやり方を教えてくれた記事に戻ります。
+
+Entity Framework Core - How to check if database exists? - Stack Overflow https://stackoverflow.com/questions/33911316/entity-framework-core-how-to-check-if-database-exists
+
+2021-01-18 22:22:04
+GetServiceの定義を見つけました。
+
+```
+ Summary:
+     Resolves a service from the System.IServiceProvider exposed from a type that
+     implements Microsoft.EntityFrameworkCore.Infrastructure.IInfrastructure`1.
+     This method is typically used by database providers (and other extensions).
+     
+     Microsoft.EntityFrameworkCore.Infrastructure.IInfrastructureを実装するタイプから公開されたSystem.IServiceProviderからのサービスを解決します。
+     この方法は通常、データベースプロバイダー（およびその他の拡張機能）によって使用されます。
+     
+     It is generally not used in application code.
+     Microsoft.EntityFrameworkCore.Infrastructure.IInfrastructure`1 is used to hide
+     properties that are not intended to be used in application code but can be used
+     in extension methods written by database providers etc.
+     
+     通常アプリケーションコードの中で使われることはありません。
+     Microsoft.EntityFrameworkCore.Infrastructure.IInfrastructureはアプリケーションコード内で使われることを意図されてないプロパティを隠すために使われますが、データベースプロバイダーによって書かれた拡張メソッドの中で使うことができます。
+     
+```
+
+```
+@Don Tomatto Not working for us. We're using 3.1.8. – Venkatesh Oct 29 '20 at 13:13
+```
+EF Coreのバージョンによってコードが変わるっぽいです。
+
+ちなみに僕のEF Coreは5.0.2っぽいです。
+EF Core 5でのデータベースが存在するかどうかの方法を探します。
+
+2021-01-18 22:38:45
+これヒントになりそうです
+
+How to verify connection to database in Entity Framework Core? https://www.koskila.net/how-to-check-connection-to-database-in-entity-framework-core/
+
+ExecuteSqlRawメソッドを使ってました。
+
+RelationalDatabaseFacadeExtensions.ExecuteSqlRaw Method (Microsoft.EntityFrameworkCore) | Microsoft Docs https://docs.microsoft.com/en-us/dotnet/api/microsoft.entityframeworkcore.relationaldatabasefacadeextensions.executesqlraw?view=efcore-5.0
+
+2021-01-18 22:49:11
+一つ思いついたことがあります。
+もしかするとデータベースのテーブルがないからfalseなのかもしれません。
+なんかデータを用意してからIsExistを実行してみようと思います。
+
+2021-01-18 22:52:17
+データを用意する処理を考えているときに間違いに気づきました。
+
+そもそもcontextの用意の仕方が悪かったです。
+
+Getting Started - EF Core | Microsoft Docs https://docs.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli
+
+チュートリアルを参考に書き直しました。
+
+migrationももう一度作り直す必要があると思います。
+さっき作ったmigrationを消します。
+
+2021-01-18 23:03:59
+migrationを消すことはできなかったので、あたらしいmigrationを作りました。
+
+データベースを更新して、テストを動かしました。
+
+今度は新しい例外が発生しました。
+一歩前進して安心しました。
+
+2021-01-18 23:05:54
+```
++		InnerException	{"SQLite Error 1: 'no such table: Entries'."}	System.Exception {Microsoft.Data.Sqlite.SqliteException}
+```
+
+テーブルがないといわれました。
+エラーを参考に調べてみます。
+
+2021-01-19 00:19:07
+c# - No such table - EF Core with Sqlite in memory - Stack Overflow https://stackoverflow.com/questions/51080604/no-such-table-ef-core-with-sqlite-in-memory
+
+これを試してみます。
+
+また、
+Sqliteのドキュメントを読むように書かれてました。
+In-Memory Databases https://www.sqlite.org/draft/inmemorydb.html
+
+```
+"DataSource=file:memdb1?mode=memory&cache=shared"
+```
+
+接続文字列でshared cacheを設定する必要があるらしいとstack overflowに書いてありました。
+
+接続文字列を変えたので、一応migrationを新しく作ります。
+
+2021-01-19 00:31:29
+新しいmigrationでデータベースを更新しようとしたらSQLiteがエラーをはきました
+
+```
+SQLite Error 1: 'no such table: __EFMigrationsHistory'. 
+```
+
+__EFMigrationsHistoryというテーブルがないそうです。
+
+それってなんでしょう。
+調べてみます。
+
+2021-01-19 00:41:36
+c# - EF Core - Table '*.__EFMigrationsHistory' doesn't exist - Stack Overflow https://stackoverflow.com/questions/40597534/ef-core-table-efmigrationshistory-doesnt-exist
+
+Script-Migration -from 0
+
+を試してみます。
+
+2021-01-19 00:44:46
+SQLが書かれたファイルがつくられましたが、これをどうしたらいいのでしょうか。
+
+2021-01-19 00:49:12
+migrationとは
+```
+要は、データベース(テーブルなどを含む)の定義を履歴管理するようなものですね
+```
+
+2021-01-19 00:50:28
+migrationで作られたファイルをみなおしたときにFixInitialCreate1以外は具体的な処理が書いてありませんでした。
+
+どうしてなのかはよくわかりませんが、FixInitialCrete1を引数にデータベースを更新してみます。
+
+2021-01-19 00:53:39
+さっきと同じエラーがでました。
+メッセージに２か所エラーがあることに気づきました
+
+```
+
+Applying migration '20210118125348_InitialCreate'.
+Failed executing DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20210118125348_InitialCreate', '5.0.2');
+
+SQLite Error 1: 'no such table: __EFMigrationsHistory'.
+```
+
+
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20210118125348_InitialCreate', '5.0.2');
+このコマンドが失敗して要るっぽいです。
+
+2021-01-19 00:57:36
+E:\GitHub\Temporary2\src\Temp20210118.DBTest\Temp20210118.DBTest\obj\Debug\netcoreapp3.1\au23m50n.sql
+
+SQLのコードが書かれたファイルができました。
+これを実行するといいのでしょうか。
+EF toolで実行する仕方を調べてみます。
+
+2021-01-19 01:02:59
+
+.NET Core で DBマイグレーションを試したら色々ハマった話 - ecbeing labs（イーシービーイング・ラボ） https://blog.ecbeing.tech/entry/2019/06/12/125411
+
+この記事だとVisualStudioコンソールじゃなくてCLIでやっているっぽいので、僕もCLIで試してみます。
+
+記事の中だとSQLの構文をどこかに追加していると思います。
+
+僕の予想だと作られたMigrationフォルダの中のファイルのどれかにSQLのコードを足しているはずです。
+
+どこなんでしょうか。
+
+2021-01-19 01:18:43
+CLIでデータベースを更新しても同じエラーが出ました。
+
+生成されたSQLコードをどこで使うのか調べてみます。
+
+2021-01-19 01:25:37
+Scripting Migrations in EF Core https://www.dustinhorne.com/post/2017/10/24/scripting-migrations-in-ef-core
+
+この記事読んでて思ったのが、SQLを直接実行するならSQLiteの上じゃないかと思いました。
+
+ということはNugetで手に入れたEF CorについてきたSQLiteをコマンドラインから実行する方法を知れば、なんとかなりそうです。
+
+SQLiteの場所を探してみます
+
+2021-01-19 01:49:04
+System.Data.SQLite: Downloads Page https://system.data.sqlite.org/index.html/doc/trunk/www/downloads.wiki
+
+情報が複雑で、混乱してくるのでsqliteをアプリの外側で実行しようとするのは諦めます。
+
+できればdotnet ef migrations あたりでsql実行してくれる方法があるのを期待したいです。
+
+2021-01-19 02:12:19
+Execute a stored procedure with Entity Framework Core 5 – Michał Białecki Blog https://www.michalbialecki.com/2020/08/27/execute-a-stored-procedure-with-entity-framework-core-5/
+
+migrationで書き出されたファイルにSQLクエリを実行する方法がかかれてるっぽいです。
+
+2021-01-19 02:26:26
+失敗しました。
+エラーメッセージ眺めてて思ったのが、
+データベースの更新が失敗してるのは
+Applying migration '20210118125348_InitialCreate'.
+
+の次です。
+つまり、このmigrationをどうにかしないと更新は成功しないと思います。
+
+2021-01-19 02:31:44
+現在のプロジェクトでの遂行をあきらめて新しいプロジェクトに移して、一からmigrationを作っていきます。
+
+2021-01-19 02:39:59
+```
+Could not load assembly 'Temp20210118.DBTest2'. Ensure it is referenced by the startup project 'Temp20210118.DBTest'.
+```
+
+2021-01-19 02:55:17
+```
+Applying migration '20210118175210_InitialCreate'.
+Failed executing DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+INSERT INTO "__EFMigrationsHistory" ("MigrationId", "ProductVersion")
+VALUES ('20210118175210_InitialCreate', '5.0.2');
+Microsoft.Data.Sqlite.SqliteException (0x80004005): SQLite Error 1: 'no such table: __EFMigrationsHistory'.
+   at Microsoft.Data.Sqlite.SqliteException.ThrowExceptionForRC(Int32 rc, sqlite3 db)
+   at Microsoft.Data.Sqlite.SqliteCommand.PrepareAndEnumerateStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteCommand.GetStatements(Stopwatch timer)+MoveNext()
+   at Microsoft.Data.Sqlite.SqliteDataReader.NextResult()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader(CommandBehavior behavior)
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteReader()
+   at Microsoft.Data.Sqlite.SqliteCommand.ExecuteNonQuery()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteNonQuery(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.Design.Internal.MigrationsOperations.UpdateDatabase(String targetMigration, String connectionString, String contextType)
+   at Microsoft.EntityFrameworkCore.Design.OperationExecutor.UpdateDatabaseImpl(String targetMigration, String connectionString, String contextType)
+   at Microsoft.EntityFrameworkCore.Design.OperationExecutor.UpdateDatabase.<>c__DisplayClass0_0.<.ctor>b__0()
+   at Microsoft.EntityFrameworkCore.Design.OperationExecutor.OperationBase.Execute(Action action)
+SQLite Error 1: 'no such table: __EFMigrationsHistory'.
+```
+
+2021-01-19 02:57:44
+プロジェクトを新しくしても同じ現象なので、接続文字列を戻してみます。
+
+2021-01-19 03:00:44
+なるほど、この数時間はまっていた問題の原因は接続文字列が関係していたようです。
+
+2021-01-19 03:05:50
+EntryAppクラスにコードを分離してテストコードをコピーして試してみました。
+
+CanConnectメソッドの結果がTrueでした。
+つまり、テスト環境じゃなかったらちゃんと接続できてるっぽいです。
+
+次はテストコードでもちゃんと動くようにしたいです。
+
+とりあえず何も考えずにテストを動かしました。
+そしたら例外が発生しました。
+
+```
+Microsoft.EntityFrameworkCore.DbUpdateException : An error occurred while updating the entries. See the inner exception for details.
+    ---- Microsoft.Data.Sqlite.SqliteException : SQLite Error 1: 'no such table: Entries'.
+```
+
+Entriesテーブルを見つけられていないようです。
+
+```
+context.Add(entry);
+context.SaveChanges();
+```
+
+データベースにデータを追加するところで例外が発生して要るっぽいです。
+
+2021-01-19 03:14:04
+EF Core を使用するコードのテスト - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/testing/
+
+こんな記事があったなんて、見逃していました。
+
+2021-01-19 03:24:05
+SQLite を使用したテスト-EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/testing/sqlite
+
+この記事を参考にテストを作り直します。
+
+2021-01-19 03:57:36
+テストを書き始めて約７時間後にテストが通りました。
+
+どうしてテストが通ったのかはいまいちわかってません。
+
+おそらくSqliteがメモリー内のデータベースを参照したから通ったということなんでしょう。
+
+自分で書いていてこれっぽっちも理解できない文章ですが、テストは通りました。
+
+テストのコードからデータベースのデータを取得することができたのは確かで、これは大きな前進だと思います。
+
+2021-01-19 04:03:09
+満足感が大きいので今日はこれで終ろうと思います。
+
+次は、
+- どうしてテストが通ったのか確かめる
+- EFのチュートリアルの続きをする
+
+のどっちかをしたいと思います。
