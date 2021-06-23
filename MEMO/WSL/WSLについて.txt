@@ -1,0 +1,167 @@
+2021-03-01 16:52:17
+WSLを入れようと思いました。
+
+Windows Subsystem for Linux - Wikipedia https://ja.wikipedia.org/wiki/Windows_Subsystem_for_Linux
+
+Linux 用 Windows サブシステムについて | Microsoft Docs https://docs.microsoft.com/ja-jp/windows/wsl/about
+
+2021-03-01 19:36:31
+WSL上でDocker使いたいなと思いました。
+
+Windows Subsystem for Linux で Docker コンテナーの使用を開始する | Microsoft Docs https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-containers
+
+ただ、Docker Desktopの設定を変える必要があるようです。
+そしてそれをするとDockerのイメージを保存する場所をEドライブにできなくなるっぽいです。
+
+こればっかりはしょうがないので定期的にDockerの掃除をしたほうがよさそうです。
+
+2021-03-01 20:08:05
+Docker Desktop WSL 2 backend | Docker Documentation https://docs.docker.com/docker-for-windows/wsl/
+
+2021-06-03 16:06:50
+WSLのgitの設定をしたいです。
+SourceTreeのときみたいにローカルのアカウント情報とgithubのアカウント情報を紐付けたいです。
+
+まずはこの記事を読んでみます。
+
+Git のセットアップ - GitHub Docs https://docs.github.com/ja/github/getting-started-with-github/quickstart/set-up-git#setting-up-git
+
+2021-06-03 17:25:51
+Gitをセットアップする
+
+```
+Git でユーザ名を設定する。
+Git のコミットメールアドレスを設定する。
+```
+
+2021-06-03 17:55:53
+HTTPS URL を使ってクローンを作成する https://docs.github.com/ja/github/getting-started-with-github/getting-started-with-git/about-remote-repositories#cloning-with-https-urls
+
+```
+認証情報ヘルパーを使用すれば、GitHub と通信するたびに、GitHub の認証情報が Git で記憶されます。 詳細は「Git に GitHub の認証情報をキャッシュする」を参照してください。
+```
+
+WSL で Git の使用を開始する | Microsoft Docs https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git
+
+```
+Git Credential Manager のセットアップ
+```
+の欄の説明を読みました。
+
+```
+git config --global credential.helper "/mnt/e/Git/mingw64/libexec/git-core/git-credential-manager.exe"
+```
+僕はGitをeドライブにインストールしたのでこんな感じになりました。
+
+2021-06-03 21:01:32
+WSLで開発環境を作ろうと思いました。
+いい機会なので、dotfilesをgithubで管理するようにしたいと思いました。
+
+最強の dotfiles 駆動開発と GitHub で管理する運用方法 - Qiita https://qiita.com/b4b4r07/items/b70178e021bef12cd4a2
+
+2021-06-04 11:35:06
+WSLとWindows間でファイルの行終端の違いによる問題が頻発するそうです。
+
+その対策として、２つのことを考えました。
+- できるだけWSLからWinsowsのファイルを触らない。（逆もしかり）
+- できるだけ.gitattributesファイルを用意する。
+
+WSL で Git の使用を開始する | Microsoft Docs https://docs.microsoft.com/ja-jp/windows/wsl/tutorials/wsl-git#git-line-endings
+
+2021-06-08 14:50:07
+- wslのdotfilesに環境変数を設定したいです。
+普段使い用のエディタを指すEDITOR変数
+- bashのプロンプトを変更したいです。
+
+2021-06-08 22:40:37
+環境変数を設定するためのdotfileを調べてみます。
+
+2021-06-08 22:48:34
+===OFFTOPIC===
+要旨からはそれますがWSLに関する記事を見つけました。読んでみます。
+
+ASCII.jp：Windows Subsystem for Linuxの環境を整える【準備編】 https://ascii.jp/elem/000/001/255/1255076/
+
+2021-06-08 22:57:36
+```
+コンソール系の制御は、Linuxとしてみると完全ではないため、画面を分割する類いのscreenやtmuxといったソフトウェアがうまく動作しない。このため、こうしたアプリをログイン時にシェルとして起動してしまうような設定をすると、簡単にbash.exeが起動しなくなる。Ubuntu Linuxでは、byobuと呼ばれるscreenやtmuxのフロントエンドプログラムがあり、これをログイン時に起動する仕組みがあり、有効にしただけで次回からbash.exeが起動できなくなってしまう。 
+```
+tmuxに興味があったので代替案を考えておきたいです。
+
+2021-06-08 22:59:13
+```
+幸いなことにWSLへのUbuntu Linuxのアンインストールでは、ユーザーフォルダ（Linux側の/home以下と/root）を維持することができ、再インストール時に再度これを使うことができる。パスワードは再設定（前のものと同じにする必要はないし、同じでもかまわない）が必要だが、ユーザー名はそのまま残る。
+
+　なので、重要なファイルはなるべく、自分のホームディレクトリ（WSL側の/home以下）に置くようにしよう。Linuxに慣れるまでの間は、ファイルを/tmpなどにおいて、あとからコピーしようなどとは考えないほうがいい。
+
+　さて、アンインストールは、
+
+lxrun /uninstall
+
+で行なう。このとき、/fullオプションを付けると、ユーザーディレクトリも完全に消去するが、付けなければ、フォルダはそのまま残る。再インストールするには、
+
+lxrun /install
+
+とする。このとき、パスワードを聞いてくるが、ユーザー名に関しては、残っている/homeディレクトリから自動的に設定される（前回までLinux側で使っていたユーザー名）。これで、WSLの設定を間違えて起動しなくなったといった問題を解消できる。 
+```
+これは覚えておきたいです。
+
+2021-06-08 23:05:02
+```
+しかし、WSLの起動時に使われるbashでは、「~/.bash_profile」「~/.bash_login」「~/.profile」のどれも実行せず、「/etc/bash.bashrc」が実行されたあと「~/.bashrc」のみが実行される。
+
+　ちなみにbashに「--login」オプションを付けて起動すると、前記のマニュアルにある通り「~/.bash_profile」「~/.bash_login」「~/.profile」の優先順位でログイン時にスクリプトが実行される。この点でマニュアルに偽りはないのだが、WSL起動時のbashの起動方法は、違うものになっていて、少なくとも/bin/bashに「--login」オプションを渡しただけのものにはなっていないようだ。 
+```
+
+```
+　WSLで最初に起動するbashは、「ログイン・シェル」ではなく「インタラクティブ・シェル」になっているようだ。つまり、bashが起動するまでに実行されるのは、
+
+/etc/bash.bashrc
+~/.bashrc 
+```
+
+なるほど。~/.bash_profileを用意してもwsl起動時に読み込まれないみたいですね。
+
+2021-06-08 23:15:38
+./bashrcにEDITOR環境変数を記述しました。
+うまく設定を読み込んでくれているみたいなので、次はgitのエディタをこの環境変数から読み取るようにしたいです。
+
+2021-06-18 04:55:45
+別のところにもんだいがありそうです。
+
+npmをwslで実行しようとしたら似たエラーが出ました。
+
+NPM not working since I've updated to WSL2 : bashonubuntuonwindows https://www.reddit.com/r/bashonubuntuonwindows/comments/het5vq/npm_not_working_since_ive_updated_to_wsl2/
+
+nodeをwindowsから削除するといいみたいです。
+
+2021-06-18 06:35:06
+Node.jsの完全アンインストール（Windows）｜Yosukeee｜note https://note.com/yosukeo/n/nddd247e3d063
+
+この記事を参考にしてみます。
+
+WSL 2 上で NodeJS を設定する | Microsoft Docs https://docs.microsoft.com/ja-jp/windows/dev-environment/javascript/nodejs-on-wsl#install-nvm-nodejs-and-npm
+アンインストールできたらこれを試してみます。
+
+2021-06-18 09:15:02
+nvmのアンインストール用のスクリプトを考えたいです。
+
+GitHub - nvm-sh/nvm: Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions https://github.com/nvm-sh/nvm#uninstalling--removal
+
+ここに書いてありました。
+
+2021-06-18 22:07:22
+gitでインストール方法でやります。
+
+GitHub - nvm-sh/nvm: Node Version Manager - POSIX-compliant bash script to manage multiple active node.js versions https://github.com/nvm-sh/nvm#git-install
+
+2021-06-24 08:14:46
+WSLのubuntuを再インストールすることにしました。
+
+しかしインストールに時間がかかっています。
+
+ほかの人はどれくらいの時間がかかっているのか調べてみました。
+
+system installation - How long does Ubuntu take to install? - Ask Ubuntu https://askubuntu.com/questions/470846/how-long-does-ubuntu-take-to-install
+
+パソコンのメモリ量次第だそうです。
