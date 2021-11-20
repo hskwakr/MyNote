@@ -10,3 +10,8 @@ AppData\Local\Docker\wsl\data
 WSL2 Docker が PC のディスクを圧迫する - Qiita https://qiita.com/sarisia/items/5c53c078ab30eb26bc3b
 
 この方法で解決できました。
+
+2021-11-21 07:48:48
+WSL 2 should automatically release disk space back to the host OS · Issue #4699 · microsoft/WSL · GitHub https://github.com/microsoft/WSL/issues/4699
+
+おそらくこれが詳細です。
