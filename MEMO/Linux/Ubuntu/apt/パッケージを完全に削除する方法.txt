@@ -1,0 +1,4 @@
+2021-11-25 09:22:49
+aptのパッケージを完全にアンインストールする方法をしりたいです。
+
+command line - What is the correct way to completely remove an application? - Ask Ubuntu https://askubuntu.com/questions/187888/what-is-the-correct-way-to-completely-remove-an-application
