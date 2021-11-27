@@ -1,0 +1,12 @@
+2021-11-27 10:33:50
+複数ファイル間で変数や関数の名前をリネームする方法を調べました。
+
+How to quickly change variable names in Vim? - Stack Overflow https://stackoverflow.com/questions/597687/how-to-quickly-change-variable-names-in-vim
+
+```
+If this is across multiple files, you may consider taking a look at sed. Use find to grab your files and xargs plus sed for a replace. Say you want to replace a with a_better_name in all files matching *.c, you could do
+
+find . -name "*.c" | xargs sed -i -e 's/a/a_better_name/g'
+
+Bear in mind that this will replace ALL occurrences of a, so you may want a more robust regex.
+```
