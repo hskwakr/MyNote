@@ -1389,3 +1389,614 @@ SQLite を使用したテスト-EF Core | Microsoft Docs https://docs.microsoft.
 - EFのチュートリアルの続きをする
 
 のどっちかをしたいと思います。
+
+2021-01-21 23:23:12
+Entity Frameworkの勉強を再開します。
+
+連載：ADO.NET Entity Framework入門 - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/index/index.html
+
+前回は第６回まで読みました。
+今回は第７回から読んでみます。
+
+```
+第7回　EF4によるN層アーキテクチャと自己追跡エンティティ【後編】
+
+    WCFによるサービスの公開／プロジェクトの追加／WCFサービスの実装
+    Silverlightアプリケーションの実装 － サービス参照の追加
+    UI実装とWCFサービス呼び出し／サンプルの実行／まとめ
+
+```
+
+目次を見た感じだと、WCFというものが出てくるようです。
+WCFが一体何なのかはわかりませんが、とりあえず読んでみます。
+
+2021-01-21 23:29:43
+第7回 EF4によるN層アーキテクチャと自己追跡エンティティ【後編】（1/3） - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/ef4basic07/ef4basic07_01.html
+
+```
+前回の前編では、N層アーキテクチャで使用する自己追跡エンティティの仕組みについて説明した。後編となる今回は、自己追跡エンティティをWCF（Windows Communication Foundation）で公開し、Silverlightクライアントでの編集／更新処理を実装してみよう。
+```
+
+Windows Communication Foundation
+の略だそうです。
+
+- WCFによるサービスの公開
+```
+　WCFはWebサービスなどのアプリケーション間通信を共通の枠組みで取り扱うためのフレームワークである。WCFの適用範囲は.NETアプリケーション環境に限られておらず、データ形式もXMLやJSONなどに対応する、柔軟な通信フレームワークである。
+```
+
+WCFはアプリケーション間の通信のためのフレームワークらしいです。
+
+2021-01-21 23:44:16
+最後までざっくりと目を通しましたが、第７回は応用編だったので、ぼくが入門記事に期待していたEFの基礎知識の部分はあまりありませんでした。
+
+- まとめ
+```
+全7回となったEntity Framework入門では、Entity Frameworkの理念から実際の活用方法まで解説した。昨今のデータベース業界はKey-Valueストア*1と呼ばれる、非リレーショナルなデータベース・モデルが人気を博しているが、業務システム構築においては依然としてリレーショナル・データベースの存在は大きい。
+
+*1 1つのKey（＝ID）に対して1つのValue（＝値）を保存する機能だけを持つ、シンプルなデータベース。GoogleのBigtable、Amazon SimpleDB、MicrosoftのAzure Storage Servicesなどがある。
+```
+
+Key-Valueストアというものがあるそうです。
+
+2021-01-21 23:47:24
+10年前の記事でしたが、Entity Frameworkの基礎知識がたくさん乗っていて参考になりました。
+
+第７回の５ヶ月後に新しい連載が始まっているようです。
+一応その連載も読んでみます。
+
+```
+連載：
+Entity Framework 4.1入門
+```
+
+2021-01-21 23:51:00
+連載：
+Entity Framework 4.1入門
+
+を読んでみます。
+
+連載：ADO.NET Entity Framework入門 - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/index/index.html
+
+```
+ 第1回　EF 4.1の目玉機能「コード・ファースト」を理解しよう
+
+    Entity Framework 4.1の概要
+    環境構築／コード・ファーストによるサンプルの実装：モデルの定義
+    モデルを使ったサンプルの実装／データベース上のデータの確認
+
+2011/06/03
+```
+
+第１回の目次を見てみると。EF 4.1の内容のようです。
+コードファーストという言葉が出ています。
+EF4.1とコードファーストの２つに注目して読んでみます。
+
+2021-01-21 23:54:18
+EF 4.1の目玉機能「コード・ファースト」を理解しよう（1/3） - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/ef4codefirst01/ef4codefirst01_01.html
+
+（1）新しい開発スタイルであるコード・ファーストのサポート 
+```
+ソース・コードのみでデータベースの設計まで行えるコード・ファーストは、本連載で主に扱うEF 4.1の目玉ともいえる機能である。以下のような機能が含まれている。
+
+    規約に基づくソース・コードとデータベースの関連付け（第1～2回で解説）
+    ソース・コードとデータベースの関連付けをカスタマイズするためのFluent API（第3回で解説）
+    ソース・コードへのアノテーションによる検証機能
+```
+
+以前までの連載では、EFはデータベースの論理モデルなどを意識せずに、概念モデルでデータベースとアプリケーションが意思疎通できることができるツールとして紹介されてましたが、このバージョンアップでC#のコードだけでデータベースの設計からできるようになったっぽいです。
+
+（2）より軽量なコンテキスト・クラスであるDbContextのサポート 
+```
+　EF 4までは、データベースへの接続やデータの入出力の際に使用するコンテキスト・クラスの継承元として、ObjectContextというクラスを使用してきたが、EF 4.1ではより軽量なコンテキスト・クラスとしてDbContextというクラスが導入された。
+　DbContextクラスはコード・ファーストのみならず、EF 4までのデータベース・ファーストやモデル・ファースト（後述）においても使用可能であり、自己追跡エンティティや同時実行制御などの機能をEF 4よりもシンプルに記述できる。
+```
+
+ここでEF Coreのサンプルでよく出てきたDbContextが登場しました。
+DbContextとObjectContextの違いは気をつけて知っていきたいです。
+    - コンテナの作り方 or そもそもコンテナいるのか
+    - 自己追跡エンティティ（データベースの操作の履歴を保存してくれるやつ）の使い方
+
+2021-01-22 00:06:24
+EF 4.1で使用可能な3種類の開発スタイルの概要
+- データベースファースト
+- モデルファースト
+- コードファースト
+
+
+- データベースファースト
+```
+データベース・ファーストはEF登場時からサポートされており、すでに存在するデータベースからEDMを生成する開発スタイルである。データベースの構造からEDMをいわば逆算して構築するため、「リバース」と呼ばれることもある。
+```
+
+- モデルファースト
+```
+まずEDMを設計し、そこからデータベース構造を自動生成する方法である。EDMは図2のようにビジュアルにデザインが可能なモデルであり、表形式の構造に基づくデータベースの限界を気にすることなく設計可能である。
+```
+
+- コードファースト
+```
+コード・ファーストでは、最初にPOCO*1としてエンティティ・クラスを定義し、そこから必要に応じてデータベースを自動生成する。データベース・ファーストやモデル・ファーストとは異なり、ソース・コードだけで開発を完結できるため、ビジュアルなエディタでEDMを明示的に定義する必要がなく、より迅速な開発が可能となる。
+```
+
+なるほど、前回の連載で使っていたGUIツールがEF Coreでみつからなかった理由はEF Coreはコードファーストだからかもしれません。
+
+```
+　コード・ファーストにおいては、Ruby on Railsなどのフレームワークで採用されている「設定に勝る規約（Convention over Configuration：CoC）」の思想が取り入れられている。.NET Frameworkにおいては、XML形式の設定ファイルにさまざまな設定を記述するケースが多いが、コード・ファーストにおいては、規約に沿ったソース・コードを記述する限り、設定ファイルなどで明示的に設定を行う必要はほとんどなくなっている。 
+```
+
+2021-01-22 00:13:41
+今回のサンプルはEF Coreでもできそうです。試してみます。
+
+Memberクラス
+    - Id
+    - Name
+    - Address
+    - TelNo
+
+Itemクラス
+    - Id
+    - Price
+    - MemberId <-MemberクラスのId
+    - Name
+    - SoldAt
+
+```
+Itemクラスが商品を表し、Memberクラスがその商品を所有するユーザーを表している。MemberクラスとItemクラスは1対多の関係を持っており、ItemクラスのMemberIdプロパティがMemberクラスへの外部キーの役割を持っている。データベース上では2つのテーブルで表される、シンプルなモデルである。 
+```
+
+コードファーストではルールに則ってコードを書くので設定を減らせるそうです。
+具体的なルールについては以下のものがあるそうです。
+```
+    エンティティ・クラスはデータベースのテーブルに変換される。テーブル名はエンティティ・クラス名の複数形が用いられる（Item／Memberクラス→Items／Membersテーブル）
+
+    エンティティ・クラスのプロパティはデータベースのフィールドになる
+
+    エンティティ・クラスを参照するプロパティは「ナビゲーション・プロパティ」と呼ばれ、データベース上ではリレーションシップとして扱われる（Item.Member／Member.Itemsプロパティ）
+
+    リレーションシップの外部キーは「相手のクラス名＋Id」という名前のプロパティが使われる（Item.MemberIdプロパティはMemberクラスへの外部キーになる）
+
+    ナビゲーション・プロパティをvirtual（C#）／Overridable（VB）というキーワード付きで宣言すると、遅延ロードが行われる
+```
+
+```
+もう1つ定義する必要があるのが、これらのエンティティ・クラスにアクセスするためのコンテキスト・クラスである。データベースへの接続やデータの取得、保存など、EFを使ったデータベースへのアクセスは、すべてこのコンテキスト・クラスを介して行うことになる。 
+```
+
+```
+　コンテキスト・クラスでは、DbSetという型で、アクセスしたいエンティティ・クラスの一覧に対応するプロパティを定義する。ここではItem一覧、Member一覧に対応するItems、Membersというプロパティを定義している。 
+
+コンテキスト・クラスについての規約は以下のとおりである。
+
+    設定ファイル*2で定義するデータベースの接続文字列のうち、コンテキスト・クラス名と同じ名前のものが使用される
+
+    接続文字列が定義されていない場合は、ローカルのSQL Server Expressインスタンスに名前空間を含むコンテキスト・クラスの完全修飾名でデータベースが作成される
+
+*2　コンソール・アプリケーションであればApp.configファイル。ASP.NETであればWeb.configファイル。
+```
+
+設定ファイルで設定された接続文字列からコンテキストクラス名と同じ名前のものが使われるそうです。
+接続文字列がなかったら名前空間を含むコンテキストクラスの完全修飾名でデータベースがつくられるそうです。
+
+賢いですね。
+
+2021-01-22 00:53:45
+サンプルだとそのままビルドして実行できているっぽいですが、EF Coreだとできませんでした。
+サンプルから一度離れてmigrationでファイルを作ってからデータベースを構築します。
+
+2021-01-22 01:05:24
+入門記事だと接続文字列がなかったら勝手に名前をつけてくれるようなことを書いてましたが、EF Coreだとエラーを履きました。
+
+```
+A relational store has been configured without specifying either the DbConnection or connection string to use.
+```
+
+2021-01-22 01:12:05
+itemsからmemberをとろうとしたら例外が発生しましたが、データベースからデータを取ることはうまくいきました。
+
+記事に戻ります。
+
+2021-01-22 01:17:01
+SQL Server Management Studio
+というものがあるようです。
+
+【SQL】SQL Serverを使うならSQL Server Management Studio(SSMS)。インストール～使い方まで広く解説。 | 「ポテパンスタイル」 https://style.potepan.com/articles/22198.html
+
+SQL Serverを管理できるアプリっぽいです。
+Visual Studioみたいな見た目でした。
+
+今EFを試すためにSQLite使ってますが、SQL Serverのほうが実際のデータの確認とかしやすそうに感じてきました。
+
+2021-01-22 01:20:45
+入門記事と実際に使っているEFが違うので、CoC（設定に勝る規約（Convention over Configuration：CoC））の規約についてどこかで確認したほうがいいと思いました。
+
+2021-01-22 01:28:18
+- リレーションシップと多重度
+```
+リレーションシップの多重度は、ナビゲーション・プロパティの型に基づいて設定される。リスト8のように、シンプルに別のエンティティ・クラスを参照した場合は多重度が「1」に、ICollectionインターフェイスでほかのエンティティ・クラスを参照すると多重度が「多」になる。
+```
+
+EF Coreではリレーションシップをどう表現するんでしょうか。あとで調べたいです。
+
+2021-01-22 01:36:21
+```
+ForeignKey属性を使用することで、命名則に沿わないプロパティを外部キーにも設定できる。
+```
+
+命名則で外部キーを設定するより属性で設定したほうが個人的にわかりやすい気がします。
+
+2021-01-22 01:44:19
+- データベースのマイグレーション
+```
+Ruby on Railsなどのフレームワークにおいては、「マイグレーション」と呼ばれる、データベースの構造を徐々に変更しながら開発する方法がサポートされており、スキーマの変更時に、データベースを削除せず、フィールドの追加、削除を個々に行える。これにより、開発開始時点でスキーマを確定させず、データを残したまま、徐々にデータベースを成長させていくことができる。
+
+　残念ながら現在のEF 4.1は、このようなマイグレーションに対応しておらず、モデル変更時にはデータベース全体が削除されてしまう。将来的なマイグレーション（機能名としては「Database Schema Evolution」と呼ばれている）のサポートが予定されているようなので、期待して待ちたい。
+```
+
+１０年後のEF Coreではマイグレーションが使えてます。よかったです。
+
+スキーマの変更時にデータベースを削除せずに開発しながら徐々にデータベースを成長できるというのがマイグレーションの特徴っぽいです。
+
+ところで、スキーマってなんでしょう。
+調べてみます。
+
+スキーマとは - IT用語辞典 e-Words https://e-words.jp/w/%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%9E.html
+
+```
+データベースにどのような種類のデータをどのような構造で格納するか定義したものをスキーマという。抽象度に応じて段階的に複数の異なるスキーマを用いることが多く、よく用いられるのはデータの表現と格納について「概念」「論理」「物理」の三段階で定義する「3層スキーマ」である。
+```
+
+データベースの抽象的な形を定義したものをスキーマと呼ぶっぽいですね。
+
+2021-01-22 01:51:13
+気づかないうちに第１回の記事が終わって最後の連載まで来てしまったようです。
+
+```
+　EF 4.1連載の最終回となる今回は、「Fluent API」と呼ばれる、エンティティ・クラス外部からデータベースの構造を制御するための機能と、DbContext／DbSetクラスの使用方法について解説する。
+```
+
+Fluent APIというのは勉強したことがあります。
+※この時点ではFluent interfaceのことと勘違いしてます
+```
+Foo.MethodA().MethodB().MethodC()
+
+class Foo
+{
+    Foo void MethodA() 
+    {
+        // do something
+        return this;
+    }
+    
+    Foo void MethodB() 
+    {
+        // do something
+        return this;
+    }
+    
+    Foo void MethodC() 
+    {
+        // do something
+        return this;
+    }
+}
+
+こんな感じでメソッドを連続で呼び出せるやつだったはずです
+```
+
+```
+エンティティ内に属性として記述する方法（＝アノテーション）とは異なり、Fluent APIはエンティティ・クラス外部から設定を行うための仕組みだ（図1）。
+```
+エンティティクラスの定義に属性を書かずに
+Fluent APIで設定することができるっぽいです。
+
+```
+　Fluent APIを使用する場合、エンティティ・クラス内にEF専用のアノテーションを記述する代わりに、コンテキスト・オブジェクトにデータベースの構造を設定するための記述を行う。エンティティ内にEF用のアノテーションを記述する必要がないため、エンティティをEFに依存させない状態に保つことができる。従って、すでにエンティティ・クラスが存在し、定義に変更を加えたくない場合などに有効である。
+
+　一方で、エンティティ・クラス自体を変更して構わない場合は、アノテーションによる記述の方が直感的で記述しやすい。Fluent APIは手続き的、アノテーションによる定義は宣言的、とも言い換えられるだろう。
+```
+
+状況とか好みで使い分けるっぽいですね。
+
+```
+　Fluent APIは、モデル構築時に呼び出される、（コンテキスト・オブジェクトのイベント・ハンドラである）OnModelCreatingメソッド内から使用する。
+```
+
+EF Coreでもあるのか調べてみます。
+
+```
+//
+// Summary:
+//     Override this method to further configure the model that was discovered by convention
+//     from the entity types exposed in Microsoft.EntityFrameworkCore.DbSet`1 properties
+//     on your derived context. The resulting model may be cached and re-used for subsequent
+//     instances of your derived context.
+//
+// Parameters:
+//   modelBuilder:
+//     The builder being used to construct the model for this context. Databases (and
+//     other extensions) typically define extension methods on this object that allow
+//     you to configure aspects of the model that are specific to a given database.
+//
+// Remarks:
+//     If a model is explicitly set on the options for this context (via Microsoft.EntityFrameworkCore.DbContextOptionsBuilder.UseModel(Microsoft.EntityFrameworkCore.Metadata.IModel))
+//     then this method will not be run.
+protected internal virtual void OnModelCreating(ModelBuilder modelBuilder);
+```
+
+ありました。
+
+モデルの作成と構成 - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/modeling/
+
+MS Docsの記事も見つけました。
+段々と入門記事の知識とMS Docsの記事の知識がつながってきてうれしいです。
+
+```
+　OnModelCreatingメソッドの引数は、エンティティ・クラスとデータベース定義のマッピングを設定するためのDbModelBuilderクラス（System.Data.Entity名前空間）のオブジェクトである。Fluent APIは、このDbModelBuilderオブジェクトを起点とし、メソッドを連ねて（流れるように）呼び出していくことに特徴がある*1。
+
+*1　こうしたメソッドを連ねていく手法のことを「Fluent Interface（流れるようなインターフェイス）」と呼ぶこともある。JavaScriptライブラリのjQueryなどがその代表例。
+```
+
+まちがってましたね、Fluent interfaceと勘違いしてました。
+
+```
+起点となるDbModelBuilderオブジェクトからは、図4のように、EntityメソッドやComplexTypeメソッドを呼び出すことで、エンティティと複合型の設定を行うためのEntityTypeConfigurationオブジェクトやComplexTypeConfigurationオブジェクトを取得できる。
+
+　エンティティの設定を行うEntityTypeConfigurationオブジェクトからは、図5のように、プロパティの設定を行うためのPropertyメソッドによってXXXPropertyConfiguration（XXXの部分はプロパティのデータ型に応じて変化）オブジェクトを取得できる。
+```
+
+DbModelBuilderクラスを起点に使用用途によってどのインターフェース使うかを選びながらメソッドチェーンを作っていくっぽいです。
+
+```
+　例えば、文字列のプロパティについてはStringPropertyConfigurationオブジェクトが、日時型のプロパティについてはDateTimePropertyConfigurationオブジェクトが、Propertyメソッドの戻り値として返る。先ほどのCompositeKeyEntityエンティティの例では、備考プロパティに対応するStringPropertyConfigurationオブジェクトが返されていた。
+
+　XXXPropertyConfigurationオブジェクトには、アノテーションで設定するのと同じような、フィールド名やデータ型の設定を行うメソッドが準備されている。先ほどの例では、フィールド名を設定するためのHasColumnNameメソッドを使用した。
+```
+
+```
+　Fluent APIは多数のメソッドやクラスを用意しているため、すべてを紹介することはできない。詳細については、MSDNの「DbModelBuilderオブジェクトのページ」を起点に確認してほしい。
+```
+
+Fluent APIの詳細については別途参照という形のようです。
+
+```
+また、Visual StudioのIntelliSenseはFluent APIと相性がよく、慣れれば自然にメソッドを連ねて記述できるだろう。
+```
+
+言われてみればたしかにそうですね。
+InteliSence上の説明で理解できれば、ドキュメントを読む手間が省けそうです。
+
+Fluent APIについての記事は終わったっぽいです。
+
+次はDbContextについての記事を読みます。
+
+2021-01-22 02:23:22
+Fluent APIとDbContextの機能（2/2） - ＠IT https://www.atmarkit.co.jp/fdotnet/ef4basic/ef4codefirst03/ef4codefirst03_02.html
+
+```
+　EF 4.1で導入されたDbContextは、データベースに接続するための軽量のコンテキスト・クラスであり、EF 4まで使用されていたObjectContextクラスの機能のうち、頻繁に使用されるものが実装されている。また、DbContextクラスに合わせて導入された、エンティティの集合を表すDbSetクラスも同様に、EF 4までのObjectSetクラスのサブセットとなっている。
+```
+
+```
+DbContextでのクエリには、いくつかの方法がある。
+
+    DbSet型のプロパティに対するLINQ（LINQ to Entities）
+    DbSetクラスのFindメソッド
+
+```
+
+- DbSet型のプロパティに対するLINQ（LINQ to Entities）
+```
+LINQの使用方法は対象とするデータの種類に依存しないため、これまでLINQを使ってきた開発者であれば、違和感なくLINQ to Entitiesを使用できるだろう。
+```
+
+- DbSetクラスのFindメソッド
+```
+　DbSetクラスのFindメソッドは、主キーを指定し、対応する1つのエンティティを取得するメソッドである。複合主キーを持つエンティティの場合、複数のフィールドを順番に並べることでクエリを行える。
+```
+
+エンティティ一つを取得する方法はわかりましたが、全部一括でもらえる便利なやつはないのでしょうか。
+
+- 変更履歴追跡
+```
+EF 4.1のDbContextクラスでは、任意のエンティティ・クラスについて、変更履歴の管理が可能となった。
+
+　使用方法はシンプルで、DbContextクラスのEntryメソッドで取得できるDbEntityEntryオブジェクトから、エンティティの変更情報を取得できる。DbEntityEntryオブジェクトのStateプロパティはそのエンティティの状態を表す（表2）。
+```
+
+EF CoreにEntryメソッドがあるのか調べてみます。
+
+この記事に情報が乗ってそうです
+
+変更の追跡 - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/change-tracking/
+
+- 楽観的同時実行制御
+```
+　同時実行制御とは、データベースに更新をかける際に、書き込みの競合を避けるための処理のことである。同時実行制御を適切に行わない場合、図9のように書き込んだはずのデータが失われてしまいかねない。同時実行制御の詳細については、「できるエンジニアになる！ ちょい上DB術・基礎編 第2回　【DB概論】DBMSに求められるもの（1）排他制御とACID属性」などを参照してほしい。
+```
+
+排他制御の話っぽいです。ぼくはlockキーワードの方法しかしりません。
+
+```
+　EF 4.1では、簡単に楽観的（オプティミスティック）同時実行制御を行うための仕組みが用意されている。楽観的同時実行制御とは、図10のようにデータの書き込み時に、自分が読み込んだ時のデータと、データベース上のデータを比較し、自分が読み込んで以降、誰も変更していないかどうかを確認する手法である。楽観的同時実行制御により、自分以外のユーザーの更新を適切に検出できるようになり、データの損失を避けることができる。
+
+　EF 4.1では、リスト6のようにTimestampというアノテーションにより、データベースのレコードのバージョンを表すプロパティを表現できる。Timestampアノテーションを付加したプロパティは、SQL Server上ではrowversion型（以前のTimestamp型）のフィールドとなり、データベース側でレコードの更新ごとに自動的にバージョンを表す数値が格納される。このフィールドを使うことで、自分がそのレコードを読み込んで以降、変更されていないかどうかを確認できる。
+
+　EF 4.1では、Timestampアノテーションが付加されたプロパティがある場合、DbContextクラスのSaveChangesメソッドを呼び出した際に、そのプロパティの値とデータベース上の値の比較が行われる。もし異なっている場合（＝自分が読み込んで以降、誰かが書き込んだ場合）には、DbUpdateConcurrencyException例外（System.Data.Entity.Infrastructure名前空間）が発生し、書き込みは行われない。
+```
+
+2021-01-22 02:57:24
+EF Coreの情報についてまとめた記事がないか調べてみます。
+特に調べたいのが以下の項目です。
+
+```
+- EF Coreでの規約について
+- EF Coreでリレーションを表す方法
+- EF Coreで外部キーだと判断される仕組み
+- EF Coreでエンティティ全部一括で取得する方法
+```
+
+2021-01-22 02:59:57
+Entity Framework Core の概要 - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/
+
+Ms Docsの記事以外でわかりやすそうなのが、見つけられなかったので、これを読んでみます。
+
+それと、そろそろEF Coreを使ったコードを写経しても内容が理解できそうな気がしています。
+
+読むのが疲れてきたので、コードの写経ができそうな記事か動画を探してみます。
+
+Entity Framework Best Practices - Should EFCore Be Your Data Access of Choice? - YouTube https://www.youtube.com/watch?v=qkJ9keBmQWo
+
+めちゃめちゃ長いですけど、よく見かけるチャンネルなので、有益かもしれません。
+
+Getting Started with Entity Framework Core | Entity Framework Core 101 [1 of 5] - YouTube https://www.youtube.com/watch?v=PpqdsJDvcxY
+
+dotNETチャンネルなので、公式の動画っぽいです。
+
+以前挑戦したRepositoryパターンの動画もいいかもしれません。
+Repository Pattern with C# and Entity Framework, Done Right | Mosh - YouTube https://www.youtube.com/watch?v=rtXpYpZdOzM
+
+2021-01-22 03:18:14
+次に勉強する教材が集めれたので、今日はここまでにしておきます。
+
+2021-01-22 06:32:49
+暇だったので、冒頭の調べるリストを片付けます。
+
+
+
+```
+- EF Coreでの規約について
+- EF Coreでリレーションを表す方法
+- EF Coreで外部キーだと判断される仕組み
+- EF Coreでエンティティ全部一括で取得する方法
+```
+
+- EF Coreでエンティティ全部一括で取得する方法
+
+データのクエリ - EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/querying/
+
+- EF Coreでリレーションを表す方法
+- EF Coreで外部キーだと判断される仕組み
+
+リレーションシップ-EF Core | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/core/modeling/relationships?tabs=fluent-api%2Cfluent-api-simple-key%2Csimple-key
+
+- EF Coreでの規約について
+
+EF Coreの中には規約についてまとめた記事はありませんでしたが、EF6にならありました。
+
+EF6とEF Coreって何が違うんでしょう。
+
+2021-01-22 06:41:33
+EF6 と EF Core を比較する | Microsoft Docs https://docs.microsoft.com/ja-jp/ef/efcore-and-ef6/
+
+EF6は今後すたれていくっぽいです。
+でもEF CoreはまだEF6のすべての機能を持っているわけじゃないっぽいです。
+
+2021-01-24 00:15:35
+Getting Started with Entity Framework Core | Entity Framework Core 101 [1 of 5] - YouTube https://www.youtube.com/watch?v=PpqdsJDvcxY
+
+EFを使っている動画のコードを写経してみます。
+
+2021-01-24 00:35:59
+動画のサンプルのリポジトリを見つけました。
+GitHub - CamSoper/ef-core-101: Demos and samples for EF Core 101 https://github.com/CamSoper/ef-core-101
+
+2021-01-24 00:45:14
+動画だとVisual StudioでSQL Server Output Exploreというのを開いていますが、僕のVisual Studioでは見つかりません。
+
+検索したら見つかりました。
+Viewのメニューにありました。
+
+2021-01-24 01:14:02
+Persist and retrieve relational data with Entity Framework Core - Learn | Microsoft Docs https://docs.microsoft.com/en-us/learn/modules/persist-data-ef-core/
+
+動画の中でおすすめされてました。
+
+2021-01-24 01:16:10
+Working with an Existing Database | Entity Framework Core 101 [2 of 5] - YouTube https://www.youtube.com/watch?v=-sftSA9_X-k
+
+５個の中の２個目の動画のサンプルを写経してみます。
+
+2021-01-24 01:19:00
+予めデータベースを作っておく必要があるようです。
+
+新しいプロジェクトを作って
+１個めの動画で作ったデータベースを予め作ったていで使いまわせそうです。
+
+2021-01-24 01:25:49
+失敗したら面倒なので、ここにコマンド文字列を書いておきます
+
+```
+Scaffold-DbContext "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ContosoPets;Integrated Security=True;ConnectRetryCount=0" Microsoft.EntityFrameworkCore.SqlServer -OutPutDir Models -Context ContosoPetsContext
+```
+
+上のやつだと、エンティティクラスに属性がつかずにコンテキストクラスにFluent APIで主キーとかの設定がされているっぽいです。
+Attributeで設定したいときは -DataAnnotationsをつけるといいらしいです。
+
+```
+Scaffold-DbContext "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ContosoPets;Integrated Security=True;ConnectRetryCount=0" Microsoft.EntityFrameworkCore.SqlServer -OutPutDir Models -Context ContosoPetsContext -DataAnnotations
+```
+
+2021-01-24 01:39:51
+ASP.NET Core Web Apps with EF Core | Entity Framework Core 101 [3 of 5] - YouTube https://www.youtube.com/watch?v=-FCzoUL47ds
+
+３個めの動画見ます。
+Webのプロジェクトよく知らないので写経せずに見るだけで行きます。
+
+2021-01-24 01:48:13
+Database Providers | Entity Framework Core 101 [4 of 5] - YouTube https://www.youtube.com/watch?v=gV_XvdgYwyU
+
+４個目の動画を見ます。
+
+これもサンプルがWebアプリとして書かれているので、見るだけにします。
+
+2021-01-24 01:55:37
+動画の中で以前探して見つからなかった。
+SQLiteのGUIツールを使っていました。
+
+ちょっと探してみます。
+
+GitHub - sqlitebrowser/sqlitebrowser: Official home of the DB Browser for SQLite (DB4S) project. Previously known as "SQLite Database Browser" and "Database Browser for SQLite". Website at: https://github.com/sqlitebrowser/sqlitebrowser
+
+これっぽいです。
+今度試してみたいです。
+
+2021-01-24 02:01:16
+Performance Tips | Entity Framework Core 101 [5 of 5] - YouTube https://www.youtube.com/watch?v=G1Ip4pNbpcE
+
+５つ目の動画を見ます。
+EFのコツについてだそうです。
+あわよくば写経します。
+
+2021-01-24 02:07:09
+AsNoTracking()
+
+Entity Framework and AsNoTracking https://blog.staticvoid.co.nz/2012/entity_framework_and_asnotracking/
+
+
+モデルを読み専にしたいときにAsNoTrackingにするといいらしいです。
+これによってメモリの節約になるそうです。
+
+2021-01-24 02:12:46
+イグルー（？）ローディング
+lazy loading
+
+時々データを読み込むことを遅らせることが利点になることがあるらしいです。
+lazy loadingはそのための機能らしいです。
+
+Microsoft.EntityFrameworkCore.Proxies
+
+コンテキストクラスのデータベース接続の処理の前にlazy loadingをするためのオプションを設定できるそうです。
+
+2021-01-24 02:17:22
+FromSqlInterpolated()
+
+Sqlインジェクション対策
+
+2021-01-24 02:18:14
+FindAsync
+
+2021-01-24 02:18:54
+Databese context pooling
+
+AddDbContextPool<>()
