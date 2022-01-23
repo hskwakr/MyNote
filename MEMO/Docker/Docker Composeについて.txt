@@ -1,0 +1,305 @@
+
+2021-02-14 21:38:55
+mysqlのDockerfileの作り方とcomposeのyamlファイルの作り方を勉強してみます。
+
+2021-02-14 21:41:45
+utf8の設定はこんな感じでようさそうです。
+
+GitHub - guillaumeprevost/docker-mysql-utf8mb4: Dockerized MySQL server with real UTF-8 (utf8mb4) encoding enabled https://github.com/guillaumeprevost/docker-mysql-utf8mb4
+
+2021-02-15 02:38:53
+[MYSQL] Create database and import sql file with Dockerfile - Docker Desktop for Windows - Docker Forums https://forums.docker.com/t/mysql-create-database-and-import-sql-file-with-dockerfile/30300
+
+2021-02-15 03:02:29
+これを参考にしてみます。
+
+How to Create a MySql Instance with Docker Compose | by Chris Chuck | Medium https://medium.com/@chrischuck35/how-to-create-a-mysql-instance-with-docker-compose-1598f3cc1bee
+
+2021-02-15 03:10:59
+up — Docker-docs-ja 19.03 ドキュメント http://docs.docker.jp/compose/reference/up.html
+```
+サービス用のコンテナの構築、作成、起動、アタッチを行います。
+
+リンクされているサービスがまだ起動していない場合は、それらも起動します。
+
+docker-compose up コマンドは個々のコンテナの出力をまとめます。 コマンドが終了すると、コンテナはすべて停止します。 docker-compose up -d を実行すると、コンテナはバックグラウンドで起動し、そのまま実行し続けます。
+```
+
+2021-02-15 03:16:10
+docker-compose.ymlだけでmysqlのデータベースが用意できました。
+
+すごいですね。
+
+GoからこのDBに接続しようとしてみます。
+
+2021-02-15 03:38:13
+Connecting to a Database | GORM - The fantastic ORM library for Golang, aims to be developer friendly. https://gorm.io/docs/connecting_to_the_database.html
+
+チュートリアルのやり方で上手く動きました。
+
+2021-02-15 03:41:44
+次はDocker-composeの書き方について勉強してみたいです。
+
+2021-02-15 09:05:14
+docker-composeで作ったmysqlはlatin1というcharacter setなので、ここをできればutf8mb4に変更したいです。
+
+```
+mysql> select * from information_schema.SCHEMATA;
++--------------+--------------------+----------------------------+------------------------+----------+
+| CATALOG_NAME | SCHEMA_NAME        | DEFAULT_CHARACTER_SET_NAME | DEFAULT_COLLATION_NAME | SQL_PATH |
++--------------+--------------------+----------------------------+------------------------+----------+
+| def          | information_schema | utf8                       | utf8_general_ci        | NULL     |
+| def          | db                 | latin1                     | latin1_swedish_ci      | NULL     |
++--------------+--------------------+----------------------------+------------------------+----------+
+```
+
+2021-02-15 09:32:14
+Docker composeの設定ファイルの書き方について調べていました。
+
+Compose file | Docker Documentation https://docs.docker.com/compose/compose-file/
+
+2021-02-15 09:38:10
+compose-spec/spec.md at master · compose-spec/compose-spec · GitHub https://github.com/compose-spec/compose-spec/blob/master/spec.md
+
+これが最新の仕様っぽいです。
+
+2021-02-16 02:07:02
+```
+The Compose specification includes properties designed to target a local OCI container runtime, exposing Linux kernel specific configuration options, but also some Windows container specific properties, as well as cloud platform features related to resource placement on a cluster, replicated application distribution and scalability.
+
+Compose specificationはローカルOCIコンテナーランタイムやLinuxカーネル固有の構成オプションを対象にしたプロパティを含みます。
+それ以外にもWindowsコンテナ固有のプロパティだけでなく、クラスターのリソースの配置や複製されたアプリケーションの配布と拡張に関連するクラウドプラットフォームの機能を含みます。
+```
+
+2021-02-16 02:25:04
+```
+We acknowledge that no Compose implementation is expected to support all attributes, and that support for some properties is Platform dependent and can only be confirmed at runtime.
+
+私達はすべての特性をサポートすることを意図されたComposeの実装はないことと、いくつかのプロパティはPlatformに依存して実行時にのみ確認できることを受け入れています。
+```
+
+2021-02-16 02:48:50
+```
+The definition of a versioned schema to control the supported properties in a Compose file, established by the docker-compose tool where the Compose file format was designed, doesn't offer any guarantee to the end-user attributes will be actually implemented.
+
+Composeファイル形式が設計されたdokcer-composeツールによって確立されたComposeファイルのサポートされたプロパティを制御するためのバージョン管理されたスキーマの定義はエンドユーザ属性が実際に実装される保証を表すものではありません。
+```
+
+2021-02-16 09:48:42
+```
+The specification defines the expected configuration syntax and behaviour, but - until noted - supporting any of those is OPTIONAL.
+
+その仕様は意図された構成の構文とふるまいを定義しまが、- until noted - それらはOPTIONALです。
+```
+
+```
+A Compose implementation to parse a Compose file using unsupported attributes SHOULD warn user. We recommend implementors to support those running modes:
+
+サポートされてない属性を使用してComposeファイルを解析するCompose実装はユーザに警告しなければなりません。
+私達は実装者にこれらの実行モードのサポートをおすすめします。
+```
+
+```
+- default: warn user about unsupported attributes, but ignore them
+
+default: サポートされていない属性についてユーザに警告しますが、それらを無視します。
+
+- strict: warn user about unsupported attributes and reject the compose file
+
+strict: サポートされていない属性について警告して、Composeファイルから除去します。
+
+- loose: ignore unsupported attributes AND unknown attributes (that were not defined by the spec by the time implementation was created)
+
+loose: サポートされていない属性と不明な属性（実装が作成された時点で仕様によって定義されなかったもの）を無視します。
+```
+
+2021-02-17 02:00:42
+The Compose application model
+
+```
+The Compose specification allows one to define a platform-agnostic container based application.
+
+Compose仕様はプラットフォームに依存しないコンテナベースのアプリケーションを許可します。
+```
+
+2021-02-17 06:41:59
+```
+Such an application is designed as a set of containers which have to both run together with adequate shared resources and communication channels.
+
+そのようなアプリケーションは適切な共有リソースと通信ちゃんねるの両方を一緒に実行しないといけないコンテナのセットとして設計されます。
+```
+
+2021-02-17 06:53:06
+```
+Computing components of an application are defined as Services. 
+
+アプリケーションのコンピューティングコンポーネントはServicesとして定義されます。
+```
+
+2021-02-17 08:58:15
+```
+A Service is an abstract concept implemented on platforms by running the same container image (and configuration) one or more times.
+
+Serviceは同じコンテナイメージ（と構成）を一回以上実行することにより、プラットフォームに実装される抽象的な概念です。
+```
+
+2021-02-17 09:35:40
+```
+Services communicate with each other through Networks.
+
+ServiceはNetworkを通してお互いに通信します。
+```
+
+2021-02-17 09:38:43
+```
+In this specification, a Network is a platform capability abstraction to establish an IP route between containers within services connected together. 
+
+この仕様では、Networkは相互に接続されたService内のコンテナ間にIPルートを確立するためのプラットフォーム機能の抽象化です。
+```
+
+2021-02-17 09:43:14
+```
+Low-level, platform-specific networking options are grouped into the Network definition and MAY be partially implemented on some platforms.
+
+lowレベルのプラットフォーム固有のネットワークオプションはNetwork定義にグループ化されていくつかのプラットフォームで部分的に実装されるかもしれません。
+```
+
+2021-02-17 10:49:34
+```
+Services store and share persistent data into Volumes. 
+
+Serviceは永続データをVolumeの中に保存、共有します。
+```
+
+2021-02-17 11:00:39
+```
+The specification describes such a persistent data as a high-level filesystem mount with global options.
+
+この仕様はグローバルオプションがついたhighレベルのファイルシステムマントなどの永続データについて説明します。
+```
+
+2021-02-17 14:44:25
+```
+Actual platform-specific implementation details are grouped into the Volumes definition and MAY be partially implemented on some platforms.
+
+実際のプラットフォーム固有の実装の詳細はVolume定義にグループ化されていて、いくつかのプラットフォームに部分的に実装されているかもしれません。
+```
+
+2021-02-18 10:59:54
+```
+Some services require configuration data that is dependent on the runtime or platform.
+
+いくつかのserviceはランタイムかプラットフォーム依存の構成データを要求します。
+```
+
+2021-02-18 11:01:56
+```
+For this, the specification defines a dedicated concept: Configs.
+
+仕様はこのための専用の概念: Configを定義します。
+```
+
+2021-02-18 11:35:45
+```
+From a Service container point of view, Configs are comparable to Volumes, in that they are files mounted into the container.
+
+Serviceコンテナの観点から、Configはコンテナの中にマウントされたファイルだという点でVolumeに匹敵します。
+```
+
+2021-02-18 12:25:54
+```
+But the actual definition involves distinct platform resources and services, which are abstracted by this type.
+
+しかし実際の定義ではこのタイプによって抽象化された異なるプラットフォームリソースとサービスを含みます。
+```
+
+2021-02-19 02:21:52
+```
+A Secret is a specific flavour of configuration data for sensitive data that SHOULD NOT be exposed without security considerations.
+
+Secretはセキュリティの検討なし露出されるべきではない繊細なデータのための固有のフレーバーの構成データです。
+```
+
+2021-02-19 02:44:13
+```
+Secrets are made available to services as files mounted into their containers, but the platform-specific resources to provide sensitive data are specific enough to deserve a distinct concept and definition within the Compose specification.
+
+Secretはコンテナにマウントされたファイルとしてserviceにとって都合がいい形に作られますが、繊細なデータを提供するためのプラットフォーム固有のリソースはCompose仕様の明確な概念と定義に値するほど十分に具体的なものです。
+```
+
+2021-02-19 05:57:31
+```
+Distinction within Volumes, Configs and Secret allows implementations to offer a comparable abstraction at service level, but cover the specific configuration of adequate platform resources for well identified data usages.
+
+VolumeとConfig、Secretの中での差異はserviceレベルで同等な抽象化を提供するための実装を可能にしますが、明確に識別されたデータ使用のための適切なプラットフォームリソース固有の構成を取り扱います。
+```
+
+2021-02-19 10:16:36
+```
+A Project is an individual deployment of an application specification on a platform.
+
+Projectはプラットフォーム上の個別のアプリケーション仕様のデプロイです。
+```
+
+2021-02-19 10:21:43
+```
+A project's name is used to group resources together and isolate them from other applications or other installation of the same Compose specified application with distinct parameters.
+
+Projectの名前はリソースを一緒にまとめることと、他のアプリケーションや同じCompose指定アプリケーションの異なる引数でのインストールから分離するために使われます。
+```
+
+2021-02-19 10:34:08
+Illustrative example
+
+```
+The following example illustrates Compose specification concepts with a concrete example application. The example is non-normative.
+
+この例では具体的なアプリケーションを例にしてCompose仕様の概念を説明します。
+この例は規範的なものではありません。
+```
+
+2021-02-19 12:57:44
+```
+Consider an application split into a frontend web application and a backend service.
+```
+
+2021-02-20 10:12:09
+Docker compose v3について勉強します。
+
+Compose file version 3 reference | Docker Documentation https://docs.docker.com/compose/compose-file/compose-file-v3/
+
+2021-02-20 10:21:07
+vlumesについて
+
+Compose file version 3 reference | Docker Documentation https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes
+
+2021-02-20 15:15:34
+Docker-composeでSinatra + Nginx + MySQL を動かす時のハマりポイント - Qiita https://qiita.com/koyo-miyamura/items/54bbde546db07ef64bf3
+
+【Windows】docker-composeを使ってmy.cnfの共有は気を付けよう！（🍣＝🍺問題など） - Qiita https://qiita.com/koyo-miyamura/items/4d1430b9086c5d4a58a5
+
+ここら辺参考にしました。
+
+2021-02-20 15:33:04
+SELECT @@character_set_database, @@collation_database;
+show variables like 'char%';
+select * from information_schema.SCHEMATA;
+
+2021-02-20 15:39:56
+create database hoge charset utf8mb4;
+試しにデータベースを作って確認してみたら、imageの変数で作ったやつはlatinで自分で作ったdbはutf8mb4だった。
+
+ということは環境変数で作るより、sqlを読み込ませたほうが無難っぽいです。
+
+2021-02-20 15:46:30
+```
+Initializing a fresh instance
+
+When a container is started for the first time, a new database with the specified name will be created and initialized with the provided configuration variables. Furthermore, it will execute files with extensions .sh, .sql and .sql.gz that are found in /docker-entrypoint-initdb.d. Files will be executed in alphabetical order. You can easily populate your mysql services by mounting a SQL dump into that directory and provide custom images with contributed data. SQL files will be imported by default to the database specified by the MYSQL_DATABASE variable.
+```
+
+MYSQL_DATABASEにsqlが適用されるっぽいです。
+なので結局環境変数でよういしてそのdbを変更してみます。
+
+2021-02-20 16:43:01
+最終的にDocekr DesktopのtroubleshootからClean / Purge dataをしたらうまくできました。
