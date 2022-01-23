@@ -523,3 +523,21 @@ fiberのバージョンがv1からv2にしたいとおもいます。
 2021-02-04 19:55:55
 v2に変更して関数の戻り値を直したら動くようになりました :)
 
+2021-02-23 15:25:57
+Goの情報収集します
+
+2021-02-23 15:26:33
+ファイルレイアウトについて
+
+project-layout/README_ja.md at master · golang-standards/project-layout · GitHub https://github.com/golang-standards/project-layout/blob/master/README_ja.md
+
+2021-02-23 16:09:02
+restapiのファイルのレイアウトをシンプルなものに変更しました。
+
+これによって今までmain.goファイルを引数にしてgo runすれば動いていたのが、全部の.goファイルを渡して上げる必要が出てきました。
+
+.goファイルが増えてきたら面倒なんですが、それはワイルドカードとかでなんとかできないか試してみます。
+
+2021-02-23 16:39:40
+go run .
+でうまくいきました
