@@ -1,0 +1,525 @@
+
+2021-02-01 18:30:32
+Golang勉強してみます。
+
+CRUDができるところまでを目標に頑張ってみます
+CRUD（Create/Read/Update/Delete）とは - IT用語辞典 e-Words https://e-words.jp/w/CRUD.html
+
+2021-02-01 19:15:59
+Effective Go — プログラミング言語 Go ドキュメント v0.1 http://go.shibu.jp/effective_go.html
+
+まずはこれを読んでみます。
+
+2021-02-01 19:31:11
+```
+Goを使用するためのサンプルにもなっています。問題に対して、どのようにアプローチをしようか疑問をもったり、これはどのように実装されているのか疑問を持った場合には、パッケージのソースを読むとその答え、アイディア、背景などが分かるでしょう。
+```
+
+2021-02-01 19:31:32
+```
+gofmt というプログラムがあり、これはGoのプログラムを読み込んで、インデントと垂直方向の整列、必要ならコメントの再フォーマットも行って、標準的なフォーマットに書き直したソースを出力します。
+```
+
+2021-02-01 19:49:06
+nilという言葉が出てきましたが、よくわからなかったので調べてみます。
+
+nil は nil | text.Baldanders.info https://text.baldanders.info/golang/nil-is-nil/
+
+```
+実際にはこれは「型がない」ことを示している。 同様に値についても，厳密には nil という値ではなく「値がない」ことを示しているのだ。
+
+Go 言語では，ある型の値が「宣言されていない」状態のことを「ゼロ値（zero value）」と呼んでいる。 たとえば int などの数値型では「ゼロ値」として数値の 0 を， bool では false を，文字列では空文字列をとる。 同じようにポインタ型や interface 型などでは nil を「ゼロ値」としましょう，ということなのである。 このように仕様として定義することで曖昧な状態を排除でき，私達ユーザは安心してその変数を使用することができるわけだ。
+```
+
+その変数が宣言されてない状態や値が設定されていない状態のことをnilというのでしょうか。たぶん
+
+2021-02-01 21:14:32
+VS codeで作ろうとしたらimportができなくて困りました。
+
+2021-02-01 21:35:14
+GOPATHとワーキングディレクトリ · Build web application with Golang https://astaxie.gitbooks.io/build-web-application-with-golang/content/ja/01.2.html
+
+環境変数GOPATHを設定しないといけなかったようです。
+
+2021-02-01 22:49:20
+A Tour of Go https://go-tour-jp.appspot.com/list
+
+とりあえずここでざっと勉強します。
+
+2021-02-02 22:25:53
+GitHub - guanqun/gotour-answers: Answers to Gotour's Exercises https://github.com/guanqun/gotour-answers
+
+チュートリアルの問題が解けなかったので
+他の人の回答例を見て勉強します
+
+2021-02-02 18:25:14
+Goの勉強の続きします。
+
+A Tour of Go https://go-tour-jp.appspot.com/methods/1
+
+```
+ Goには、クラス( class )のしくみはありませんが、型にメソッド( method )を定義できます。
+
+メソッドは、特別なレシーバ( receiver )引数を関数に取ります。
+
+レシーバは、 func キーワードとメソッド名の間に自身の引数リストで表現します。
+
+この例では、 Abs メソッドは v という名前の Vertex 型のレシーバを持つことを意味しています。 
+```
+
+```
+ ポインタレシーバでメソッドを宣言できます。
+
+これはレシーバの型が、ある型 T への構文 *T があることを意味します。 （なお、 T は *int のようなポインタ自身を取ることはできません） 
+
+ ポインタレシーバを持つメソッド(ここでは Scale )は、レシーバが指す変数を変更できます。 レシーバ自身を更新することが多いため、変数レシーバよりもポインタレシーバの方が一般的です。
+
+Scale の宣言(line 16)から * を消し、プログラムの振る舞いがどう変わるのかを確認してみましょう。
+
+変数レシーバでは、 Scale メソッドの操作は元の Vertex 変数のコピーを操作します。 （これは関数の引数としての振るまいと同じです）。 つまり main 関数で宣言した Vertex 変数を変更するためには、Scale メソッドはポインタレシーバにする必要があるのです。 
+```
+
+```
+ポインタレシーバを使う2つの理由があります。 
+ひとつは、メソッドがレシーバが指す先の変数を変更するためです。
+
+ふたつに、メソッドの呼び出し毎に変数のコピーを避けるためです。 例えば、レシーバが大きな構造体である場合に効率的です。 
+```
+
+```
+
+
+interface(インタフェース)型は、メソッドのシグニチャの集まりで定義します。
+
+そのメソッドの集まりを実装した値を、interface型の変数へ持たせることができます。 
+```
+
+2021-02-02 19:03:35
+panic ってなんでしょう
+
+実践Go言語 - golang.jp http://golang.jp/effective_go#panic
+
+```
+呼び出し元にエラーを通知する一般的な方法は、戻り値にos.Errorを付け加えることです。標準的なReadメソッドが良い例で、バイト数とos.Errorを返します。しかし、エラーがリカバリできないときはどうでしょう？ときおり、プログラムは全く継続できない事態に陥ることがあります。
+
+こういったときのために、組み込み関数panicがあります。これは、実質的にプログラムを停止させるランタイムエラーを作成します。(ただし、次のセクションを参照のこと) この関数は、プログラム停止時に出力するため、任意の型(たいていは文字列)の引数をひとつ受け取ります。これは、例えば無限ループから抜けるなどの、どうしようもできない事態が起きたことを示す手段でもあります。
+```
+
+2021-02-03 12:40:10
+A Tour of Go https://go-tour-jp.appspot.com/concurrency/11
+
+今後壁にぶつかったらこれを参考にしてみます。
+
+Go言語の初心者が見ると幸せになれる場所 #golang - Qiita https://qiita.com/tenntenn/items/0e33a4959250d1a55045
+
+2021-02-03 13:20:29
+```
+ロギングとは、起こった出来事についての情報などを一定の形式で時系列に記録・蓄積すること。そのように記録されたデータのことを「ログ」（log）という。
+```
+ロギングとは - IT用語辞典 e-Words https://e-words.jp/w/%E3%83%AD%E3%82%AE%E3%83%B3%E3%82%B0.html
+
+データログ - Wikipedia https://ja.wikipedia.org/wiki/%E3%83%87%E3%83%BC%E3%82%BF%E3%83%AD%E3%82%B0
+
+2021-02-03 18:22:37
+【Go】Sqlite3の利用方法 - Qiita https://qiita.com/BlueBaybridge/items/b784de635c3d4ba70765
+
+SqliteをGoで使う方法にはgccが必要なそうです。
+
+2021-02-03 19:37:21
+gormでsqliteがうまく動かせなかったので、mysqlで動かすことにしました。
+
+データベースを用意します。
+
+動作確認ができるように開発用にmysqlサーバーを用意したいです。
+
+MySQL :: MySQL 5.6 リファレンスマニュアル :: 2.3 Microsoft Windows に MySQL をインストールする https://dev.mysql.com/doc/refman/5.6/ja/windows-installation.html
+
+ここを参考にインストールしようとしたら、
+Pythonをインストールすることをおすすめされました。
+
+もともと持っているpythonは3.9なのですが、mysqlは3.8のpythonがほしいらしいです。
+
+そこでpythonで複数のバージョンを管理する方法を探すことにしました。
+
+Pythonの複数バージョンの扱い方（Windowsの場合） | ガンマソフト株式会社 https://gammasoft.jp/python/python-version-management/
+
+この記事を読んでみます。
+
+2021-02-03 19:51:39
+Windows で複数バージョンの Python を使う - Qiita https://qiita.com/landwarrior/items/1b5e0f9af5316a025fe0
+
+特別なことをせずに別のバージョンをインストールしても大丈夫そうです。
+
+2021-02-03 20:38:56
+MySQL :: MySQL 5.6 リファレンスマニュアル :: 2.3.8 Windows でのインストール後の手順 https://dev.mysql.com/doc/refman/5.6/ja/windows-postinstallation.html
+
+MySqlのインストールが終わったので、
+使えるか確認してみたいと思います
+
+mysqlshowコマンドのパスが通っていなかったので
+
+C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+のパスを環境変数に追加しました。
+
+2021-02-03 23:23:28
+MySQL :: MySQL 5.6 リファレンスマニュアル :: 2.3.5.5 Windows のコマンド行からの MySQL の起動 https://dev.mysql.com/doc/refman/5.6/ja/windows-start-command-line.html
+
+起動とシャットダウンの方法がわかりました。
+
+この方法だと起動がうまかなかったので、
+コンピューターの管理からMySqlのサービスを見つけて起動する方法が一番シンプルっぽいです。
+
+2021-02-03 23:39:05
+データベースの接続文字列について後々必要そうな情報
+
+GitHub - go-sql-driver/mysql: Go MySQL Driver is a MySQL driver for Go's (golang) database/sql package https://github.com/Go-SQL-Driver/MySQL/
+
+2021-02-03 23:42:24
+gormはMigrationをしてくれるっぽいんですが、予めデータベースを用意してあげないといけないっぽいです。
+
+2021-02-04 12:31:05
+Goの勉強します。
+目標はGoでデータベースのコードのテストができるようになりたいです。
+（gormのコードのテストができれば満足です）
+
+2021-02-04 12:33:09
+testing - The Go Programming Language https://golang.org/pkg/testing/
+
+testing パッケージ - golang.jp http://golang.jp/pkg/testing
+
+testingパッケージについてはここから調べていきます。
+
+2021-02-04 12:36:35
+とりあえずテストのコードを写経してみます。
+
+youtubeでそれっぽい動画を探します。
+
+2021-02-04 13:53:34
+これを試してみます。
+
+An Introduction to Testing in Go - YouTube https://www.youtube.com/watch?v=GlA57dHa5Rg
+
+2021-02-04 14:09:51
+t.Errorの表示方法はこれであってるんでしょうか。
+
+```
+Test Failed: {} inputted, {} expected, received: {} -1 -1 1
+```
+
+本当は{}の部分に数字がうまく入ってくれるんじゃないでしょうか。
+
+ちょっと調べてみます
+
+2021-02-04 14:14:52
+src/testing/testing.go - The Go Programming Language https://golang.org/src/testing/testing.go?s=27799:27858#L782
+
+Errorの内部でSprintlnでメッセージを読んでいたのでSprintlnの引数について調べたらどうやったらうまく表示できるかわかりそうです。
+
+2021-02-04 14:20:24
+fmt - The Go Programming Language https://golang.org/pkg/fmt/#Sprintln
+
+{}で割り当ててくれるような設定はないっぽいので、コードを直して次の動画を写経します。
+
+2021-02-04 14:25:12
+Advanced Testing in Go - YouTube https://www.youtube.com/watch?v=S1O0XI0scOM
+
+さっきの続編の動画を写経してみます。
+TableDrivenTests
+
+2021-02-04 14:36:16
+go test -v
+-vは何がかわるんでしょうか。調べてみます。
+
+2021-02-04 14:45:28
+test flagっていうものっぽいです。
+
+go help testflag
+に説明がありました
+
+```
+-v
+    Verbose output: log all tests as they are run. 
+    詳細な出力:
+    すべてのテストを実行と同時に記録します。
+    
+    Also print all text from Log and Logf calls even if the test succeeds.
+    またテストが成功したとしてもLogとLogfの呼び出しからすべてのテキストを表示します。
+```
+
+go test -v
+詳細な出力ということがわかりました
+
+2021-02-04 15:16:18
+httptest · pkg.go.dev https://pkg.go.dev/net/http/httptest#ResponseRecorder.Result
+
+たぶんResult()で偽のhttpresponseをもらってるっぽいです。
+偽のレスポンスを作ってるところがhandlerなんだと思います。
+
+どうしてhttptestパッケージはhandlerのクロージャ（？）で何をしてるのかがわかるのでしょうか。
+Goのことがよくわかってないからこういう疑問が出るんだと思います。
+
+2021-02-04 15:32:55
+go test -tags
+はどういう意味でしょうか。調べてみます。
+
+go help build
+の説明のやつっぽいです
+
+```
+-tags tag,list
+   a comma-separated list of build tags to consider satisfied during the build.
+   For more information about build tags, see the description of build constraints in the documentation for the go/build package.
+   (Earlier versions of Go used a space-separated list, and that form is deprecated but still recognized.)
+```
+
+go - The Go Programming Language https://golang.org/cmd/go/#hdr-Build_constraints
+
+ソースファイルの一番上に制約を書くことが出きるっぽいです。
+そのファイルがパッケージに含まれるべき条件を制約として書けるっぽいです。
+
+2021-02-04 15:45:41
+よくみたら最初の記号がちがいますね
++ と *
+
+// *build
+について調べてみます。
+
+2021-02-04 15:49:39
+わかりませんでした。
+未来に望みを残して今は諦めます。
+
+2021-02-04 15:51:46
+goのテストの書き方の雰囲気は伝わったので、今度はdatabaseのコードをテストする方法を調べてみます。
+
+2021-02-04 15:57:35
+よさげな再生リストをみつけたので
+序盤から写経してみます。
+
+Backend master class [Golang, Postgres, Docker] - YouTube https://www.youtube.com/playlist?list=PLy_6D98if3ULEtXtNSY_2qN21VCKgoQAE
+
+2021-02-04 15:59:41
+#1
+- Databese Design
+    - Design DB schema
+    using dbdiagram.io
+
+    - Save & share DB diagram
+    Save the DB schema as PDF/PNG
+
+    - Generate SQL code
+
+2021-02-04 16:02:23
+dbdiagram.ioというものがあるらしいです。
+調べてみます
+
+Untitled - dbdiagram.io https://dbdiagram.io/pricing
+
+無料で使えるツールっぽいです。
+
+2021-02-04 16:19:25
+動画ではpostgresqlを使うらしいので、
+各カラムのデータタイプをmysql用に変えようと思います。
+
+```
+
+Table accounts as A {
+  id bigserial [pk] // auto-increment
+  owner varchar [not null]
+  balance bigint [not null]
+  currency varchar [not null]
+  created_at timestamp [not null, default: `now()`]
+  
+  Indexes {
+    owner
+  }
+}
+
+Table entries {
+  id bigserial [pk]
+  account_id bigint [ref: > A.id]
+  amount bigint [not null, note: 'can be negative or positive']
+  created_at timestamp [not null, default: `now()`]
+  
+  Indexes {
+    account_id
+  }
+ }
+
+Table transfers {
+  id bigserial [pk]
+  from_account_id bigint [ref: > A.id]
+  to_account_id bigint [ref: > A.id]
+  amount bigint [not null, note: 'must be positive']
+  created_at timestamp [not null, default: `now()`]
+  
+  Indexes {
+    from_account_id
+    to_account_id
+    (from_account_id, to_account_id)
+  }
+ }
+```
+
+```
+
+Table accounts as A {
+  id int [pk, increment] // auto-increment
+  owner varchar [not null]
+  balance bigint [not null]
+  currency varchar [not null]
+  created_at timestamp [not null, default: `now()`]
+  
+  Indexes {
+    owner
+  }
+}
+
+Table entries {
+  id int [pk, increment]
+  account_id bigint [ref: > A.id]
+  amount bigint [not null, note: 'can be negative or positive']
+  created_at timestamp [not null, default: `now()`]
+  
+  Indexes {
+    account_id
+  }
+ }
+
+Table transfers {
+  id int [pk, increment]
+  from_account_id bigint [ref: > A.id]
+  to_account_id bigint [ref: > A.id]
+  amount bigint [not null, note: 'must be positive']
+  created_at timestamp [not null, default: `now()`]
+  
+  Indexes {
+    from_account_id
+    to_account_id
+    (from_account_id, to_account_id)
+  }
+ }
+
+```
+
+2021-02-04 16:32:43
+Defaultの部分がよくわかりませんが、エラー出ないようにして次に進みたいと思います
+
+2021-02-04 16:36:07
+#2
+環境構築編っぽいです。
+
+Dockerインストールしてないんですが、この部分で時間つぶされそうなんで、見るだけで進みます。
+
+2021-02-04 16:43:24
+TablePlusというものを紹介されました。
+調べてみます。
+
+TablePlus | Modern, Native Tool for Database Management https://www.tableplus.io/
+
+いろんなSQLサーバーに対応したGUIツールっぽいです。
+使ってみたいです。
+
+2021-02-04 17:11:15
+#3 Migrate
+まだgoのパートじゃないっぽいです。
+
+GitHub - golang-migrate/migrate: Database migrations. CLI and Golang library. https://github.com/golang-migrate/migrate
+
+これを使ってmigrateのファイルを作るっぽいです。
+
+2021-02-04 17:25:02
+How to quickly extract .tar.gz files on Windows 10 • Pureinfotech https://pureinfotech.com/extract-tar-gz-files-windows-10/
+
+tar.gzのファイルを解凍する方法
+
+2021-02-04 17:38:11
+動画のサンプルだとmakeつかってますが、windowsにはmakeはインストールされていないっぽいです。
+
+解決策は先延ばしにして動画を見続けます。
+makeの部分は飛ばせそうです。
+
+その分コマンドを打ち込む必要があると思いますががんばります。
+
+2021-02-04 17:43:41
+#4
+GoでCRUDをつくるサンプルっぽいです。
+
+GORM, SQLX, SQLC
+
+SQLCを使うみたいです。
+
+2021-02-04 17:53:04
+SQLCはwindows非対応みたいです・・・。
+
+別の動画を探します。
+
+2021-02-04 17:56:39
+これを試しに写経します。
+
+Building a Go REST API using Gorm and Fiber! - YouTube https://www.youtube.com/watch?v=Iq2qT0fRhAA&pbjreload=101
+
+2021-02-04 18:19:53
+文字をうち間違えてるの気づかなくて新しいfiberに変更したりしてましたが、このまま進んでみます。
+
+2021-02-04 18:31:03
+進行上に不都合があったので戻しました。
+
+2021-02-04 18:39:25
+どこかが間違っているのか、
+
+	app.Get("/api/v1/book", book.GetBooks)
+
+以外がうまく動きません。
+
+2021-02-04 18:42:15
+最新のバージョンで試してみます
+
+2021-02-04 18:47:45
+別パッケージの別ファイルのimportの仕方がわかりません。
+
+調べてみます。
+
+2021-02-04 18:50:41
+go - VSCode: Could not import Golang package - Stack Overflow https://stackoverflow.com/questions/58518588/vscode-could-not-import-golang-package
+
+```
+    Sometimes I have a similar issue when I open my editor in a root different than my project.
+
+.  <- editor open here
+| 
+|_Folder
+  | main.go
+
+```
+
+VSCodeが開いてる位置によってエラーが出てたみたいです。
+
+practice <-ココで開かないとエラー
+|-main.go
+|-book
+  |-book.go
+
+
+2021-02-04 18:54:48
+今度は新しいエラーが出ました
+```
+unexpected directory layout:
+```
+go - golang unexpected directory layout - Stack Overflow https://stackoverflow.com/questions/45428744/golang-unexpected-directory-layout
+
+2021-02-04 19:18:10
+直していただきました。
+https://github.com/hskwakr/restapi/pull/1/files
+
+2021-02-04 19:24:33
+fiberのバージョンがv1からv2にしたいとおもいます。
+
+2021-02-04 19:51:30
+関数定義が悪くて、読み込み自体はできてたみたいです。
+
+やらかしました。
+
+2021-02-04 19:55:55
+v2に変更して関数の戻り値を直したら動くようになりました :)
+
