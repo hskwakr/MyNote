@@ -1,0 +1,64 @@
+
+2021-02-05 21:06:58
+Docker Desktopをインストールしました。
+そしてDockerのイメージを保存する場所を変更したいと思いました。
+
+Where are images stored? - Docker Desktop for Windows - Docker Forums https://forums.docker.com/t/where-are-images-stored/9794/20
+
+この記事では自分と同じことがしたい人がたくさんいるようでした。
+
+Windows で Docker を構成する | Microsoft Docs https://docs.microsoft.com/ja-jp/virtualization/windowscontainers/manage-docker/configure-docker-daemon
+
+"data-root"
+がそれっぽいので試してみます。
+
+2021-02-05 21:13:48
+うまくいきませんでした。
+
+Change Docker native images location on Windows 10 Pro - Stack Overflow https://stackoverflow.com/questions/40465979/change-docker-native-images-location-on-windows-10-pro
+
+これを試してみます。
+
+2021-02-05 21:54:32
+docker pullしたときに大きなファイルが設定したフォルダにできました。
+
+これで様子を見てみます。
+
+2021-02-06 14:19:29
+Play with Docker Classroom https://training.play-with-docker.com/
+
+2021-02-06 20:46:43
+mysql - Docker Hub https://hub.docker.com/_/mysql
+
+dockerでmysqlを起動して、それをgolangで読み書きできるようにしたいです。
+
+```
+# 起動
+docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
+
+# 接続
+docker exec -it some-mysql bash
+
+# 終了
+docker kill some-mysql
+```
+
+2021-02-06 21:24:38
+次はdockerのDBに外部から接続できるようになりたいです。
+
+Connecting to MySQL on a Docker container. https://cyberomin.github.io/tutorial/docker/2016/01/12/docker-mysql.html
+
+docker psのportを参考にするといいらしいです。
+
+Docker Desktop for Windows のネットワーク構築機能 — Docker-docs-ja 19.03 ドキュメント https://docs.docker.jp/docker-for-windows/networking.html
+
+IPアドレスはlocalhostでいいっぽいです。
+
+2021-02-06 23:04:52
+これでうまく接続できました。
+```
+docker run --name some-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=pass -d mysql
+
+# 接続IP
+localhost:3306
+```
