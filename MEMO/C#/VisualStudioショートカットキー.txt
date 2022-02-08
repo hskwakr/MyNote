@@ -17,6 +17,8 @@ IntelliSense 候補提示モード 	Ctrl+Alt+スペース (トグル)
 
 ```
 Refactor.Rename 	Ctrl + R、Ctrl + R
+
+ソリューション エクスプローラー 	Ctrl + Alt + L
 ```
 
 2021-01-17 03:53:56
