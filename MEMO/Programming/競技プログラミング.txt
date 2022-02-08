@@ -1,9 +1,0 @@
-2021-03-26 21:43:06
-Goで競技プログラミングに挑戦してみます。
-（どちらも勉強しながらやってみます）
-
-2021-03-26 21:45:04
-AtCoder：競技プログラミングコンテストを開催する国内最大のサイト https://atcoder.jp/?lang=ja
-
-2021-03-26 21:47:19
-AtCoder Beginners Selection - AtCoder https://atcoder.jp/contests/abs
