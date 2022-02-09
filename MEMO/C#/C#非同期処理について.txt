@@ -1,0 +1,36 @@
+2021-05-09 15:01:43
+非同期処理について勉強したいです。
+
+とりあえずこれを読んでみます。
+
+C# 今更ですが、await / async - Qiita https://qiita.com/rawr/items/5d49960a4e4d3823722f
+
+2021-05-09 16:48:00
+よくわからなかったので別の記事を読んでみます。
+
+非同期プログラミング - C# | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/csharp/async
+
+```
+処理が I/O バインド の場合は、async と await を使いますが、Task.Run は "使いません"。 タスク並列ライブラリは "使わないでください"。 その理由について詳しくは、「非同期の詳細」をご覧ください。
+
+処理が CPU バインド であり、応答性が重要な場合は、async と await を使い、Task.Run を "使って" 別のスレッドで処理を実行します。 処理がコンカレンシーと並列処理に適している場合は、タスク並列ライブラリを使うことも考慮します。
+```
+
+I/OバインドとCPUバインドの非同期処理があることはわかりましたが、やり方については理解できませんでした。
+
+2021-05-09 22:44:07
+次の記事を読んでみます。
+
+タスク ベースの非同期パターン (TAP) | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap
+
+2021-05-10 09:31:26
+まだよくわかりません。もう少し調べてみます。
+
+C# での非同期プログラミング | Microsoft Docs https://docs.microsoft.com/ja-jp/dotnet/csharp/programming-guide/concepts/async/
+
+2021-05-10 19:23:50
+この動画のコードを写経してみます。
+
+C# Async / Await - Make your app more responsive and faster with asynchronous programming - YouTube https://www.youtube.com/watch?v=2moh18sh5p4
+
+async / awaitのawaitって待つのwaitなのか。その処理から下の処理を待ってほしいときにawaitつければ待ってくれるって感じっぽいです
