@@ -1,0 +1,20 @@
+2021-04-29 02:50:06
+出力フォルダに出力されるdllファイルたちをサブフォルダにまとめたいと思いました。
+出力フォルダに認証用のjsonファイルを出力してほしいと思いました。
+
+2021-04-29 02:51:43
+dllに関してはこの記事が役立ちそうです。
+
+アプリケーション設定の管理 (.NET) - Visual Studio | Microsoft Docs https://docs.microsoft.com/ja-jp/visualstudio/ide/managing-application-settings-dotnet?view=vs-2019
+
+認証ファイルに関してはこの記事が役立ちそうです。
+
+アプリケーション リソースの管理 (.NET) - Visual Studio | Microsoft Docs https://docs.microsoft.com/ja-jp/visualstudio/ide/managing-application-resources-dotnet?view=vs-2019
+
+2021-04-29 03:18:54
+先に認証ファイル問題に着目します。
+
+2021-04-29 06:48:00
+この方法で解決できました。
+
+.net - How to include other files to the output directory in C# upon build? - Stack Overflow https://stackoverflow.com/questions/16785369/how-to-include-other-files-to-the-output-directory-in-c-sharp-upon-build
