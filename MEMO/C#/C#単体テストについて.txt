@@ -103,3 +103,16 @@ https://azure.microsoft.com/ja-jp/services/devops/
 スタブ - スタブは、システム内の既存の依存関係 (コラボレーター) の制御可能な置換です。 スタブを使用すると、依存関係を直接処理することなく、コードをテストできます。 既定では、フェイクはスタブとして開始します。
 **
 https://docs.microsoft.com/ja-jp/dotnet/core/testing/unit-testing-best-practices#lets-speak-the-same-language
+
+2021-05-05 10:29:39
+IsTestフィールドの値をプロジェクトの設定から読み書きできるようにしたいです。
+
+2021-05-05 10:31:34
+どうすれば実現できるのかわからないので、調べてみます。
+
+まずはこの記事を読んでみます。
+
+[設定] ページ (プロジェクト デザイナー) - Visual Studio | Microsoft Docs https://docs.microsoft.com/ja-jp/visualstudio/ide/reference/settings-page-project-designer?view=vs-2019
+
+2021-05-05 14:10:47
+アプリケーション設定の管理 (.NET) - Visual Studio | Microsoft Docs https://docs.microsoft.com/ja-jp/visualstudio/ide/managing-application-settings-dotnet?view=vs-2019
