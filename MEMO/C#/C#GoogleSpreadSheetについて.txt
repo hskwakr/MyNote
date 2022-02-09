@@ -1,0 +1,26 @@
+2021-04-28 06:20:54
+Googleスプレッドシートに.NETからアクセスする方法について
+
+Step 1: Prepare the project https://developers.google.com/sheets/api/quickstart/dotnet#step_1_prepare_the_project
+
+Create credentials | Google Workspace for Developers https://developers.google.com/workspace/guides/create-credentials
+
+2021-04-28 08:55:21
+スプレッドシートAPIの利用限度について
+
+Usage Limits | Sheets API | Google Developers https://developers.google.com/sheets/api/limits
+
+2021-04-28 08:58:02
+現実的に500リクエストを超えることはまずないと思いたいけど、怖いので自分でcredentialを作るのは保留にしておきます。
+
+ログイン処理が含まれているRefreshを何度も行っている現在の状況的に100秒内に500リクエストを超えるのはあり得る気がします。
+
+2021-04-28 09:20:35
+アイコンを設定してみます。
+
+方法: アプリケーション アイコンを指定する (Visual Basic、C#) - Visual Studio | Microsoft Docs https://docs.microsoft.com/ja-jp/visualstudio/ide/how-to-specify-an-application-icon-visual-basic-csharp?view=vs-2019
+
+2021-04-28 10:18:00
+C#でHttpリクエストを送る方法を勉強したほうがよさそうです。
+
+Visual C# を使用して GET 要求を行う - Internet Information Services | Microsoft Docs https://docs.microsoft.com/ja-jp/troubleshoot/iis/make-get-request
