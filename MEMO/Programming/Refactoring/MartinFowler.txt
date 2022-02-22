@@ -717,3 +717,33 @@ interface IFoo {
 }
 
 よくわからないので読み進めます。
+
+2021-05-28 06:49:18
+Refactoringの続きから読みたいです。
+
+2021-05-28 08:49:35
+仲介人の除去
+
+Remove Middle Man https://refactoring.com/catalog/removeMiddleMan.html
+
+2021-05-28 15:19:37
+アルゴリズムの置き換え
+
+Substitute Algorithm https://refactoring.com/catalog/substituteAlgorithm.html
+
+2021-05-28 18:59:35
+- 入れ子関数をトップレベルに移動する
+
+- クラス間での移動
+
+2021-05-29 08:25:33
+フィールドの移動
+Move Field https://refactoring.com/catalog/moveField.html
+
+2021-05-30 14:59:55
+ステートメントの関数内への移動
+Move Statements into Function https://www.refactoring.com/catalog/moveStatementsIntoFunction.html
+
+2021-05-31 15:19:53
+ステートメントの呼び出し側への移動
+Move Statements to Callers https://refactoring.com/catalog/moveStatementsToCallers.html
