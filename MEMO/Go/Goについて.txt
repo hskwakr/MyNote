@@ -555,3 +555,45 @@ Goのfloatの桁の扱いは知りませんが、僕の想像だと
 intどうしで割り算するとその結果の値はint型の桁の範囲なので浮動小数点以下の情報がない状態でfloat型に型変換しても意味がない
 
 ということだと思います。割り算するときは型変換を先にする必要があることを学べました。
+
+2021-05-24 12:32:47
+とりあえずこれをやってみます。
+
+How to Write Go Code - The Go Programming Language https://golang.org/doc/code
+
+2021-05-24 21:06:49
+```
+Go programs are organized into packages.
+```
+goのプログラムはパッケージの集まりだそうです。
+
+```
+A package is a collection of source files in the same directory that are compiled together.
+```
+パッケージとは同じディレクトリにある一緒にコンパイルされるソースファイルの集まりのことだそうです。
+
+```
+Functions, types, variables, and constants defined in one source file are visible to all other source files within the same package. 
+```
+同じパッケージ内で定義されたものはソースファイルが違っても参照できるみたいです。
+
+2021-05-25 00:39:17
+```
+A repository contains one or more modules.
+```
+リポジトリには一つ以上のモジュールが含まれているらしいです。
+
+```
+A module is a collection of related Go packages that are released together.
+```
+モジュールは一緒にリリースされる関連するパッケージの集まりみたいです。
+
+2021-05-25 02:07:57
+(モジュールを使った) Go コードの書き方 (翻訳) https://inzkyk.xyz/go_doc/how_to_write_new_go_code/
+
+よさげな翻訳記事を見つけたので読んでみます。
+
+2021-05-25 07:24:05
+testing - The Go Programming Language https://golang.org/pkg/testing/
+テストについて読んでみます。
+
