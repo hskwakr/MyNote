@@ -1,0 +1,59 @@
+
+2021-06-06 23:59:00
+bashについて勉強してみます。
+
+Linux: .bashrcと.bash_profileの違いを今度こそ理解する｜TechRacho（テックラッチョ）〜エンジニアの「？」を「！」に〜｜BPS株式会社 https://techracho.bpsinc.jp/hachi8833/2019_06_06/66396
+
+2021-06-07 13:12:50
+bash - Difference between .bashrc and .bash_profile - Super User https://superuser.com/questions/183870/difference-between-bashrc-and-bash-profile
+
+```
+if [ -r ~/.profile ]; then . ~/.profile; fi
+```
+この文について調べます。
+
+2021-06-07 13:19:13
+```
+test -r
+```
+について調べます。
+
+man test
+```
+-r FILE
+FILE exists and read permission is granted
+```
+
+~/.profileが存在しているか判定する構文みたいです。
+
+2021-06-07 13:22:44
+.コマンド（シェルスクリプトを実行する） : JP1/Advanced Shell http://itdoc.hitachi.co.jp/manuals/3021/3021313320/JPAS0366.HTM
+
+2021-06-07 13:22:47
+```
+case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
+```
+この文について調べます。
+
+```
+case "$-" in *i*)
+```
+
+Shell 特殊変数 - Qiita https://qiita.com/a_yasui/items/ec4f75b300410af8958d
+```
+$- 	シェルにセットされているオプションを保持している
+```
+bashのオプションみたいです。
+```
+echo $-
+himBHs
+```
+僕の環境だとこんな感じでした。
+
+```
+-i If the -i option is present, the shell is interactive.
+```
+man bashに-iオプションについて書いてありました。
+
+2021-06-08 00:47:18
+.bashrcや.bash_profileなどの変更設定をすぐに反映させたい - ITmedia エンタープライズ https://www.itmedia.co.jp/help/tips/linux/l0450.html
