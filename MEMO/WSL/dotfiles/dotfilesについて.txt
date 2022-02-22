@@ -3,3 +3,11 @@
 dotfilesについて
 
 最強の dotfiles 駆動開発と GitHub で管理する運用方法 - Qiita https://qiita.com/b4b4r07/items/b70178e021bef12cd4a2
+
+2021-06-06 15:15:38
+引き続きdotfilesを作っていきたいです。
+
+2021-06-06 15:17:52
+環境変数を設定するファイルを決めたいです。
+
+たぶんそれは.bashrcになると思います。
