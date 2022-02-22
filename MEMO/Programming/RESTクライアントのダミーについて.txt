@@ -1,0 +1,91 @@
+2021-06-01 19:08:19
+クライアントアプリのテストのためのhttpリクエストを処理するシンプルなapiサーバを見つけたので、それを勉強してみたいです。
+
+2021-06-01 19:11:30
+背景をメモしておくと、以前api情報を取得するためのhttpクライアントを作ったときにhttpリクエストがちゃんと送れているか簡単に試す方法があったらいいなと思っていて、最近見つけたのがこの記事でした。
+
+HTTP test server accepting GET/POST requests - Stack Overflow https://stackoverflow.com/questions/5725430/http-test-server-accepting-get-post-requests
+
+最初は自分でテスト用のサーバを作るしかないのかと思っていましたが、この記事で自分と同じものを求めている人がいることに気づき、ということは便利なものがあるんじゃないかと探してみたくなりました。
+
+2021-06-01 19:18:56
+記事の中にいろいろなサービスが紹介されていますが、僕の要件はローカルで動かせるやつです。
+あと手間がかからないやつがいいです。
+
+2021-06-01 19:26:29
+最初のほうに回答されていたツールがローカルでも動かせるみたいなので試してみます。
+
+httpbin.org https://httpbin.org/
+
+2021-06-01 19:37:31
+```
+docker pull kennethreitz/httpbin
+docker run -p 80:80 kennethreitz/httpbin
+```
+このコマンドでlocalhost:80で動いてくれました。
+
+```
+curl -iX POST localhost:80/post
+```
+このコマンドでリクエストを送ったらjsonが返ってきました。
+
+2021-06-01 19:43:58
+サーバが動いたことを確認できたので、次はこのテスト用のapiサーバの使い方を勉強してみたいです。
+
+2021-06-01 19:53:00
+使いながら調べてたら便利さが伝わってきました。
+
+```
+curl -X GET localhost:80/get?test=test
+```
+こんな感じでパラメータ付きで送ってあげると
+
+```
+{
+  "args": {
+    "test": "test"
+  },
+  "headers": {
+    "Accept": "*/*",
+    "Host": "localhost",
+    "User-Agent": "curl/7.55.1"
+  },
+  "origin": "172.17.0.1",
+  "url": "http://localhost/get?test=test"
+}
+```
+リクエストが正しく送れていたらargsにパラメータ入れてレスポンスを返してくれるっぽいです。
+
+```
+curl -X POST -d test=test localhost:80/post
+```
+ポストの時はこんな感じでした。
+
+```
+{
+  "args": {},
+  "data": "",
+  "files": {},
+  "form": {
+    "test": "test"
+  },
+  "headers": {
+    "Accept": "*/*",
+    "Content-Length": "9",
+    "Content-Type": "application/x-www-form-urlencoded",
+    "Host": "localhost",
+    "User-Agent": "curl/7.55.1"
+  },
+  "json": null,
+  "origin": "172.17.0.1",
+  "url": "http://localhost/post"
+}
+```
+
+2021-06-01 19:56:22
+うまくいって満足できたのでこの勉強はここまでにします。
+
+===OFFTOPIC===
+curl関係で参考にした記事
+curlのオプション勉強したのでまとめ - うまいぼうぶろぐ https://hogem.hatenablog.com/entry/20091122/1258863440
+curlでパラメータ付きPOST - アプリなどを開発するブログ https://source.hatenadiary.jp/entry/2013/11/19/123900
