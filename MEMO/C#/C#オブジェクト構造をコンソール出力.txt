@@ -1,0 +1,5 @@
+2021-05-15 15:19:06
+オブジェクトの構造と値をコンソールに出力する方法ないか調べてみたいです。
+
+2021-05-15 15:54:13
+A way to pretty print a C# object - Stack Overflow https://stackoverflow.com/questions/6309254/a-way-to-pretty-print-a-c-sharp-object
