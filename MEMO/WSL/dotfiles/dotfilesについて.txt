@@ -11,3 +11,37 @@ dotfilesについて
 環境変数を設定するファイルを決めたいです。
 
 たぶんそれは.bashrcになると思います。
+
+2021-06-11 20:11:34
+dotfilesリポジトリにgithubactionを足してみたらどうかと思いました。
+
+2021-06-12 17:43:36
+この記事を見つけました。
+
+linux - Unit testing for shell scripts - Stack Overflow https://stackoverflow.com/questions/971945/unit-testing-for-shell-scripts
+
+このリポジトリが人気っぽいです。
+GitHub - bats-core/bats-core: Bash Automated Testing System https://github.com/bats-core/bats-core
+
+Setup BATS testing framework · Actions · GitHub Marketplace · GitHub https://github.com/marketplace/actions/setup-bats-testing-framework
+
+2021-06-12 18:37:10
+dotfilesのためにどういうテストを書いたらいいのか思いつかないので、先にlintを走らせたほうがいい気がしてきました。
+
+testingの問題とgithubactionsの問題を分離したいので、問題が起きにくそうなlintをgithubactionsで先に動かせるようにしようと思います。
+
+2021-06-12 18:39:02
+というわけで、bourne shellやbashのlintツールを探してみます。
+
+2021-06-12 21:23:43
+GitHub - koalaman/shellcheck: ShellCheck, a static analysis tool for shell scripts https://github.com/koalaman/shellcheck
+
+
+ShellCheck – shell script analysis tool https://www.shellcheck.net/
+
+web上で試しに使ってみましたが、すごく便利でした。
+
+2021-06-13 03:08:39
+https://github.com/marketplace/actions/sh-checker
+
+このアクションを使うことにしました。
