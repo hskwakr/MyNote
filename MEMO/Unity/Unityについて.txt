@@ -1,0 +1,4 @@
+2021-06-10 13:46:18
+Unityの勉強をしたいです。
+
+Foundations: Get started with Unity - Unity Learn https://learn.unity.com/mission/real-time-creation-essentials?contentId=5faec8a0edbc2a001fe5120e&missionId=5f77cc6bedbc2a4a1dbddc46&pathwayId=5f7bcab4edbc2a0023e9c38f&tab=content
