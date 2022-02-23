@@ -57,3 +57,78 @@ man bashに-iオプションについて書いてありました。
 
 2021-06-08 00:47:18
 .bashrcや.bash_profileなどの変更設定をすぐに反映させたい - ITmedia エンタープライズ https://www.itmedia.co.jp/help/tips/linux/l0450.html
+
+2021-06-09 02:50:59
+bashの色について調べたいと思いました。
+
+2021-06-09 02:51:27
+colortestとというものがあるみたいです。
+
+bash - How to create a testcolor.sh like the following screenshot? - Unix & Linux Stack Exchange https://unix.stackexchange.com/questions/41563/how-to-create-a-testcolor-sh-like-the-following-screenshot
+
+また、シェルスクリプトで簡単に実装できるっぽいです。
+
+2021-06-09 03:15:25
+このスクリプトは汎用性が高いのでdotfilesのリポジトリに置いておくと便利そうです。
+リポジトリのフォルダ構造について以前の記事を参考にしてみます。
+
+最強の dotfiles 駆動開発と GitHub で管理する運用方法 - Qiita https://qiita.com/b4b4r07/items/b70178e021bef12cd4a2
+
+binフォルダを作るのが良さそうです。
+
+2021-06-09 13:54:01
+bashの色について良さげな記事を見つけました。
+
+bash:tip_colors_and_formatting - FLOZz' MISC https://misc.flogisoft.com/bash/tip_colors_and_formatting#terminals_compatibility
+
+2021-06-09 18:46:45
+bashのプロンプトにgitのブランチ情報を表示させたいです。方法を調べてみます。
+
+2021-06-09 19:09:19
+この記事の方法を試してみます。
+
+bashにgitのブランチ情報を表示する | Honmushi blog https://honmushi.com/2020/04/02/bash-display-git-branch/
+
+git/git-prompt.sh at master · git/git · GitHub https://github.com/git/git/blob/master/contrib/completion/git-prompt.sh
+
+記事が参考しているサイトに公式のスクリプトが載っていましたが、それをダウンロードする前から__git_ps1が実行できてたので、もともと持っているのかもしれません。
+
+2021-06-09 19:11:39
+===OFFTOPIC===
+公式スクリプトのコマンドには２つの方法が書かれていて、その一つがPROMPT_COMMANDというものを使っていました。
+一体これが何なのか興味があったので調べてみたらこんな記事を発見しました。
+
+[BASH] PROMPT_COMMANDで複数の処理を行う - Qiita https://qiita.com/tay07212/items/9509aef6dc3bffa7dd0c
+
+興味深いので今度もう少し調べてみたいです。
+
+2021-06-09 19:26:50
+設定したあとに適当なリポジトリを作ってブランチを切り替えても思ったような挙動になりませんでした。
+
+2021-06-09 19:45:40
+export PS1=...でworkingフォルダで. .bashrcすると変更されることが確認できましたが、.bashrcを読み込み直さないとbranchの情報が変わってくれないみたいです。
+
+PROMPT_COMMANDを使う方法の方を試してみようと思います。
+
+2021-06-09 20:04:58
+PROMPT_COMMANDの方で理想の挙動をしてくれるようになりました。
+
+2021-06-09 20:14:31
+PROMPT_COMMANDに設定することでどうして成功してるのかイマイチわかっていません。
+
+Bash/プロンプトのカスタマイズ - ArchWiki https://wiki.archlinux.jp/index.php/Bash/%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA
+```
+PROMPT_COMMAND 変数を設定することで、PS1 が表示される直前に評価することができます。非常に強力な使い方ができます。例えば特定の条件で PS1 を再定義したり、コマンドを実行したときに Bash の履歴に何らかの操作を加えたりできます。
+警告: プロンプトに直接文字列を表示するのに PROMPT_COMMAND は使わないでください。PS1 の外で出力された文字は Bash によってカウントされないため、カーソルの位置がおかしくなったり文字列が消えてしまう現象が発生します。PROMPT_COMMAND を使って PS1 を設定するかコマンドの埋め込みを見てください。
+```
+
+PS1が表示される直前に実行されるみたいです。
+__git_ps1にプロンプトの文字列を渡してるので警告の内容は多分大丈夫でしょう。なにか問題が発生してから考えることにします。
+
+2021-06-09 20:20:35
+さっき見つけたこの記事をやってみます。
+
+[BASH] PROMPT_COMMANDで複数の処理を行う - Qiita https://qiita.com/tay07212/items/9509aef6dc3bffa7dd0c
+
+2021-06-09 20:31:56
+うまくいきました。
