@@ -1,0 +1,3 @@
+2021-06-14 01:27:36
+Dictionaryの変数からキーで値を取りたいとき
+c# - get dictionary value by key - Stack Overflow https://stackoverflow.com/questions/12169443/get-dictionary-value-by-key
