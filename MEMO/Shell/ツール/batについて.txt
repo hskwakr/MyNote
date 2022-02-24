@@ -1,0 +1,12 @@
+
+2021-06-21 08:40:49
+===OFFTOPIC===
+manページにbatをいい感じ表示する方法
+
+.bashrcに
+```
+export MANPAGER="sh -c 'col -bx | bat -l man -p --pager=\"less -FR\"'"
+```
+を設定する
+
+How to configure bat to clean screen after showing a man page · Issue #1234 · sharkdp/bat · GitHub https://github.com/sharkdp/bat/issues/1234
