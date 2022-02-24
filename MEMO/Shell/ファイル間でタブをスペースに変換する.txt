@@ -1,0 +1,18 @@
+
+2021-06-23 08:08:44
+タブをスペース２にしようとしています。
+
+```
+find bin -name '*.sh' -type f -exec bash -c 'expand -t 2 "$0" | sponge "$0"' {} \;
+```
+
+bash - How can I convert tabs to spaces in every file of a directory? - Stack Overflow https://stackoverflow.com/questions/11094383/how-can-i-convert-tabs-to-spaces-in-every-file-of-a-directory
+
+できました
+
+2021-06-23 13:45:03
+snipmateの使い方がよくわからなかったので別のやつにします。
+
+GitHub - SirVer/ultisnips: UltiSnips - The ultimate snippet solution for Vim. Send pull requests to SirVer/ultisnips! https://github.com/SirVer/ultisnips
+
+特に設定せずにつかえました。
