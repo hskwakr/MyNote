@@ -165,3 +165,18 @@ WSLのubuntuを再インストールすることにしました。
 system installation - How long does Ubuntu take to install? - Ask Ubuntu https://askubuntu.com/questions/470846/how-long-does-ubuntu-take-to-install
 
 パソコンのメモリ量次第だそうです。
+
+2021-06-24 17:09:03
+これを試してみます。
+
+WSL2 を日本語化するときにやったこと https://zenn.dev/ryuu/articles/wsl2-locale-jp
+
+2021-06-24 17:34:07
+マニュアルがあんまりよくなかったので諦めます。
+
+2021-06-25 19:25:25
+インストール
+Starship https://starship.rs/guide/#%F0%9F%9A%80-installation
+
+アンインストール
+FAQ | Starship https://starship.rs/faq/#how-do-i-uninstall-starship
