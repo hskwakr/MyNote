@@ -1,0 +1,6 @@
+
+2021-06-21 05:45:10
+===OFFTOPIC===
+LS_COLORSに設定する値を生成してくれるやつ
+
+GitHub - sharkdp/vivid: A themeable LS_COLORS generator with a rich filetype datebase https://github.com/sharkdp/vivid
