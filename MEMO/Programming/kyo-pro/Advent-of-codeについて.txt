@@ -1,0 +1,30 @@
+2021-06-13 23:17:25
+Advent of codeについて調べてみたいです。
+
+2021-06-13 23:25:13
+サイトを見つけました。
+About - Advent of Code 2020 https://adventofcode.com/2020/about
+
+ちょっと読んでみます。
+
+2021-06-13 23:39:58
+Events - Advent of Code 2020 https://adventofcode.com/2020/events
+
+2015年からAdvent of Codeがあるみたいです。
+
+Aboutには時がたつにつれて問題が難しくなっているようなので、2015年から順番にやっていこうと思います。
+
+2021-06-13 23:50:06
+Support AoC - Advent of Code 2015 https://adventofcode.com/2015/support
+
+ログインすると金銭援助をするときに名前が表示されるみたいです。
+
+ほかにも何かあるかもしれませんが、とりあえずログインせずに使ってみようと思います。
+
+2021-06-13 23:53:06
+早速２０１５年の一日目に挑戦してみようと思います。
+
+Day 1 - Advent of Code 2015 https://adventofcode.com/2015/day/1
+
+2021-06-14 00:01:45
+問題を解くためにはログインが必要だったみたいなので、githubでログインしました。
