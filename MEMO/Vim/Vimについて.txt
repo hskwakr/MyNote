@@ -1,0 +1,97 @@
+2021-06-15 22:05:08
+vimの設定について調べたいです。
+
+2021-06-16 00:40:33
+vimのプラグインマネージャについて調べてみます。
+
+2021-06-16 03:57:06
+GitHub - Shougo/dein.vim: Dark powered Vim/Neovim plugin manager https://github.com/Shougo/dein.vim
+
+どうしてこれがいいのかわかりませんが、これを勧める記事が多いので、とりあえずこれを使ってみます。
+
+2021-06-16 04:08:54
+dein.vimのように外部からインストールしてから使うツールが増えてくると思います。
+
+そういう操作をetc/initフォルダにスクリプトとしておいておけば後で再現しやすいと思います。
+
+2021-06-16 04:46:22
+usr_05 - Vim日本語ドキュメント https://vim-jp.org/vimdoc-ja/usr_05.html
+
+とりあえずこれを読んでみます。
+
+2021-06-16 06:10:28
+persistent state - How can I use the undofile? - Vi and Vim Stack Exchange https://vi.stackexchange.com/questions/6/how-can-i-use-the-undofile
+
+undoファイルの設定がうまくできてなさそうだったので、この記事を参考にしてみます。
+
+2021-06-16 06:34:24
+undo関係はうまくいかなかったので諦めます。
+
+2021-06-16 21:15:41
+undo関係がうまく行かなかった原因に気づきました。
+単純にシンボリックリンクを貼るのを忘れていたからでした。
+
+プラグインマネージャの設定を調べているときに気づきました。先にプラグインマネージャがうまくいってから試してみます。
+
+2021-06-16 21:17:40
+プラグインマネージャの設定に躓いています。
+
+おすすめプラグイン 〜 Vimはいいぞ！ゴリラと学ぶVim講座(7) | さくらのナレッジ https://knowledge.sakura.ad.jp/23248/
+
+この記事を参考に調べてみます。
+
+2021-06-17 05:45:15
+vimrcを分割する方法を調べてみます。
+
+vimrc分割した - 藻ログ https://wakame.hatenablog.jp/entry/2014/09/05/085345
+
+この方法を試してみます。
+
+2021-06-17 07:21:08
+うまくいきませんでした。
+
+sourceで一つ一つ読み込むことにしました。
+
+2021-06-17 09:46:27
+vim-plugに変更することにしました。
+
+GitHub - junegunn/vim-plug: Minimalist Vim Plugin Manager https://github.com/junegunn/vim-plug
+
+deinの設定データはしばらく残しておきます。
+
+2021-06-17 10:32:07
+次はこれらの記事を挑戦したいです。
+
+GitHub - sainnhe/gruvbox-material: Gruvbox with Material Palette https://github.com/sainnhe/gruvbox-material
+
+Big Sky :: Vim をモダンな IDE に変える LSP の設定 https://mattn.kaoriya.net/software/vim/20191231213507.htm
+
+2021-06-21 09:44:16
+===OFFTOPIC===
+[Vim問題] 入力を補完するキーバインドは？ | Vim入門 https://vim.blue/vim-complement/
+
+2021-06-21 14:47:22
+vimのスニペットについて調べたいです。
+
+スニペットプラグインについて 2020 年版 https://zenn.dev/shougo/articles/snippet-plugins-2020
+
+こんな記事がありました。
+
+2021-06-22 12:52:57
+vimのファイルごとのインデントについて
+
+Changing Vim indentation behavior by file type - Stack Overflow https://stackoverflow.com/questions/158968/changing-vim-indentation-behavior-by-file-type
+
+autocmdについては :help 40.3
+
+2021-06-23 04:32:49
+これを少し参考にしました。
+
+dotfile/filetype.vim at b4f11451f1547cedab051ca547b2f1cc208e0a06 · koutarn/dotfile · GitHub https://github.com/koutarn/dotfile/blob/b4f11451f1547cedab051ca547b2f1cc208e0a06/.vim/filetype.vim
+
+2021-06-23 10:32:46
+この二つを使ってみようと思います。
+GitHub - honza/vim-snippets: vim-snipmate default snippets (Previously snipmate-snippets) https://github.com/honza/vim-snippets
+
+GitHub - garbas/vim-snipmate: snipMate.vim aims to be a concise vim script that implements some of TextMate's snippets features in Vim. https://github.com/garbas/vim-snipmate
+
