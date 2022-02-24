@@ -132,3 +132,27 @@ __git_ps1にプロンプトの文字列を渡してるので警告の内容は�
 
 2021-06-09 20:31:56
 うまくいきました。
+
+
+2021-06-21 04:10:38
+[[ ]]　bashで出てくるこの表現について調べてみました。
+
+Bashの括弧のノウハウ（まとめ） - Qiita https://qiita.com/Ping/items/f9b5175085026462b082#double-bracket--
+
+```
+double bracket [[ ]]
+```
+
+2021-06-25 11:57:56
+うまく動いてるっぽいので、プロンプトを変更したいと思います。
+
+2021-06-25 12:26:40
+これを試してみます。
+
+Starship: Cross-Shell Prompt https://starship.rs/ja-jp/
+
+Install a nerd font on ubuntu · GitHub https://gist.github.com/matthewjberger/7dd7e079f282f8138a9dc3b045ebefa0
+
+https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/FiraCode.zip
+
+fc-cacheについて調べてみます。
