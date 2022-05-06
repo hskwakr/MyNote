@@ -180,3 +180,27 @@ Starship https://starship.rs/guide/#%F0%9F%9A%80-installation
 
 アンインストール
 FAQ | Starship https://starship.rs/faq/#how-do-i-uninstall-starship
+
+2021-06-26 12:07:16
+tmuxの勉強をしたいです。
+
+2021-06-26 17:51:20
+Getting Started · tmux/tmux Wiki · GitHub https://github.com/tmux/tmux/wiki/Getting-Started
+
+2021-06-27 08:10:32
+tmuxのコマンド補完が欲しくなったのでこの補完用のコードを試してみます。
+
+tmux-bash-completion/tmux at master · imomaliev/tmux-bash-completion · GitHub
+https://github.com/imomaliev/tmux-bash-completion/blob/master/completions/tmux
+
+tmuxでコマンドを入力するときにタブ補完する方法は？ https://qastack.jp/superuser/579545/how-to-tab-completion-when-typing-command-in-tmux
+
+2021-06-27 20:38:22
+initスクリプトのワンライナーがうまく動かなくて困ってます。
+
+bashの&&と||: みズとおかズ http://okazu.air-nifty.com/blog/2010/04/bash-f628.html
+
+exit 1が原因でした。
+すでにインストールされているときはexit 0になるようにします。
+
+シェルスクリプトでエラー時の処理を行う方法 - Qiita https://qiita.com/sh19910711/items/db382a9da77e8ebbf041
