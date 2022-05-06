@@ -682,3 +682,9 @@ want := []interface{}{
 }
 ```
 こんな感じでできました。
+
+2021-07-05 13:46:20
+runeについてよくわからないので調べてみます。
+
+Go言語のstring, runeの正体とは？ - golang - The Round https://blog.knightso.co.jp/entry/2014/06/24/090719
+
