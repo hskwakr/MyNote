@@ -120,3 +120,27 @@ vimエディタが（勝手に）作成する、一見、不要に見えるフ�
 リストの先頭には "." を指定することを推奨する。こうすると、同じファイルを2重に編集しようとすると警告が出る。
 ```
 .を打ち消そうとしていましたが、２重編集を防ぐ仕組みをなくしたくないのでスワップファイルを移動するのはやめます。
+
+2021-07-02 21:12:12
+vim-lspで定義された変数や関数の説明をポップアップ表示させる方法を探していました。
+
+結論からいうと以下のコマンドで表示できました
+LspHover
+
+vimrcに以下の設定を追加しました。
+nmap <buffer> gs <plug>(lsp-hover)
+
+2021-07-05 13:59:19
+vimの中でgoのデバックができないか調べてみます。
+
+Debugging Go in Vim https://bhupesh-v.github.io/debugging-golang-vim-neovim/
+
+:makeで今開いているファイルを対象にランタイムを動かすことができるみたいです。
+
+2021-07-05 14:48:50
+個人的なGo+vimでのデバック｜宮島武｜note https://note.com/miyazi777/n/nb2f520f91ed6
+
+2021-07-05 14:52:04
+GitHub - derekparker/delve: Delve is a debugger for the Go programming language. https://github.com/derekparker/delve
+
+delveというgoのデバッガーがあるみたいです。
