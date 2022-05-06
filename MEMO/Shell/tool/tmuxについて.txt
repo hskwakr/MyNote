@@ -1,0 +1,22 @@
+2021-06-26 12:07:16
+tmuxの勉強をしたいです。
+
+2021-06-26 17:51:20
+Getting Started · tmux/tmux Wiki · GitHub https://github.com/tmux/tmux/wiki/Getting-Started
+
+2021-06-27 08:10:32
+tmuxのコマンド補完が欲しくなったのでこの補完用のコードを試してみます。
+
+tmux-bash-completion/tmux at master · imomaliev/tmux-bash-completion · GitHub
+https://github.com/imomaliev/tmux-bash-completion/blob/master/completions/tmux
+
+tmuxでコマンドを入力するときにタブ補完する方法は？ https://qastack.jp/superuser/579545/how-to-tab-completion-when-typing-command-in-tmux
+
+
+2021-06-28 08:31:19
+tmux のステータス行の見た目を変えてみたいです。
+
+2021-06-28 15:16:54
+tmux の status line の設定方法 - Qiita https://qiita.com/nojima/items/9bc576c922da3604a72b
+
+この設定を参考にします。
