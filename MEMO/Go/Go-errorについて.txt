@@ -35,3 +35,20 @@ go - Why would a call to fmt.Sprint(e) inside the Error() method result in an in
 
 Sprint メソッドを実行するときに引数の型がerrorインターフェースを実装していたときにErrorメソッドが実行されてしまうからだそうです。
 
+2021-07-02 15:34:11
+Goエラーハンドリング戦略 https://zenn.dev/nobonobo/articles/0b722c9c2b18d5
+
+2021-07-02 16:12:29
+```
+新しいテストスイートを作成するには，ここで説明するように TestXxx 関数を含む _test.go で終わる名前のファイルを作成します。 
+```
+testing - Go 言語 https://xn--go-hh0g6u.com/pkg/testing/
+
+今までfunc TestXxxのXxxは関数名じゃないといけないと勘違いしてましたが、なんでもよさそうです。
+
+2021-07-02 16:17:14
+心配だったので各テストスイートがちゃんと走ってるか確認する方法をしらべました
+
+```
+go test ./sieve -v
+```
