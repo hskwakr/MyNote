@@ -20,3 +20,8 @@ tmux のステータス行の見た目を変えてみたいです。
 tmux の status line の設定方法 - Qiita https://qiita.com/nojima/items/9bc576c922da3604a72b
 
 この設定を参考にします。
+
+2021-07-05 15:43:18
+tmux でスクロールをできるようにしたくなりました
+
+tmuxでスクロールするにはどうすればよいですか？ https://qastack.jp/superuser/209437/how-do-i-scroll-in-tmux
