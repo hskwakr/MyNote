@@ -1,0 +1,13 @@
+2021-07-06 14:20:59
+GitHub - denisidoro/navi: An interactive cheatsheet tool for the command-line https://github.com/denisidoro/navi
+
+2021-07-06 18:26:58
+invalid preview window layout: up:2:nohidden · Issue #447 · denisidoro/navi · GitHub https://github.com/denisidoro/navi/issues/447
+
+naviを実行するとエラーが出ます。
+調べるとfzfのバージョンが低いから見たいです。
+
+fzfのインストール方法を見直してみます。
+
+2021-07-06 19:30:37
+naviがうまく動くようになりました。
