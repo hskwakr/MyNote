@@ -597,3 +597,88 @@ A module is a collection of related Go packages that are released together.
 testing - The Go Programming Language https://golang.org/pkg/testing/
 テストについて読んでみます。
 
+
+2021-06-29 10:29:13
+エラトステネスのふるいのwikipediaの図をgoで作ってみたいです。
+
+エラトステネスの篩 - Wikipedia https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%A9%E3%83%88%E3%82%B9%E3%83%86%E3%83%8D%E3%82%B9%E3%81%AE%E7%AF%A9
+
+
+2021-06-29 12:46:19
+まずは色を付ける方法について調べてみます。
+
+【Go】fatih/color を使用してコンソールに文字列を色付きで出力する https://zenn.dev/kou_pg_0131/articles/go-color-output
+
+この記事を参考にしてみます。
+
+2021-06-29 13:15:20
+wikiみたいに非同期に表示させるようにしたいですが、一旦おわります。
+
+2021-06-29 16:36:50
+再開します
+
+非同期に表示させようとしてみます。
+
+いまのところの予想では
+wikiの図解ではfalseにする処理のところで色を変えているみたいです
+
+まずは、waitの処理をどうやって挟むのか考えたいです。
+背景を塗りつぶしたあとにコンマ数秒の待ち時間を入れたいです。
+
+goでwaitの処理をどうしたらいいのか調べてみます。
+以前Atourofgoの演習でWaitGroupというものをよくわからずに使っていましたがそれについて調べてみます
+
+2021-06-29 16:48:06
+よく考えたら、コマンドライン上で表を描画して位置をずらさずに表を更新していく方法がわかりません。
+調べてみます。
+
+2021-06-29 18:17:19
+macos - How to print formatted string to the same line in stdout with Go? - Stack Overflow https://stackoverflow.com/questions/56103775/how-to-print-formatted-string-to-the-same-line-in-stdout-with-go#56106639
+
+GoでANSIエスケープコードを扱うライブラリを作った(色付け・カーソル移動等) - Qiita https://qiita.com/morikuni/items/ad8d900f56ddeb223101
+
+この記事を参考にしてみます。
+
+2021-06-30 16:58:31
+非同期で変化を表示できるようになりました。
+
+2021-07-02 17:10:50
+親切な方に教えていただきました。
+
+2つのsliceがすべて同じ要素をもっているかどうかを比較するショートカット - Qiita https://qiita.com/taksatou@github/items/48b22d6d37e99a6c21cc
+
+2021-07-02 17:25:36
+（これが直接的な原因かはわかりませんが）
+非同期処理の関数から値を受け取る処理の
+for {
+	select{}
+}
+の中で直接DeepEqual関数をつかったときに自分が実装したequal関数と違う挙動をしていました。
+
+関数をラップして使ったら期待した挙動になってくれました。
+
+```
+// Compare two variables
+func equal(a, b interface{}) bool {
+	return reflect.DeepEqual(a, b)
+}
+```
+
+2021-07-02 17:49:55
+math.Ceil 
+切り上げの関数を教えてもらいました。
+
+2021-07-02 18:21:09
+ランダムな型の値を持つスライスを作りたいです。
+調べてみます。
+
+2021-07-02 18:29:50
+```
+want := []interface{}{
+	100,
+	true,
+	2,
+	nil,
+}
+```
+こんな感じでできました。
