@@ -95,3 +95,28 @@ GitHub - honza/vim-snippets: vim-snipmate default snippets (Previously snipmate-
 
 GitHub - garbas/vim-snipmate: snipMate.vim aims to be a concise vim script that implements some of TextMate's snippets features in Vim. https://github.com/garbas/vim-snipmate
 
+2021-07-01 11:09:53
+vimのgoシンタックスがほしいです。
+
+2021-07-01 15:50:46
+もともとインストールしていたvim-goのヘルプを読んでみます。
+
+2021-07-01 16:27:27
+syntaxの欄の設定用の変数を１で定義したらうまく機能してくれました。
+
+
+2021-07-01 17:40:20
+vimのスワップファイルの場所を変更したいです
+
+調べてみます。
+
+2021-07-01 17:49:12
+これを読んでみます。
+
+vimエディタが（勝手に）作成する、一見、不要に見えるファイルが何をしているか — 名無しのvim使い https://nanasi.jp/articles/howto/file/seemingly-unneeded-file.html
+
+2021-07-01 17:59:16
+```
+リストの先頭には "." を指定することを推奨する。こうすると、同じファイルを2重に編集しようとすると警告が出る。
+```
+.を打ち消そうとしていましたが、２重編集を防ぐ仕組みをなくしたくないのでスワップファイルを移動するのはやめます。
