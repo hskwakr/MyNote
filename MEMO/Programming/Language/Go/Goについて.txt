@@ -688,3 +688,14 @@ runeについてよくわからないので調べてみます。
 
 Go言語のstring, runeの正体とは？ - golang - The Round https://blog.knightso.co.jp/entry/2014/06/24/090719
 
+2021-07-10 00:28:36
+```
+20x3x11
+```
+という文字列の３つ数値をそれぞれ３つのint変数に代入したいです。
+
+便利な関数がないか調べてみます。
+
+Go で文字列を整数型に変換する方法 | Delft スタック https://www.delftstack.com/ja/howto/go/how-to-convert-string-to-integer-type-in-go/
+
+fmt.Sscanfメソッドについて調べてみます。
