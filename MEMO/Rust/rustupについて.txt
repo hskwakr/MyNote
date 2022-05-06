@@ -1,0 +1,34 @@
+
+2021-07-06 16:36:24
+よくrust製のツールのインストールにcargoというパッケージマネージャでのインストールを進められるのでcargoをインストールしようと思いました。
+
+Installation - The Cargo Book https://doc.rust-lang.org/cargo/getting-started/installation.html
+
+2021-07-06 17:02:05
+rustupというツールをインストールすることでcargoも一緒についてくるみたいです。
+
+rustupのインストールでは対話モードでインストール作業をしますが極力対話モードの作業を減らしたいのでrustupのインストールスクリプトに渡す引数を調べたいです。
+
+Other installation methods - The rustup book https://rust-lang.github.io/rustup/installation/other.html
+
+pass rustup-setup.sh arguments to rustup-setup by japaric · Pull Request #325 · rust-lang/rustup · GitHub https://github.com/rust-lang/rustup/pull/325
+
+2021-07-06 17:23:18
+rustupとcargoのインストールがおわりました
+
+2021-07-06 17:54:47
+cargoを使ってnaviをインストールしようとしたらlinker ccが見つからないといわれました。
+
+How To Fix Rust Error "linker 'cc' not found" On Linux - OSTechNix https://ostechnix.com/how-to-fix-rust-error-linker-cc-not-found-on-linux/
+
+記事を調べたらbuild-essentialというパッケージをインストールしてgccを使えるようにしたらエラーがなくなったと書いてありました。
+
+Ubuntu – Details of package build-essential in impish https://packages.ubuntu.com/impish/build-essential
+
+build-essentialパッケージにはmakeが入っていることに気づきました。
+以前別の用事でmakeをインストールしたので、変なエラーが出るのが怖いので、先にインストール済みのmakeを一度アンインストールしてからbuild-essentialをインストールしようと思います。
+
+2021-07-06 18:07:17
+build-essentialパッケージを削除してもgccやmakeは残ったままになりました。
+
+何かgccやmakeのバージョンとかで問題が発生しない限りbuild-essentialを使おうと思います。
