@@ -144,3 +144,14 @@ Debugging Go in Vim https://bhupesh-v.github.io/debugging-golang-vim-neovim/
 GitHub - derekparker/delve: Delve is a debugger for the Go programming language. https://github.com/derekparker/delve
 
 delveというgoのデバッガーがあるみたいです。
+
+2021-07-10 23:27:50
+マークダウン用のvimプラグインを探してみます。
+
+GitHub - skanehira/preview-markdown.vim: Markdown preview plugin for Vim https://github.com/skanehira/preview-markdown.vim
+
+マークダウンのコンソール用ビュワーを見つけました。
+
+GitHub - charmbracelet/glow: Render markdown on the CLI, with pizzazz! 💅🏻 https://github.com/charmbracelet/glow
+
+これを試してみます。
