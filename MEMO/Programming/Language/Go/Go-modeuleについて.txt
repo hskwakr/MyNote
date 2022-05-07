@@ -1,0 +1,14 @@
+
+2021-07-09 16:52:08
+misc-goにコードを置く場所を用意しようとしたときに疑問が生まれました。
+
+go mod init example.com
+のexample.comのところはどんな名前がいいのでしょうか
+
+2021-07-09 22:30:39
+go modules - Go 'mod init' creating new folders? what is the significance of path? - Stack Overflow https://stackoverflow.com/questions/59718540/go-mod-init-creating-new-folders-what-is-the-significance-of-path
+
+```
+It's recommended to use a module path that corresponds to a repository you plan or will publish your module to, so when you do, go get will be able to automatically fetch, build and install your module. For example you may choose a module path github.com/bob/hello, so when you publish your module, everyone can get it by simply using import "github.com/bob/hello" in their app.
+```
+公開しているリモートリポジトリのパスにするのが推奨されているみたいです。
