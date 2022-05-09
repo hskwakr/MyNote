@@ -1,0 +1,6 @@
+
+2021-07-29 21:54:51
+===OFFTOPIC===
+apt-getであるパッケージを削除するときに依存するパッケージも削除する方法
+
+command line - What is the correct way to completely remove an application? - Ask Ubuntu https://askubuntu.com/questions/187888/what-is-the-correct-way-to-completely-remove-an-application
