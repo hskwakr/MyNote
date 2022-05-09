@@ -699,3 +699,10 @@ Go言語のstring, runeの正体とは？ - golang - The Round https://blog.knig
 Go で文字列を整数型に変換する方法 | Delft スタック https://www.delftstack.com/ja/howto/go/how-to-convert-string-to-integer-type-in-go/
 
 fmt.Sscanfメソッドについて調べてみます。
+
+2021-07-13 20:47:47
+```
+AdventOfCode/aoc2015/day2
+❯ go test -bench .
+```
+で、ベンチマークが動いてくれました
