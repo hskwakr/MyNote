@@ -155,3 +155,36 @@ GitHub - skanehira/preview-markdown.vim: Markdown preview plugin for Vim https:/
 GitHub - charmbracelet/glow: Render markdown on the CLI, with pizzazz! 💅🏻 https://github.com/charmbracelet/glow
 
 これを試してみます。
+
+2021-07-12 18:38:42
+vimでmarkdownのプレビューができるプラグインを試してみます。
+
+GitHub - skanehira/preview-markdown.vim: Markdown preview plugin for Vim https://github.com/skanehira/preview-markdown.vim
+
+2021-07-12 19:40:38
+vimでmarkdownの表を簡単に作れるプラグインを見つけました。
+
+GitHub - mattn/vim-maketable https://github.com/mattn/vim-maketable
+
+2021-07-14 00:49:22
+vimrcの各vimファイルを読み込んでいる部分を
+特定の名前を入れるのではなくあるディレクトリ内の.vimファイルをすべて読み込むようにしたくなりました。
+
+2021-07-14 00:50:26
+```
+call map(split(globpath(s:plugins_dir, '*.vim')), {->[execute('exec "so" v:val')]})
+```
+これでうまくできました
+
+参考にしたサイト
+vimrc の分割管理を上手くやる 2020年版 https://zenn.dev/mattn/articles/565c4ec71f461cbbf5c9
+
+2021-07-16 11:41:26
+GitHub - dense-analysis/ale: Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support https://github.com/dense-analysis/ale
+
+vimの中で非同期にlintが走ってくれるみたいです。
+
+2021-07-17 04:51:32
+vim scriptのlintをインストールしようと思います。
+
+GitHub - Vimjas/vint: Fast and Highly Extensible Vim script Language Lint implemented in Python. https://github.com/Vimjas/vint
