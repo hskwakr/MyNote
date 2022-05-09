@@ -232,3 +232,63 @@ binはビルドして作られた実行ファイルのショートカットが�
 
 2021-07-19 11:02:36
 $HOME/.cache/mybuildというフォルダを作ってそこに３つのフォルダを引っ越すのが良さそうです。
+
+2021-07-28 19:43:59
+vim をビルドしたいと思いました。
+
+vim-jp » Linuxでのビルド方法 https://vim-jp.org/docs/build_linux.html
+
+このページを参考にしてみます。
+
+2021-07-29 14:07:48
+ビルドに挑戦する前に最新バージョンのvimをdockerで試して、自分が試したい設定がそのvimで使えるのか調べてみたいです
+
+thinca/vim - Docker Image | Docker Hub https://hub.docker.com/r/thinca/vim
+
+2021-07-29 17:00:41
+このdockerイメージでは設定を読み込ませたり、プラグインをインストールするのが難しそうでした。
+
+2021-07-30 02:59:09
+vimの./configureに失敗します
+luajitを使おうとしていますが、うまくいきません
+```
+checking --with-features argument... huge
+checking --with-compiledby argument... no
+checking --disable-xsmp argument... no
+checking --disable-xsmp-interact argument... no
+checking --enable-luainterp argument... yes
+checking --with-lua-prefix argument... no
+checking LUA_PREFIX environment var... not set, default to /usr
+checking --with-luajit... yes
+checking for luajit... /usr/bin/luajit
+checking LuaJIT version... 2.1
+checking Lua version of LuaJIT... 5.1
+checking if lua.h can be found in /usr/include/luajit-2.1... checking if lua.h can be found in /usr/include... no
+checking if lua.h can be found in /usr/include/lua5.1... yes
+checking if link with -L/usr/lib/x86_64-linux-gnu -lluajit-5.1 is sane... no
+configure: error: could not configure lua
+```
+
+参考になりそうな記事
+Can't add lua support while compiling · Issue #973 · vim/vim · GitHub https://github.com/vim/vim/issues/973
+
+2021-07-30 15:16:36
+参考になりそうな記事
+
+Having trouble compiling vim with lua in Linux · Issue #31 · Shougo/neocomplete.vim · GitHub https://github.com/Shougo/neocomplete.vim/issues/31
+
+2021-07-30 16:48:41
+結局luajitを使うときはluaを入れないほうがいいみたいです
+
+2021-07-30 23:52:09
+vimrcでultisnipsのプラグインが入っていないときにはultisnipsの設定を読み込まないようにしてほしいです。
+-> vim-plugでプラグインが読み込まれた後にプラグインの設定を読み込むようにしたらこういうことをプラグイン毎に考える必要がなくなるかもしれません。
+-> アイデアとしてはいい着眼点だと思いますが、いきなりここに着地するのはよくない感じがしてきました。
+-> いい方法が思い浮かばないので、まずは設定ファイルで対応します。
+
+fzfの設定で、popup windowの設定がうまくできないときにwindow layoutの設定を飛ばすようにしたいです。
+-> +popupwin
+この機能の有無で設定を飛ばすようにしたいです。
+
+2021-07-31 05:10:11
+vimrc の分割管理を上手くやる 2020年版 https://zenn.dev/mattn/articles/565c4ec71f461cbbf5c9
