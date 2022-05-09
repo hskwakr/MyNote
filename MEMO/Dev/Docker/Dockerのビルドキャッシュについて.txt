@@ -4,3 +4,15 @@ Dockerのビルドキャッシュが6GBになってました。
 削除方法について調べました。
 
 DockerのBuild Cacheの削除 - Qiita https://qiita.com/hyt-sasaki/items/e2cbc4cfb5ae698de498
+
+2021-07-23 17:09:10
+おそらくDockerのキャッシュがCドライブを圧迫していて、キャッシュを削除してもwindowsのエクスプローラからCドライブを見てもサイズが一切変わりません。
+
+TreesizeでCドライブを覗くと
+AppData\Local\Docker\wsl\data
+というフォルダにあるハード ディスク イメージ ファイルが１０GBのままです。
+
+2021-07-23 17:26:10
+WSL2 Docker が PC のディスクを圧迫する - Qiita https://qiita.com/sarisia/items/5c53c078ab30eb26bc3b
+
+この方法で解決できました。
