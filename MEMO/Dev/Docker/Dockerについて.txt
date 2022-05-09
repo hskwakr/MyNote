@@ -1,0 +1,6 @@
+
+2021-07-21 16:48:47
+===OFFTOPIC===
+Dockerfileのlint
+
+GitHub - hadolint/hadolint: Dockerfile linter, validate inline bash, written in Haskell https://github.com/hadolint/hadolint
