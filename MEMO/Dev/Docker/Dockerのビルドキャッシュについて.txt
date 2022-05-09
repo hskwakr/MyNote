@@ -1,0 +1,6 @@
+2021-07-22 16:22:48
+Dockerのビルドキャッシュが6GBになってました。
+
+削除方法について調べました。
+
+DockerのBuild Cacheの削除 - Qiita https://qiita.com/hyt-sasaki/items/e2cbc4cfb5ae698de498
