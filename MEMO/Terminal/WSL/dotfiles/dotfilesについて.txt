@@ -106,3 +106,10 @@ for file in etc/init/build-tools etc/init/util-tools etc/init/programming-runtim
 ここを参考にしました
 cp - Linux commands to copy one file to many files - Stack Overflow https://stackoverflow.com/questions/9550540/linux-commands-to-copy-one-file-to-many-files
 
+2021-07-11 18:17:34
+自分でビルドしてインストールした実行ファイルをどこかに一か所においておきたいです。
+
+2021-07-11 19:37:44
+.cacheにbinディレクトリを作ってそこに実行ファイルのシンボリックリンクを張ることにします。
+
+ついでに.cacheの中身を整理したいです。
