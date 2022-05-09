@@ -212,3 +212,23 @@ GitHub - Vimjas/vint: Fast and Highly Extensible Vim script Language Lint implem
  vim-cache
 ```
 を引っ越してみようと思います。
+
+2021-07-19 10:56:59
+.cacheの中の
+```
+ .fzf  
+ .glow  
+ bin
+```
+これらの3つのフォルダを
+$HOME/.cacheに引っ越ししたいです
+
+.fzf
+.glow
+この２つは自分でビルドするためにダウンロードしてきたリポジトリです。
+
+binはビルドして作られた実行ファイルのショートカットが置いてあって
+このbinにPathが通っています。
+
+2021-07-19 11:02:36
+$HOME/.cache/mybuildというフォルダを作ってそこに３つのフォルダを引っ越すのが良さそうです。
