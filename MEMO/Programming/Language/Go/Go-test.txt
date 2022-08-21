@@ -1,3 +1,63 @@
 2021-07-01 17:00:07
 go testの仕方を忘れていましたが、過去の自分がメモを残していました。
 https://github.com/hskwakr/misc-go/tree/main/src/PackageTesting
+
+2021-08-13 16:27:21
+unit テストでブラックボックステストを採用する理由について
+
+What is black box unit testing? - Software Engineering Stack Exchange https://softwareengineering.stackexchange.com/questions/362746/what-is-black-box-unit-testing
+
+2021-08-13 16:29:05
+lintがブラックボックステストのunitテストを推奨してきたのでその理由について調べてみます。
+
+GitHub - maratori/testpackage: Golang linter that encourages you to use a separate _test package https://github.com/maratori/testpackage
+
+2021-08-14 10:32:02
+
+```
+Ideally, you’ll resort to black-box testing for your packages. This means that your package might be named store, and your tests would be in the package store_test. This may solve a dependency problem for you, where net/url package uses the net/http package, and vice-versa. Having url_test and http_test packages solves this issue.
+
+Additionally, there are a few common rules that can apply for any codebase:
+
+    if you’re doing internal tests, suffix your files with _internal_test.go,
+    if you’re doing black-box tests, your file should just have the _test.go suffix.
+
+Particularly, for something named store, you could have:
+
+    store.go - the main package (package store)
+    store_test.go - the black box tests (package store_test)
+    store_internal_test.go - the internal tests (package store)
+```
+
+Next level Go testing - Tit Petric https://scene-si.org/2019/04/15/next-level-go-testing/#public-vs-private-tests-apis
+
+2021-08-26 21:16:22
+tagについて
+
+go help test
+```
+As part of building a test binary, go test runs go vet on the package and its test source files to identify significant problems. If go vet finds any problems, go test reports those and does not run the test binary. Only a high-confidence subset of the default go vet checks are used. That subset is: 'atomic', 'bool', 'buildtags', 'errorsas', 'ifaceassert', 'nilfunc', 'printf', and 'stringintconv'. You can see
+the documentation for these and other vet tests via "go doc cmd/vet".
+To disable the running of go vet, use the -vet=off flag.
+```
+
+go doc cmd/vet
+```
+buildtag     check that +build tags are well-formed and correctly located
+```
+
+go doc go/build
+```
+Build Constraints
+
+A build constraint, also known as a build tag, is a line comment that begins
+
+    // +build
+
+that lists the conditions under which a file should be included in the  package. Build constraints may also be part of a file's name (for example,  source_windows.go will only be included if the target operating system is windows).
+
+See 'go help buildconstraint'
+(https://golang.org/cmd/go/#hdr-Build_constraints) for details.
+```
+
+go command - cmd/go - pkg.go.dev https://pkg.go.dev/cmd/go#hdr-Build_constraints

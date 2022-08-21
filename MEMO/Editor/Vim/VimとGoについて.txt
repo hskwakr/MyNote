@@ -1,0 +1,41 @@
+
+2021-08-11 13:50:44
+開発環境にgoのlintを入れたいです
+golangci-lintというツールを入れてみましたが、vimで非同期に使うのはうまくいきませんでした。
+
+goplsというlsp serverがありますが、
+これはインストールする必要はないのでしょうか
+
+2021-08-12 09:41:20
+gopls · pkg.go.dev https://pkg.go.dev/golang.org/x/tools/gopls
+
+```
+For the most part, you should not need to install or update gopls. Your editor should handle that step for you.
+```
+
+しなくていいみたいです。
+
+2021-08-12 11:03:59
+golangci-lint用のlspサーバを設定したらうまく動くようになりました。
+GitHub - nametake/golangci-lint-langserver: golangci-lint language server https://github.com/nametake/golangci-lint-langserver
+
+golangci-lintをローカルにインストールしていないと動きませんでした。
+
+今気になっているのはエラーメッセージが貧弱な部分です。
+
+golangci-lintはそれ自体がlintではなく複数のlintを並列実行するツールみたいなので、ワーニングがたくさん出てくれるのはありがたいのですが、そのワーニングについての説明文書が貧弱なので、どう直したらいいかわからなくて困ることが多いです。
+
+2021-08-12 11:16:39
+golangci-lintについて勉強したほうがいい気がします。
+
+Introduction | golangci-lint https://golangci-lint.run/
+
+2021-08-12 13:17:07
+わかったことは
+GitHub - nametake/golangci-lint-langserver: golangci-lint language server https://github.com/nametake/golangci-lint-langserver#configuration-for-vim-lsp
+
+このコードサンプルに書かれている
+initialization_options
+の欄の設定値がgolangci-lintのコマンドライン引数になっているのかなと思いました。
+
+なので、この設定を参考にしてローカルで実行すれば、どのlintの結果なのかを知ることができました。

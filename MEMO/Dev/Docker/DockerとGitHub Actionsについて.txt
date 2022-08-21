@@ -1,0 +1,73 @@
+
+2021-08-16 17:43:29
+github actionsでdockerを使う方法についてメモ
+
+How do I use Docker with GitHub Actions? - Stack Overflow https://stackoverflow.com/questions/57549439/how-do-i-use-docker-with-github-actions
+
+2021-08-17 08:49:01
+Dockerfile support for GitHub Actions - GitHub Docs https://docs.github.com/en/actions/creating-actions/dockerfile-support-for-github-actionso
+
+2021-08-17 09:33:20
+Dockerfileが使えそうなので、まずはDockerfileを作ってローカルで動作確認をするところまで進めました。
+
+次はgithub actionsでDockerfileをビルドするシェルスクリプトを動かすまでを目標にしたいです。
+
+2021-08-17 10:13:14
+github actionsでdockerfileをビルドして実行するところまでエラーなくできました。
+
+実行したwebサーバがきちんと動いているか確認するためにcurlコマンドを実行しようとしたらlocalhost:8080への接続に失敗しました。
+
+2021-08-17 10:44:38
+おそらくgithub actionsでwebサーバが起動しました。（curlではlocalhost:8080にアクセスできませんでしたが、docker ps　ではコンテナが動いていることと8080ポートが空いていることは確認できました。）
+
+2021-08-17 19:17:31
+サービスコンテナについて - GitHub Docs https://docs.github.com/ja/actions/guides/about-service-containers
+
+GitHub Actionsのワークフロー構文 - GitHub Docs https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices
+
+2021-08-18 12:19:09
+やりたいこと：
+- Github actionsでテスト用のwebサーバを使いたいです。
+
+試すこと：
+- Github actionsのサービスコンテナという仕組みで試してみたいです。
+
+参考資料:
+サービスコンテナについて - GitHub Docs https://docs.github.com/ja/actions/guides/about-service-containers
+
+GitHub Actionsのワークフロー構文 - GitHub Docs https://docs.github.com/ja/actions/reference/workflow-syntax-for-github-actions#jobsjob_idservices
+
+2021-08-18 13:12:59
+localhost:8080にアクセスすることができるようになりましたが、
+
+github actions上でテスト用のhtmlファイルをcurlで取得することができません。
+
+2021-08-18 13:20:28
+思いついたこと：
+- サービスコンテナのvolumeの設定方法について調べる
+- サービスコンテナのディレクトリを見る方法について調べる
+
+2021-08-19 18:48:11
+どっちについても有効な情報を見つけることができませんでした。
+
+新しい情報を見つけました。
+
+GitHub Actionsのメタデータ構文 - GitHub Docs https://docs.github.com/ja/actions/creating-actions/metadata-syntax-for-github-actions
+2021-08-29 01:48:38
+webクローラの統合テストをつくりたいです。
+- テスト用のwebサーバをローカルで動かしてそこにテストコードでアクセスできるか確認したいです。
+
+2021-08-29 02:10:10
+統合テストでやりたいことは
+テスト用のwebサーバにクロールできるかどうか
+
+2021-08-29 02:56:37
+Docker内でテストを走らせるように変更しようと思います。
+
+Dockerfileでどのように書いたらうまく実現できるか調べたいです。
+
+2021-08-29 03:27:58
+Docker: adding a file from a parent directory - Stack Overflow https://stackoverflow.com/questions/24537340/docker-adding-a-file-from-a-parent-directory/34300129#34300129
+
+2021-08-29 04:38:06
+github actionsで統合テストを動かすことができるようになりました。

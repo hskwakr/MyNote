@@ -2,3 +2,47 @@
 Unityの勉強をしたいです。
 
 Foundations: Get started with Unity - Unity Learn https://learn.unity.com/mission/real-time-creation-essentials?contentId=5faec8a0edbc2a001fe5120e&missionId=5f77cc6bedbc2a4a1dbddc46&pathwayId=5f7bcab4edbc2a0023e9c38f&tab=content
+
+2021-09-30 10:17:50
+unityの勉強をはじめました
+
+https://learn.unity.com
+
+2021-09-30 10:18:26
+エクササイズで公開したゲーム
+https://play.unity.com/mg/lego/webgl-builds-106065
+
+2021-10-02 06:54:28
+https://learn.unity.com/quiz/get-started-with-unity-quiz?uv=2019.4&labelRequired=true&missionId=5f77cc6bedbc2a4a1dbddc46
+
+2 / 5
+
+Unity quiz:
+
+Q1. What is the role of the Unity?
+```
+Use the Unity Hub to manage versions of Unity, your existing Unity projects, templates for building new Unity projects, links to the Unity Community, and more.
+```
+
+Q2. What is the releationship between the hierarchy window and the scene view?
+```
+While the Hierarchy window shows you the name of GameObjects and their parent-child relationship, the Scene view displays those same objects in simulated space?
+```
+both
+
+Q3. What is a scene?
+```
+Scenes are containers for everything in the experience you are creating.
+One way to think about Scenes is as discrete experiences.
+For example, each level in a game could be sparate Scene, and the game's main menu could be anothor.
+```
+
+Q4. What happens when you select a GameObject in the scene view?
+```
+The Inspector window displays the selected GameObject's components, providing all the details about that GameObjects.
+```
+
+Q5. Why do you need a Unity ID?
+```
+All of above.
+```
