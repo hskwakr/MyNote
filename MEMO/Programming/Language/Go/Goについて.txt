@@ -706,3 +706,137 @@ AdventOfCode/aoc2015/day2
 ❯ go test -bench .
 ```
 で、ベンチマークが動いてくれました
+
+2021-08-01 17:48:46
+Effective Go — プログラミング言語 Go ドキュメント v0.1 documentation http://go.shibu.jp/effective_go.html
+を読みます
+
+
+2021-08-03 15:56:03
+goの小さいサンプルコードをすぐに動かせる環境がほしいと思いました。
+
+2021-08-03 23:29:10
+goroutineについて
+http://go.shibu.jp/effective_go.html#goroutines
+
+2021-08-05 17:38:20
+Quick, Go check the Logs! - Go / Golang Logging Tutorial - YouTube https://www.youtube.com/watch?v=p45_9nOpD4k
+
+これを写経してみます。
+
+2021-08-05 18:05:49
+goの組み込み関数initについて調べてみたいです
+
+```
+init関数は特殊な関数で、パッケージの初期化に使われます。
+以下のようにmainパッケージに書くとmain関数より先に実行されます。
+mainパッケージでない場合は、importするだけで呼び出されます。
+```
+init関数のふしぎ #golang - Qiita https://qiita.com/tenntenn/items/7c70e3451ac783999b4f
+
+2021-08-05 18:27:56
+```
+実行すると、以下のように出力されます。
+
+main.init.1
+main.init.2
+main.main
+
+どうやら、各init関数には番号が付けられており、区別されているようです。
+```
+これは自分の環境で試したら違う結果になりました。
+```
+runtime.Callers
+runtime.Callers
+runtime.Callers
+```
+
+2021-08-07 03:21:57
+コマンドライン上で動くwebクローラをgoで作ってみたいです。
+
+イメージ：
+> crawler example.com http://www...
+２つ目の引数のページ上に１つ目の引数のドメインのリンクを探すクローラ
+
+見つけたら該当行を表示する。
+
+作るあたって知りたいこと:
+- コマンドライン引数をgoで処理する方法
+- webページを取得する方法
+
+2021-08-07 03:36:19
+- コマンドライン引数をgoで処理する方法
+について調べてみます
+
+golang でコマンドライン引数を使う - Qiita https://qiita.com/nakaryooo/items/2d0befa2c1cf347800c3
+
+2021-08-07 03:47:09
+flagパッケージを使ったサンプルを探して写経したいです。
+Accepting Command Line Flags In A Golang Application - YouTube https://www.youtube.com/watch?v=v_8584-jm7I
+
+オプションについてはわかりましたが、普通の引数については特に説明がありませんでした。
+
+2021-08-07 05:26:19
+Go言語でテストしやすいコマンドラインツールをつくる | Taichi Nakashima https://deeeet.com/writing/2014/12/18/golang-cli-test/
+
+この方法を試してみます。
+
+2021-08-07 20:21:35
+flagの-helpについて調べてみたいです。
+
+Go言語のコマンドライン引数の使い方(サブコマンド等) - 小野マトペの納豆ペペロンチーノ日記 https://matope.hatenablog.com/entry/2014/03/09/115439
+
+試してもうまくいかなかったのですが、
+flag.Parse()
+の前に設定するとうまくいきました。
+
+2021-08-08 21:39:13
+web クローラの続きをやりたいです。
+
+- クローラの部分を作っていきたいです
+
+サンプルコードを見つけたので、まずは写経してみようと思います。
+
+How to build a web scraper with Go and colly | Go Tutorial - YouTube https://www.youtube.com/watch?v=4VSno5bK9Uk
+
+2021-08-09 00:41:22
+webクローラ用のgoライブラリがあるみたいです。
+
+GitHub - gocolly/colly: Elegant Scraper and Crawler Framework for Golang https://github.com/gocolly/colly
+
+2021-08-09 01:13:22
+写経が終わりました。なんとなくやり方がわかった気がします。
+
+実際に自分のつくりたいwebcrawlerを実装していこうと思います。
+
+2021-08-09 02:25:55
+goで自分の作ったstruct型のスライスをstringに変換する実装を作る方法を調べたいです
+
+自分で２つのスライスを並べた文字列を作る関数を作ったので、当初知りたかった情報はわかりませんでした。
+
+2021-08-09 03:37:08
+goでstringの変数に値が設定されてない若しくは値が空文字列かどうかを確認する方法を調べたいです。
+
+golang 空文字判定について -golangの空文字の判定の仕方がわかりませ- Microsoft ASP | 教えて!goo https://oshiete.goo.ne.jp/qa/9779408.html
+
+2021-08-09 03:45:31
+HTTPのURLが正しい形式かどうかを検証するサンプルを見てみたいです。
+調べてみます。
+
+How to validate a URL in Go (Golang) Example https://golang.cafe/blog/how-to-validate-url-in-go.html
+
+2021-08-10 03:59:09
+文字列の中にある部分文字列が含まれているかどうかを調べる方法を知りたいです
+
+部分文字列を検索するには (indexOf, lastIndexOf) | hydroculのメモ http://hydrocul.github.io/wiki/programming_languages_diff/string/index-of.html
+
+2021-08-10 09:30:10
+自分の作ったgoのコードの実行ファイルを配布する方法を調べたいです。
+
+2021-08-11 08:20:52
+code of conduct https://github.com/goreleaser/goreleaser/blob/master/CODE_OF_CONDUCT.md
+
+これっぽいです。
+
+2021-08-25 02:27:17
+Peter Bourgon · Go: Best Practices for Production Environments https://peter.bourgon.org/go-in-production/
