@@ -292,3 +292,8 @@ fzfの設定で、popup windowの設定がうまくできないときにwindow l
 
 2021-07-31 05:10:11
 vimrc の分割管理を上手くやる 2020年版 https://zenn.dev/mattn/articles/565c4ec71f461cbbf5c9
+
+2021-08-12 14:42:34
+時間があったらやりたいこと：
+- Language Server Protocolについて勉強するのが面白いかも
+language server protocolについて (前編) - Qiita https://qiita.com/atsushieno/items/ce31df9bd88e98eec5c4
