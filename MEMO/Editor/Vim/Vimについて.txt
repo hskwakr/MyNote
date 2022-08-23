@@ -297,3 +297,18 @@ vimrc の分割管理を上手くやる 2020年版 https://zenn.dev/mattn/articl
 時間があったらやりたいこと：
 - Language Server Protocolについて勉強するのが面白いかも
 language server protocolについて (前編) - Qiita https://qiita.com/atsushieno/items/ce31df9bd88e98eec5c4
+
+2021-11-23 08:43:36
+===OFF TOPIC===
+vimでカーソルがおかれている行をハイライトするようにしたいです。
+
+カーソル下の行や列をハイライト表示する (cursorline, cursorcolumn) | まくまくVimノート https://maku77.github.io/vim/settings/cursorline.html
+
+2021-11-24 09:43:34
+===OFF TOPIC===
+vimのステータスラインのファイル部分が長いときに煩わしいのをなんとかしたいです。
+
+https://youtu.be/rhvYLq4Rujc
+
+これを参考にしつつ、:h statusline
+のヘルプを参考にしてできました。
