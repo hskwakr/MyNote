@@ -1,0 +1,9 @@
+2021-11-20 05:09:58
+Unityでテストを追加する方法
+
+Unit Tests in Unity - YouTube https://www.youtube.com/watch?v=PDYB32qAsLU
+
+2021-11-20 06:33:59
+動画には前編があったみたいで、unityで名前空間を活用して、スクリプトファイルを整理しよう的な話がありました。
+
+ただ、使っているエディターがRaiderだったので、visual studioで同じように簡単にできるのかわかりませんでした。

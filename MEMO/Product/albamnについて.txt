@@ -1,0 +1,9 @@
+2021-11-21 07:28:22
+Instagramのハッシュタグを収集するWordpressプラグインを作ってみます。
+
+InstagramのAPIに関する知識もないですし、
+Wordpressプラグインに関する知識もありません。
+
+ベースとなるシステムはWordpressなので、Wordpressプラグインのための環境でInstagramのAPIにアクセスするものを作るべきだと思います。
+
+なので、まずはどうやったらWordpressプラグインが作れるか調べてみます。

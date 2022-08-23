@@ -1,0 +1,15 @@
+
+2021-11-20 13:57:06
+unityのnamespaceについてもう少し詳しく知りたいです。
+
+名前空間 - Unity マニュアル https://docs.unity3d.com/ja/2018.4/Manual/Namespaces.html
+
+2021-11-21 04:20:02
+名前空間のグループ分けのコツみたいなのがあったら知りたいです。
+
+でもこれはゲームのジャンルによってすごく変わってしまうものだと思うので、普遍的なものがないか探して、なければ経験値を集めるしかないと思いました。
+
+2021-11-21 06:47:44
+求めていたものではないかもしれませんが、こんなサイトを見つけました。
+
+http://www.arreverie.com/blogs/unity3d-best-practices-folder-structure-source-control/

@@ -1,0 +1,47 @@
+
+2021-11-21 07:41:09
+プラグインをテストするWordPressの環境を用意しないといけません。
+
+Dockerで仮想環境を用意できないか調べてみます。
+
+2021-11-21 07:44:45
+Wordpress - Official Image | Docker Hub https://hub.docker.com/_/wordpress/
+
+公式Dockerイメージを見つけました。
+
+2021-11-21 07:53:47
+Dockerfileの書き方を忘れてしまったので、書き方を調べてみます。
+
+2021-11-22 06:39:47
+WordPress in Docker: Dockerization, automation, and Kubernetes. | Buddy: The DevOps Automation Platform https://buddy.works/guides/wordpress-docker-kubernetes-part-1
+
+DockerfileだとDBの起動とwordpressの起動の二回コマンドを実行しないといけないので、docker-composeでやったほうがシンプルに作れるみたいです。
+
+2021-11-22 10:00:14
+プラグインの作り方は知りませんが、おそらくwordpressのファイル構造にアクセスする必要が出てくると思います。
+
+公式のdokcerイメージに書いてあったyamlで立ち上げた仮想環境にファイルアクセスできるか確認したほうがいいと思います。
+
+2021-11-22 10:09:17
+dockerで立ち上げた仮想環境にコンソールで接続したいです。
+
+docker-compose up -dで立ち上げたdockerコンテナにコンソールから接続する方法を知りたいです。
+
+調べます。
+
+2021-11-22 10:11:36
+docker-compose exec | Docker Documentation https://docs.docker.com/compose/reference/exec/
+
+docker-compose用のexecコマンドがありました。
+
+2021-11-22 10:13:12
+docker-compose exec wordpress bash
+
+で接続できました。
+
+ホストから仮想環境にファイルを追加する方法がないか調べたいです。
+
+2021-11-22 10:25:30
+https://github.com/docker/compose/issues/5523#issuecomment-431834490
+
+この方法でファイルのコピーができました。

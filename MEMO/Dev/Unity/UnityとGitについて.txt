@@ -1,0 +1,19 @@
+
+2021-11-06 14:35:23
+unity でgitを使うときに参考になりそうな資料を探します
+
+2021-11-06 15:17:57
+GitHub for Unity | Bring Git and GitHub into Unity https://unity.github.com/
+
+githubの公式が作ったもの見たいです。
+メンテナンスされていないのが難点ですね。
+
+2021-11-06 18:23:44
+How to Git with Unity https://thoughtbot.com/blog/how-to-git-with-unity
+
+この記事はもう少しアナログなので作業は多いですが、問題が起こるのが少なそうです。
+
+2021-11-12 18:38:41
+Unity用のGitHub actionsを見つけました
+
+https://game.ci/

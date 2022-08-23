@@ -1,0 +1,16 @@
+
+2021-11-24 08:11:07
+Command Line Basics 13: Using MySQL from Command Line - YouTube https://www.youtube.com/watch?v=JoVLldJXzzs
+
+2021-11-24 08:18:05
+コマンドラインだとすごく見にくいので、phpmyadminを入れようと思います。
+もしくは、データベースのポートを開けて外部ツールから見れるようにしたいです。
+
+2021-11-24 08:50:40
+How to run a MySQL server in a Docker container and connect to it from the host machine - YouTube https://www.youtube.com/watch?v=20om-9Gwuc0
+
+```
+port:
+	- 3307:3306
+```
+これでいけました。
