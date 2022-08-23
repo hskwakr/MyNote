@@ -46,3 +46,60 @@ Q5. Why do you need a Unity ID?
 ```
 All of above.
 ```
+
+2021-11-17 04:16:17
+Unityチュートリアルを続きからしたいです。
+
+https://learn.unity.com/tutorial/bonus-features-2-share-your-work#6091af49edbc2a2a1b43c49e
+
+2021-11-17 04:16:55
+この問題を解くためのヒントとなる動画を見つけました。
+
+https://www.youtube.com/watch?v=BLfNP4Sc_iA
+
+2021-11-17 05:53:51
+ヘルスバーの外枠の画像を作らないといけないみたいです。
+gimpで透過イメージを作りたいです。
+
+2021-11-19 03:31:20
+動画を参考にしてHPバーを作りました。
+
+動画ではHPバーが常にカメラの方向を向くようにするスクリプトを作っていました。
+
+自分もそのスクリプトを作って敵キャラクターたちにHPバーをくっつけてテストプレイしたところ、スクリプトが参照していたカメラのオブジェクトが解除されていました。
+
+Unity Editorでカメラの参照を追加しようとしましたが、ドラッグアンドドロップできませんでした。
+
+2021-11-19 06:29:10
+HPバーを作る別の動画を探してみました。
+
+https://www.youtube.com/watch?v=ZYeXmze5gxg
+
+2021-11-19 06:45:52
+SpawnManagerみたいに空のオブジェクトにスクリプトを載せて、そこでprefabの参照を持たせたらできそうな気がしてきました。
+
+2021-11-20 03:06:39
+課題の部分はできました。
+
+自分のアレンジの部分を作っていきたいです。
+
+2021-11-20 03:22:48
+- Game overのときの演出を用意したいです。
+- Scoreとliveを画面にUIとして表示したいです。
+
+- Bossを追加したいです。
+- アイテム要素を追加したいです。
+
+2021-11-20 04:18:12
+```
+- Game overのときの演出を用意したいです。
+```
+GAME OVER - How to make a Video Game in Unity (E08) - YouTube https://www.youtube.com/watch?v=VbZ9_C4-Qbo
+
+Game overのときに自動でリスタートするスクリプトの説明動画を見つけました。
+参考にできそうです。
+
+2021-11-22 12:17:30
+Unityのチュートリアルここまで行きました
+
+Mod the Cube - Unity Learn https://learn.unity.com/tutorial/mod-the-cube?labelRequired=true&pathwayId=5f7e17e1edbc2a5ec21a20af&missionId=5f71fe63edbc2a00200e9de0#
