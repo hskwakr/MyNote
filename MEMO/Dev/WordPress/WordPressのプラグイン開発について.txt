@@ -1,0 +1,58 @@
+
+2021-11-21 07:33:43
+Plugin Developer Handbook | WordPress Developer Resources https://developer.wordpress.org/plugins/
+
+公式のハンドブックを見つけました。
+辞書代わりに使えそうです。
+
+2021-11-22 10:26:15
+wordpressのプラグインを作る方法について調べたいです。
+
+2021-11-22 10:37:24
+WordPress Plugin Development - Intro - YouTube https://www.youtube.com/watch?v=0l7JTie_6jM&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2
+
+プラグインを作るチュートリアルの動画シリーズを見つけました。
+
+2021-11-23 06:01:34
+wordpressのプラグインを作るチュートリアルの動画を見ます。
+
+Create a WordPress Plugin from Scratch - Part 1 - YouTube https://www.youtube.com/watch?v=Z7QfH-s-15s&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=2
+
+2021-11-23 10:02:30
+Create a WordPress Plugin from Scratch - Part 4 - Custom Post Type - YouTube https://www.youtube.com/watch?v=XTkbDBhXBQI&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=5
+
+これを見ていましたが、知らない関数が増えてきたので調べてみます。
+
+2021-11-23 16:51:56
+関数リファレンス/flush rewrite rules - WordPress Codex 日本語版 https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/flush_rewrite_rules
+
+リライトルール
+
+```
+つまり、リライトルールは、URLを「パラメータ付きのindex.phpのURL」に変換して適切なページを表示するためのルールのことです。
+```
+【WordPress】add_rewrite_ruleでリライトルールを追加する｜notes by SHARESL https://notes.sharesl.net/articles/2386/
+
+2021-11-24 07:31:41
+Create a WordPress Plugin from Scratch - Part 5 - Uninstall Hook - YouTube https://www.youtube.com/watch?v=FpnHvp9x48c&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=6
+
+これをやります。
+
+2021-11-24 07:32:04
+動画の中でデータベースを確認する場面がありましたが、自分の仮想環境でデータベースを確認する方法がいまいちわからないので、
+
+dockerのmysqlの中身を確認する方法を調べたいと思います。
+
+2021-11-24 09:43:34
+===OFF TOPIC===
+vimのステータスラインのファイル部分が長いときに煩わしいのをなんとかしたいです。
+
+https://youtu.be/rhvYLq4Rujc
+
+これを参考にしつつ、:h statusline
+のヘルプを参考にしてできました。
+
+2021-11-24 11:38:40
+wpdbクラスについて
+
+関数リファレンス/wpdb Class - WordPress Codex 日本語版 https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wpdb_Class
