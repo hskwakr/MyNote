@@ -303,3 +303,19 @@ MYSQL_DATABASEにsqlが適用されるっぽいです。
 
 2021-02-20 16:43:01
 最終的にDocekr DesktopのtroubleshootからClean / Purge dataをしたらうまくできました。
+
+2021-11-22 08:18:51
+Docker composeの構文について
+
+https://docs.docker.com/compose/compose-file/compose-file-v3/
+
+2021-11-22 08:54:56
+docker-compose upについて調べます。
+
+up — Docker-docs-ja 19.03 ドキュメント http://docs.docker.jp/compose/reference/up.html
+
+down — Docker-docs-ja 19.03 ドキュメント http://docs.docker.jp/compose/reference/down.html
+
+2021-11-22 09:01:45
+docker-compose down -v
+でボリュームごと消すことができるみたいです。
