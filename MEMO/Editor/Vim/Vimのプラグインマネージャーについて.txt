@@ -1,0 +1,27 @@
+
+2021-06-16 00:40:33
+vimのプラグインマネージャについて調べてみます。
+
+2021-06-16 03:57:06
+GitHub - Shougo/dein.vim: Dark powered Vim/Neovim plugin manager https://github.com/Shougo/dein.vim
+
+どうしてこれがいいのかわかりませんが、これを勧める記事が多いので、とりあえずこれを使ってみます。
+
+2021-06-16 04:08:54
+dein.vimのように外部からインストールしてから使うツールが増えてくると思います。
+
+そういう操作をetc/initフォルダにスクリプトとしておいておけば後で再現しやすいと思います。
+
+2021-06-16 21:17:40
+プラグインマネージャの設定に躓いています。
+
+おすすめプラグイン 〜 Vimはいいぞ！ゴリラと学ぶVim講座(7) | さくらのナレッジ https://knowledge.sakura.ad.jp/23248/
+
+この記事を参考に調べてみます。
+
+2021-06-17 09:46:27
+vim-plugに変更することにしました。
+
+GitHub - junegunn/vim-plug: Minimalist Vim Plugin Manager https://github.com/junegunn/vim-plug
+
+deinの設定データはしばらく残しておきます。
