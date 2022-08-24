@@ -1,4 +1,28 @@
 
+2021-07-01 11:09:53
+vimのgoシンタックスがほしいです。
+
+2021-07-01 15:50:46
+もともとインストールしていたvim-goのヘルプを読んでみます。
+
+2021-07-01 16:27:27
+syntaxの欄の設定用の変数を１で定義したらうまく機能してくれました。
+
+2021-07-05 13:59:19
+vimの中でgoのデバックができないか調べてみます。
+
+Debugging Go in Vim https://bhupesh-v.github.io/debugging-golang-vim-neovim/
+
+:makeで今開いているファイルを対象にランタイムを動かすことができるみたいです。
+
+2021-07-05 14:48:50
+個人的なGo+vimでのデバック｜宮島武｜note https://note.com/miyazi777/n/nb2f520f91ed6
+
+2021-07-05 14:52:04
+GitHub - derekparker/delve: Delve is a debugger for the Go programming language. https://github.com/derekparker/delve
+
+delveというgoのデバッガーがあるみたいです。
+
 2021-08-11 13:50:44
 開発環境にgoのlintを入れたいです
 golangci-lintというツールを入れてみましたが、vimで非同期に使うのはうまくいきませんでした。
