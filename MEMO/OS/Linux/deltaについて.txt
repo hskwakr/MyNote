@@ -1,0 +1,14 @@
+
+2021-11-29 15:05:00
+やみくもに探したくないので、
+ファイルの差分を見ながら探したいです。
+
+見やすい差分ツールがないか調べてみます。
+
+2021-11-29 15:20:55
+GitHub - dandavison/delta: A syntax-highlighting pager for git and diff output https://github.com/dandavison/delta#usage
+
+よさげなツールを見つけたので試してみます。
+
+2021-11-29 17:34:53
+deltaのおかげで間違いをみつけました。

@@ -1,0 +1,22 @@
+
+2021-11-25 08:50:29
+composerをインストールする必要がでました。
+
+Composer https://getcomposer.org/
+
+linuxマシンにcomposerをインストールする方法について調べます。
+
+2021-11-25 08:54:53
+How do I install Composer programmatically? - Composer https://getcomposer.org/doc/faqs/how-to-install-composer-programmatically.md
+
+公式が用意しているコードを使ってみようと思います。
+
+2021-11-25 11:44:27
+composerをアンインストールする方法を調べました。
+
+uninstallation - Remove composer - Stack Overflow https://stackoverflow.com/questions/30396451/remove-composer
+
+2021-11-25 16:29:55
+Should I commit the dependencies in my vendor directory? - Composer https://getcomposer.org/doc/faqs/should-i-commit-the-dependencies-in-my-vendor-directory.md
+
+composerを使ったプロジェクトではvendorディレクトリはgitignoreで無視したほうがいいみたいです。

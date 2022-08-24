@@ -1,0 +1,46 @@
+
+2021-06-17 10:32:07
+次はこれらの記事を挑戦したいです。
+
+Big Sky :: Vim をモダンな IDE に変える LSP の設定 https://mattn.kaoriya.net/software/vim/20191231213507.htm
+
+2021-07-02 21:12:12
+vim-lspで定義された変数や関数の説明をポップアップ表示させる方法を探していました。
+
+結論からいうと以下のコマンドで表示できました
+LspHover
+
+vimrcに以下の設定を追加しました。
+nmap <buffer> gs <plug>(lsp-hover)
+
+2021-07-16 11:41:26
+GitHub - dense-analysis/ale: Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support https://github.com/dense-analysis/ale
+
+vimの中で非同期にlintが走ってくれるみたいです。
+
+2021-08-12 14:42:34
+時間があったらやりたいこと：
+- Language Server Protocolについて勉強するのが面白いかも
+language server protocolについて (前編) - Qiita https://qiita.com/atsushieno/items/ce31df9bd88e98eec5c4
+
+2021-11-29 23:07:31
+vim-lsp-settingsのjavascriptのデフォルトのサーバがtypescriptなので、これを変更したいです。
+
+eslint-language-server
+
+2021-11-30 00:29:27
+調べたらtypescriptのやつで十分みたいです。
+
+Servers JavaScript · prabirshrestha/vim-lsp Wiki · GitHub https://github.com/prabirshrestha/vim-lsp/wiki/Servers-JavaScript
+
+問題は:LspStatusしたときにnot runningになることです。
+
+どうしたらいいのかわかりません。
+
+2021-11-30 12:40:25
+teratailで質問しようと思います
+
+2021-11-30 13:53:37
+JavaScript - [vim-lsp] typescript-language-server: not running｜teratail https://teratail.com/questions/371615
+
+投稿しました。

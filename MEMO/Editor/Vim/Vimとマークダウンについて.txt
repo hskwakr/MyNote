@@ -1,0 +1,21 @@
+
+2021-07-10 23:27:50
+マークダウン用のvimプラグインを探してみます。
+
+GitHub - skanehira/preview-markdown.vim: Markdown preview plugin for Vim https://github.com/skanehira/preview-markdown.vim
+
+マークダウンのコンソール用ビュワーを見つけました。
+
+GitHub - charmbracelet/glow: Render markdown on the CLI, with pizzazz! 💅🏻 https://github.com/charmbracelet/glow
+
+これを試してみます。
+
+2021-07-12 18:38:42
+vimでmarkdownのプレビューができるプラグインを試してみます。
+
+GitHub - skanehira/preview-markdown.vim: Markdown preview plugin for Vim https://github.com/skanehira/preview-markdown.vim
+
+2021-07-12 19:40:38
+vimでmarkdownの表を簡単に作れるプラグインを見つけました。
+
+GitHub - mattn/vim-maketable https://github.com/mattn/vim-maketable

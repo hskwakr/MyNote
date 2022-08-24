@@ -1,0 +1,5 @@
+
+2021-11-27 11:47:42
+IDE support - Documentation https://psalm.dev/docs/running_psalm/language_server/
+
+phpのlinterを見つけました。

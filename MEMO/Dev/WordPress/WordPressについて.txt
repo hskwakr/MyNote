@@ -1,3 +1,13 @@
 
 2021-11-23 18:10:23
 投稿タイプ | WordPress.org 日本語 https://ja.wordpress.org/support/article/post-types/
+
+2021-11-25 17:21:53
+wordpressの管理画面に行く方法
+
+【初心者向け】WordPressの管理画面にログインする方法 ＋ 覚えておくべき７つの機能 | AmaDemo https://amademo.com/wordpress-login
+
+2021-11-28 12:09:54
+WordPress Plugin Development - Part 17c - Admin Custom Fields - YouTube https://www.youtube.com/watch?v=C9w0Sgofo-0&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=21
+
+これをやります。

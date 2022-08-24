@@ -1,19 +1,6 @@
 2021-06-15 22:05:08
 vimの設定について調べたいです。
 
-2021-06-16 00:40:33
-vimのプラグインマネージャについて調べてみます。
-
-2021-06-16 03:57:06
-GitHub - Shougo/dein.vim: Dark powered Vim/Neovim plugin manager https://github.com/Shougo/dein.vim
-
-どうしてこれがいいのかわかりませんが、これを勧める記事が多いので、とりあえずこれを使ってみます。
-
-2021-06-16 04:08:54
-dein.vimのように外部からインストールしてから使うツールが増えてくると思います。
-
-そういう操作をetc/initフォルダにスクリプトとしておいておけば後で再現しやすいと思います。
-
 2021-06-16 04:46:22
 usr_05 - Vim日本語ドキュメント https://vim-jp.org/vimdoc-ja/usr_05.html
 
@@ -33,49 +20,14 @@ undo関係がうまく行かなかった原因に気づきました。
 
 プラグインマネージャの設定を調べているときに気づきました。先にプラグインマネージャがうまくいってから試してみます。
 
-2021-06-16 21:17:40
-プラグインマネージャの設定に躓いています。
-
-おすすめプラグイン 〜 Vimはいいぞ！ゴリラと学ぶVim講座(7) | さくらのナレッジ https://knowledge.sakura.ad.jp/23248/
-
-この記事を参考に調べてみます。
-
-2021-06-17 05:45:15
-vimrcを分割する方法を調べてみます。
-
-vimrc分割した - 藻ログ https://wakame.hatenablog.jp/entry/2014/09/05/085345
-
-この方法を試してみます。
-
-2021-06-17 07:21:08
-うまくいきませんでした。
-
-sourceで一つ一つ読み込むことにしました。
-
-2021-06-17 09:46:27
-vim-plugに変更することにしました。
-
-GitHub - junegunn/vim-plug: Minimalist Vim Plugin Manager https://github.com/junegunn/vim-plug
-
-deinの設定データはしばらく残しておきます。
-
 2021-06-17 10:32:07
 次はこれらの記事を挑戦したいです。
 
 GitHub - sainnhe/gruvbox-material: Gruvbox with Material Palette https://github.com/sainnhe/gruvbox-material
 
-Big Sky :: Vim をモダンな IDE に変える LSP の設定 https://mattn.kaoriya.net/software/vim/20191231213507.htm
-
 2021-06-21 09:44:16
 ===OFFTOPIC===
 [Vim問題] 入力を補完するキーバインドは？ | Vim入門 https://vim.blue/vim-complement/
-
-2021-06-21 14:47:22
-vimのスニペットについて調べたいです。
-
-スニペットプラグインについて 2020 年版 https://zenn.dev/shougo/articles/snippet-plugins-2020
-
-こんな記事がありました。
 
 2021-06-22 12:52:57
 vimのファイルごとのインデントについて
@@ -88,22 +40,6 @@ autocmdについては :help 40.3
 これを少し参考にしました。
 
 dotfile/filetype.vim at b4f11451f1547cedab051ca547b2f1cc208e0a06 · koutarn/dotfile · GitHub https://github.com/koutarn/dotfile/blob/b4f11451f1547cedab051ca547b2f1cc208e0a06/.vim/filetype.vim
-
-2021-06-23 10:32:46
-この二つを使ってみようと思います。
-GitHub - honza/vim-snippets: vim-snipmate default snippets (Previously snipmate-snippets) https://github.com/honza/vim-snippets
-
-GitHub - garbas/vim-snipmate: snipMate.vim aims to be a concise vim script that implements some of TextMate's snippets features in Vim. https://github.com/garbas/vim-snipmate
-
-2021-07-01 11:09:53
-vimのgoシンタックスがほしいです。
-
-2021-07-01 15:50:46
-もともとインストールしていたvim-goのヘルプを読んでみます。
-
-2021-07-01 16:27:27
-syntaxの欄の設定用の変数を１で定義したらうまく機能してくれました。
-
 
 2021-07-01 17:40:20
 vimのスワップファイルの場所を変更したいです
@@ -121,117 +57,10 @@ vimエディタが（勝手に）作成する、一見、不要に見えるフ�
 ```
 .を打ち消そうとしていましたが、２重編集を防ぐ仕組みをなくしたくないのでスワップファイルを移動するのはやめます。
 
-2021-07-02 21:12:12
-vim-lspで定義された変数や関数の説明をポップアップ表示させる方法を探していました。
-
-結論からいうと以下のコマンドで表示できました
-LspHover
-
-vimrcに以下の設定を追加しました。
-nmap <buffer> gs <plug>(lsp-hover)
-
-2021-07-05 13:59:19
-vimの中でgoのデバックができないか調べてみます。
-
-Debugging Go in Vim https://bhupesh-v.github.io/debugging-golang-vim-neovim/
-
-:makeで今開いているファイルを対象にランタイムを動かすことができるみたいです。
-
-2021-07-05 14:48:50
-個人的なGo+vimでのデバック｜宮島武｜note https://note.com/miyazi777/n/nb2f520f91ed6
-
-2021-07-05 14:52:04
-GitHub - derekparker/delve: Delve is a debugger for the Go programming language. https://github.com/derekparker/delve
-
-delveというgoのデバッガーがあるみたいです。
-
-2021-07-10 23:27:50
-マークダウン用のvimプラグインを探してみます。
-
-GitHub - skanehira/preview-markdown.vim: Markdown preview plugin for Vim https://github.com/skanehira/preview-markdown.vim
-
-マークダウンのコンソール用ビュワーを見つけました。
-
-GitHub - charmbracelet/glow: Render markdown on the CLI, with pizzazz! 💅🏻 https://github.com/charmbracelet/glow
-
-これを試してみます。
-
-2021-07-12 18:38:42
-vimでmarkdownのプレビューができるプラグインを試してみます。
-
-GitHub - skanehira/preview-markdown.vim: Markdown preview plugin for Vim https://github.com/skanehira/preview-markdown.vim
-
-2021-07-12 19:40:38
-vimでmarkdownの表を簡単に作れるプラグインを見つけました。
-
-GitHub - mattn/vim-maketable https://github.com/mattn/vim-maketable
-
-2021-07-14 00:49:22
-vimrcの各vimファイルを読み込んでいる部分を
-特定の名前を入れるのではなくあるディレクトリ内の.vimファイルをすべて読み込むようにしたくなりました。
-
-2021-07-14 00:50:26
-```
-call map(split(globpath(s:plugins_dir, '*.vim')), {->[execute('exec "so" v:val')]})
-```
-これでうまくできました
-
-参考にしたサイト
-vimrc の分割管理を上手くやる 2020年版 https://zenn.dev/mattn/articles/565c4ec71f461cbbf5c9
-
-2021-07-16 11:41:26
-GitHub - dense-analysis/ale: Check syntax in Vim asynchronously and fix files, with Language Server Protocol (LSP) support https://github.com/dense-analysis/ale
-
-vimの中で非同期にlintが走ってくれるみたいです。
-
 2021-07-17 04:51:32
 vim scriptのlintをインストールしようと思います。
 
 GitHub - Vimjas/vint: Fast and Highly Extensible Vim script Language Lint implemented in Python. https://github.com/Vimjas/vint
-
-2021-07-19 06:00:18
-ホームディレクトリにwsl-dotfiles/.cache
-の代替ディレクトリを用意したいです。
-名前を考えたいです。
-
-思いついた名前
-- .localcache
-- .installed
-- .cached
-- .usrcache
-- .cache.bk
-- .download
-
-2021-07-19 10:03:17
-.cacheという名前が個人的に気に入っているので、できるだけ~/.cacheの中に引っ越してみようと思います。
-
-まずは~/.cache/に
-```
- bash
- default
- vim-cache
-```
-を引っ越してみようと思います。
-
-2021-07-19 10:56:59
-.cacheの中の
-```
- .fzf  
- .glow  
- bin
-```
-これらの3つのフォルダを
-$HOME/.cacheに引っ越ししたいです
-
-.fzf
-.glow
-この２つは自分でビルドするためにダウンロードしてきたリポジトリです。
-
-binはビルドして作られた実行ファイルのショートカットが置いてあって
-このbinにPathが通っています。
-
-2021-07-19 11:02:36
-$HOME/.cache/mybuildというフォルダを作ってそこに３つのフォルダを引っ越すのが良さそうです。
 
 2021-07-28 19:43:59
 vim をビルドしたいと思いました。
@@ -280,24 +109,6 @@ Having trouble compiling vim with lua in Linux · Issue #31 · Shougo/neocomplet
 2021-07-30 16:48:41
 結局luajitを使うときはluaを入れないほうがいいみたいです
 
-2021-07-30 23:52:09
-vimrcでultisnipsのプラグインが入っていないときにはultisnipsの設定を読み込まないようにしてほしいです。
--> vim-plugでプラグインが読み込まれた後にプラグインの設定を読み込むようにしたらこういうことをプラグイン毎に考える必要がなくなるかもしれません。
--> アイデアとしてはいい着眼点だと思いますが、いきなりここに着地するのはよくない感じがしてきました。
--> いい方法が思い浮かばないので、まずは設定ファイルで対応します。
-
-fzfの設定で、popup windowの設定がうまくできないときにwindow layoutの設定を飛ばすようにしたいです。
--> +popupwin
-この機能の有無で設定を飛ばすようにしたいです。
-
-2021-07-31 05:10:11
-vimrc の分割管理を上手くやる 2020年版 https://zenn.dev/mattn/articles/565c4ec71f461cbbf5c9
-
-2021-08-12 14:42:34
-時間があったらやりたいこと：
-- Language Server Protocolについて勉強するのが面白いかも
-language server protocolについて (前編) - Qiita https://qiita.com/atsushieno/items/ce31df9bd88e98eec5c4
-
 2021-11-23 08:43:36
 ===OFF TOPIC===
 vimでカーソルがおかれている行をハイライトするようにしたいです。
@@ -312,3 +123,26 @@ https://youtu.be/rhvYLq4Rujc
 
 これを参考にしつつ、:h statusline
 のヘルプを参考にしてできました。
+
+2021-11-27 10:33:50
+複数ファイル間で変数や関数の名前をリネームする方法を調べました。
+
+How to quickly change variable names in Vim? - Stack Overflow https://stackoverflow.com/questions/597687/how-to-quickly-change-variable-names-in-vim
+
+```
+If this is across multiple files, you may consider taking a look at sed. Use find to grab your files and xargs plus sed for a replace. Say you want to replace a with a_better_name in all files matching *.c, you could do
+
+find . -name "*.c" | xargs sed -i -e 's/a/a_better_name/g'
+
+Bear in mind that this will replace ALL occurrences of a, so you may want a more robust regex.
+```
+
+PHPのLspは有料版じゃないとリネームが使えないので、シェルスクリプトでやったほうが楽そうです。
+
+2021-11-27 19:47:50
+===OFF TOPIC===
+vimのステータスバーに行数のパーセンテージを追加したいです。
+
+vimのstatuslineをいじる - Qiita https://qiita.com/Cj-bc/items/dbe62075474c0e29a777
+
+%p でできました

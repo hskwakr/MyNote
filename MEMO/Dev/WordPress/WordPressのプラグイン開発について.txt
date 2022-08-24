@@ -56,3 +56,41 @@ https://youtu.be/rhvYLq4Rujc
 wpdbクラスについて
 
 関数リファレンス/wpdb Class - WordPress Codex 日本語版 https://wpdocs.osdn.jp/%E9%96%A2%E6%95%B0%E3%83%AA%E3%83%95%E3%82%A1%E3%83%AC%E3%83%B3%E3%82%B9/wpdb_Class
+
+2021-11-24 11:39:12
+WordPress Plugin Development - Part 7 - PHP Visibility Methods - YouTube https://www.youtube.com/watch?v=etizA8jrz2U&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=8
+
+これをやります。
+
+2021-11-24 17:37:17
+WordPress Plugin Development - Part 9 - Settings Link and Admin Pages - YouTube https://www.youtube.com/watch?v=ruDWmHRNxvE&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=10
+
+途中までみました。
+2021-11-26 10:29:48
+WordPress Plugin Development - Part 11 - Classes as Services - YouTube https://www.youtube.com/watch?v=NdDRNiIfYDw&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=13
+
+これやります。
+
+2021-11-26 17:31:14
+WordPress Plugin Development - Part 16 - Dealing with Callbacks - YouTube https://www.youtube.com/watch?v=rIEwVxS6t6Q&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=18
+
+途中までやりました。
+
+2021-11-27 15:21:00
+WordPress Plugin Development - Part 16 - Dealing with Callbacks - YouTube https://www.youtube.com/watch?v=rIEwVxS6t6Q&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=19
+
+2021-11-28 14:39:13
+assetsのcssが読み込まれない問題を直したいと思います
+
+参考資料
+https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
+
+2021-11-28 20:21:03
+プラグインの管理ページに適用させたいcssファイルを読み込むことがうまくいきませんでした。
+
+とりあえず今はあきらめて次に進もうと思います
+
+2021-11-29 19:40:42
+続きからやります。
+
+WordPress Plugin Development - Part 18 - Admin Tabs in Vanilla JS - YouTube https://www.youtube.com/watch?v=g4X4_vHKKus&list=PLriKzYyLb28kR_CPMz8uierDWC2y3znI2&index=22

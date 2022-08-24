@@ -1,0 +1,12 @@
+
+2021-11-28 14:06:53
+Vmmemプロセスがメモリを食いつぶす問題に取り組みたいです。
+
+WSL2によるホストのメモリ枯渇を防ぐための暫定対処 - Qiita https://qiita.com/yoichiwo7/items/e3e13b6fe2f32c4c6120
+
+WSL 2 consumes massive amounts of RAM and doesn't return it · Issue #4166 · microsoft/WSL · GitHub https://github.com/microsoft/WSL/issues/4166
+
+.wslconfig
+つくりました
+
+とりあえず様子見してみます
