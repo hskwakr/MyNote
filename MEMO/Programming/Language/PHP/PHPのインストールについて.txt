@@ -1,0 +1,10 @@
+
+2021-11-25 08:55:31
+インストールにはphpコマンドが必要みたいなので、phpをインストールしようと思います。
+
+phpのインストール方法を調べようと思います。
+
+2021-11-25 09:09:02
+How to Install PHP (7.4, 8.0) on Ubuntu – ThisHosting.Rocks https://thishosting.rocks/install-php-on-ubuntu/
+
+この方法を参考にしてみます
